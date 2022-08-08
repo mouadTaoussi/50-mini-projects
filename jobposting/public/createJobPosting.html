@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Job</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<header>
+		<div>
+			<div class="logo">
+				<p>JobPosting</p>
+			</div>
+			<p class="w-bnd">by mouadTaoussi</p>
+		</div>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li>About</li>
+			<li><a href="./createJobPosting.html">Post Job</a></li>
+		</ul>
+	</header>
+	<section>
+		<h1>Create New Opportunity For Talented Youth!</h1>
+		<form>
+			<input class="name" type="text"  placeholder="Enter Your Name">
+			<input class="email" type="email" placeholder="Enter Your Email">
+			<!--  -->
+			<input class="title" type="text"  placeholder="Enter The Job Title">
+			<input class="salary" type="text"  placeholder="Enter The Job Salary">
+			<input class="job-type" type="text"  placeholder="Enter The Job Type">
+			<textarea class="description" type="text"  placeholder="Enter The Job Description"></textarea>
+
+			<!--  -->
+			<input class="phone" type="phone" placeholder="Enter Your Phone">
+			<input class="job-email" type="email" placeholder="Enter The application Email">
+			<button class="submit-btn">Submit Post</button>
+
+		</form> 
+	</section>
+	<footer></footer>
+</body>
+</html>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+<script>
+
+	const Submit = document.querySelector('.submit-btn').onclick = (e)=>{
+		e.preventDefault();
+		const name = document.querySelector('.name').value;
+		const email = document.querySelector('.email').value;
+		const title = document.querySelector('.title').value;
+		const salary = document.querySelector('.salary').value;
+		const job_type = document.querySelector('.job-type').value;
+		const description = document.querySelector('.description').value;
+		const phone = document.querySelector('.phone').value;
+		const job_email = document.querySelector('.job-email').value;
+
+		
+		console.log(typeof name)
+
+		axios({
+			method: "POST",
+			url: "/graphql",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			data : JSON.stringify({
+				query : `
+					mutation ($name: String, $email: String, $salary: String, $type: String, $description: String, $phone: String, $job_email: String)  {
+					  postJob(name: $name, email: $email title : $title, salary: $salary , type: $job_type, description: $description, phone: $phone, job_email: $job_email){
+					    user {
+					      name
+					      email
+					    }
+					    title
+					    salary
+					    type
+					    description
+					    contact {
+					      phone
+					      email
+					    }
+					  }
+					}
+				`,
+				variables : {
+					name,
+					email,
+					title,
+					salary,
+					type: job_type,
+					description,
+					phone,
+					job_email
+				}
+			})
+		}).then((res)=>{
+			console.log(res)
+		}).catch((err)=>{
+			console.log(err)
+		})
+	}
+</script>
+<style>
+
+</style>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Joobs</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<header>
+		<div>
+			<p>JobPosting</p>
+			<p class="w-bnd">by mouadTaoussi</p>
+		</div>
+		<ul>
+			<li>Home</li>
+			<li>About</li>
+			<li><a href="./createJobPosting.html">Post Job</a></li>
+		</ul>
+	</header>
+	<section></section>
+	<footer></footer>
+</body>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+</html>
+<script type="text/javascript">
+window.onload = ()=> {
+	axios({
+		method: "POST",
+		url: "/graphql",
+		headers : {
+			'Content-Type': 'application/json',
+		},
+		data : JSON.stringify({
+			query : `
+				query {
+				  jobs (limit: 1000, skip: 0){
+				    _id
+				    title
+				    salary
+				    type
+				    description
+				    user {
+				      _id
+				      name
+				    }
+				    contact {
+				      _id
+				      phone
+				      email
+				    }
+				  }
+
+				}
+			`
+		})
+	}).then((res)=>{
+		console.log(res)
+	}).catch((err)=>{
+		console.log(err)
+	})
+}
+</script>
