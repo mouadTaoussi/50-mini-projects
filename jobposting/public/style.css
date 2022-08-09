@@ -63,19 +63,38 @@ ul li {
 
 section {
 	margin: 100px auto;
+	margin-bottom: 0;
 	width: 80%;
 	padding: 20px;
-	display: grid;
-	grid-template-columns: 2fr 2fr;
-	grid-gap: 10px;
+	display: flex;
+}
+article {
+	margin: 10px;
+}
+.jobs {
+	width: 100%;
 }
 .job {
 	background: black;
 	padding: 10px;
 	margin-bottom: 5px;
+	border-left: 5px solid white;
+}
+.job-detail-container {
+	display: none;
 }
 .job-detail {
 	background: black;
 	padding: 10px;
 	height: auto;
+	border-left: 5px solid white;
 } 
+.load-more {
+	background: #007bff;
+	padding: 10px 20px 10px 20px;
+	border: 0;
+	margin: 0 auto;
+	color: white;
+	cursor: pointer;
+	margin: 20px;
+}

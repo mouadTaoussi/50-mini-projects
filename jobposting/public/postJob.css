@@ -62,7 +62,7 @@ ul li {
 	cursor: pointer;
 }
 section {
-	width: 60%;
+	width: 50%;
 	margin: 130px auto;
 }
 .form {
@@ -85,7 +85,7 @@ input {
 	border: 0;
 }
 button {
-	background: #0b27ef;
+	background: #007bff;
 	padding: 10px 20px 10px 20px;
 	border: 0;
 	color: white;

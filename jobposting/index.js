@@ -9,44 +9,10 @@ mongoose.connect('mongodb://localhost:27017/jobposting',()=>{
     console.log('mongodb un and running')
 })
 
-
-
-async function initData() {
-    // await JobpostingModel({
-    //     user: {
-    //         name: "Walid bendaou",
-    //         email: "walid@gmail.com"
-    //     },
-    //     title: 'Front-end dev',
-    //     salary: "40000USD/m",
-    //     type: "Full-Time",
-    //     description: 'No title provided',
-    //     contact: {
-    //         phone : "0550254524",
-    //         email : "jobs@gmail.com"
-    //     }
-    // }).save()
-    
-    // await JobpostingModel({
-    //     user: {
-    //         name: "Mouad Taoussi",
-    //         email: "mouad@gmail.com"
-    //     },
-    //     title: 'Back-end dev',
-    //     salary: "40000USD/m",
-    //     type: "Full-Time",
-    //     description: 'No title provided',
-    //     contact: {
-    //         phone : "0550254524",
-    //         email : "jobs@gmail.com"
-    //     }
-    // }).save()
-    // const d = await JobpostingModel.find()
-    // console.log(d)
-
-}
-initData()
-
+// async function initData() {
+   
+// }
+// initData()
 
 const app = express();
  

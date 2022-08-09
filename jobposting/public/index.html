@@ -22,7 +22,7 @@
 		<article class="jobs">
 			
 		</article>
-		<article>
+		<article class="job-detail-container">
 			<div class="job-detail">
 				<h2>Front-end Developer</h2>
 				<p>52000USD/m</p>
@@ -33,11 +33,17 @@
 			</div>
 		</article>
 	</section>
+	<center>
+		<button class="load-more">Load More</button>
+	</center>
 	<footer></footer>
 </body>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
 </html>
 <script type="text/javascript">
+let skip = 0;
+const limit = 10;
+
 window.onload = ()=> {
 	axios({
 		method: "POST",
@@ -48,7 +54,54 @@ window.onload = ()=> {
 		data : JSON.stringify({
 			query : `
 				query {
-				  jobs (limit: 1000, skip: 0){
+				  jobs (limit: 10, skip: 0){
+				    _id
+				    title
+				    salary
+				    type
+				  }
+
+				}
+			`
+		})
+	}).then((res)=>{
+		skip += limit;
+		const jobsElement = document.querySelector('.jobs');
+		
+		for (let i = 0; i < res.data.data.jobs.length; i++) {
+			const jobElement = document.createElement('div');
+			const titleElement = document.createElement('h2');
+			const salaryElement = document.createElement('p');
+			const typeElement = document.createElement('p');
+
+			jobElement.classList.add('job')
+			jobElement.setAttribute("onclick",`fetchJob("${res.data.data.jobs[i]._id}")`);
+			titleElement.innerText = res.data.data.jobs[i].title;
+			salaryElement.innerText = res.data.data.jobs[i].salary;
+			typeElement.innerText = res.data.data.jobs[i].type;
+
+			jobElement.appendChild(titleElement);
+			jobElement.appendChild(salaryElement);
+			jobElement.appendChild(typeElement);
+			jobsElement.appendChild(jobElement);	
+		}
+		
+	}).catch((err)=>{
+		console.log(err)
+	})
+}
+
+document.querySelector('.load-more').onclick = ()=>{
+	axios({
+		method: "POST",
+		url: "/graphql",
+		headers : {
+			'Content-Type': 'application/json',
+		},
+		data : JSON.stringify({
+			query : `
+				query {
+				  jobs (limit: ${limit}, skip: ${skip}){
 				    _id
 				    title
 				    salary
@@ -69,7 +122,7 @@ window.onload = ()=> {
 			`
 		})
 	}).then((res)=>{
-
+		skip += limit;
 		const jobsElement = document.querySelector('.jobs');
 		
 		for (let i = 0; i < res.data.data.jobs.length; i++) {
@@ -85,9 +138,35 @@ window.onload = ()=> {
 			jobElement.appendChild(typeElement)
 			jobsElement.appendChild(jobElement);	
 		}
+		
 
 	}).catch((err)=>{
 		console.log(err)
 	})
+
+	
+
+}
+
+
+function fetchJob(id) {
+
+	// axios({
+	// 	method: 'POST',
+	// 	url: '/graphql',
+	// 	headers: {
+	// 		'Content-Type': "application/json"
+	// 	},
+	// 	data : JSON.stringify({
+	// 		query ``,
+	// 	})
+	// }).then((res)=>{
+
+	// })
+	// .catch((err)=>{
+
+	// })
+	// scroll up
+	document.querySelector('.job-detail-container').style.display = "block";
 }
 </script>
