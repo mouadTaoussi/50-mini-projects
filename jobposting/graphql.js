@@ -44,6 +44,18 @@ const GetJobs = new GraphQLObjectType({
                 return data;
             }
         },
+        job : {
+            type : JobPosting,
+            args : {
+                id: {
+                    type: GraphQLString,
+                }
+            },
+            resolve: async (parent,args) => {
+                const data = await JobPostingModel.findById(args.id);
+                return data;
+            }
+        }
        
     }
 })
