@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Create Job</title>
-	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" type="text/css" href="./postJob.css">
 </head>
 <body>
 	<header>
@@ -19,8 +19,8 @@
 		</ul>
 	</header>
 	<section>
-		<h1>Create New Opportunity For Talented Youth!</h1>
-		<form>
+		<h1>Create New Opportunity For Youth!</h1>
+		<div class="form">
 			<input class="name" type="text"  placeholder="Enter Your Name">
 			<input class="email" type="email" placeholder="Enter Your Email">
 			<!--  -->
@@ -32,9 +32,9 @@
 			<!--  -->
 			<input class="phone" type="phone" placeholder="Enter Your Phone">
 			<input class="job-email" type="email" placeholder="Enter The application Email">
+			<div class="alert">IT WORKS BUDDY</div>
 			<button class="submit-btn">Submit Post</button>
-
-		</form> 
+		</div>
 	</section>
 	<footer></footer>
 </body>
@@ -48,14 +48,24 @@
 		const email = document.querySelector('.email').value;
 		const title = document.querySelector('.title').value;
 		const salary = document.querySelector('.salary').value;
-		const job_type = document.querySelector('.job-type').value;
+		const type = document.querySelector('.job-type').value;
 		const description = document.querySelector('.description').value;
 		const phone = document.querySelector('.phone').value;
 		const job_email = document.querySelector('.job-email').value;
 
+		if (name == "" || email == "" || title == "" || salary == "" || type == "" || description == "") {
+			displayAlert('Please Fill all the inputs')
+			return 
+		}
+		if (phone == "" && job_email == "") {
+			displayAlert('Please fill one/two of the contacts')
+			return 
+		}
+		if (typeof phone != 'number') {
+			displayAlert('Please put numbers in phone field')
+			return 
+		}
 		
-		console.log(typeof name)
-
 		axios({
 			method: "POST",
 			url: "/graphql",
@@ -64,12 +74,13 @@
 			},
 			data : JSON.stringify({
 				query : `
-					mutation ($name: String, $email: String, $salary: String, $type: String, $description: String, $phone: String, $job_email: String)  {
-					  postJob(name: $name, email: $email title : $title, salary: $salary , type: $job_type, description: $description, phone: $phone, job_email: $job_email){
+					mutation ($name: String!, $email: String!, $title: String!, $salary: String!, $type: String!, $description: String!, $phone: String!, $job_email: String!)  {
+					  postJob(name: $name, email: $email title : $title, salary: $salary , type: $type, description: $description, phone: $phone, job_email: $job_email){
 					    user {
 					      name
 					      email
 					    }
+					    _id
 					    title
 					    salary
 					    type
@@ -86,7 +97,7 @@
 					email,
 					title,
 					salary,
-					type: job_type,
+					type,
 					description,
 					phone,
 					job_email
@@ -97,6 +108,17 @@
 		}).catch((err)=>{
 			console.log(err)
 		})
+	}
+
+	function displayAlert(message) {
+		const alert = document.querySelector('.alert');
+		alert.innerText = message;
+		alert.style.display = 'block';
+
+		setTimeout(()=>{
+			alert.style.display = "none";
+			alert.innerText = "";
+		},3000)
 	}
 </script>
 <style>

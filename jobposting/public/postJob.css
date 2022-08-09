@@ -14,11 +14,11 @@ a {
 	color: white;
 	text-decoration: none;
 }
-/*h1 {
+h1 {
 	color: white;
 	font-size: 40px;
 	font-weight: 200;
-}*/
+}
 header {
 	width: 100%;
 	height: 100px;
@@ -37,16 +37,17 @@ header > div {
 header > div p {
 	display: inline;
 }
-header > div h1 {
-	font-size: 30px;
-}
-.logo p {
-	font-size: 30px;
-	font-weight: bold;
-}
 .w-bnd {
 	font-size: 15px;
 	font-weight: 200;
+}
+p {
+	color: white;
+	font-size: 30px;
+	font-weight: bolder;
+	margin: 0;
+	/*padding:30px 40px;*/
+
 }
 ul {
 	color: white;
@@ -60,22 +61,43 @@ ul li {
 	align-self:center;
 	cursor: pointer;
 }
-
 section {
-	margin: 100px auto;
-	width: 80%;
-	padding: 20px;
-	display: grid;
-	grid-template-columns: 2fr 2fr;
-	grid-gap: 10px;
+	width: 60%;
+	margin: 130px auto;
 }
-.job {
+.form {
 	background: black;
-	padding: 10px;
-	margin-bottom: 5px;
+	padding: 30px;
 }
-.job-detail {
-	background: black;
-	padding: 10px;
-	height: auto;
-} 
+textarea {
+	font-family: "Poppins", "helvetica";
+	width: 100%;
+	padding:10px 0 10px 10px;
+	margin-top: 10px;
+	height: 200px;
+	border: 0;
+}
+input {
+	font-family: "Poppins", "helvetica";
+	width: 100%;
+	padding:10px 0 10px 10px;
+	margin-top: 10px;
+	border: 0;
+}
+button {
+	background: #0b27ef;
+	padding: 10px 20px 10px 20px;
+	border: 0;
+	color: white;
+	margin-top: 5px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 15px;
+}
+.alert {
+	margin-top: 5px;
+	background: red;
+	width: 100%;
+	padding: 10px 0 10px 20px;
+	display: none;
+}

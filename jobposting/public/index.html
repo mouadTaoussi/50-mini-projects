@@ -7,7 +7,9 @@
 <body>
 	<header>
 		<div>
-			<p>JobPosting</p>
+			<div class="logo">
+				<p>JobPosting</p>
+			</div>
 			<p class="w-bnd">by mouadTaoussi</p>
 		</div>
 		<ul>
@@ -16,7 +18,21 @@
 			<li><a href="./createJobPosting.html">Post Job</a></li>
 		</ul>
 	</header>
-	<section></section>
+	<section>
+		<article class="jobs">
+			
+		</article>
+		<article>
+			<div class="job-detail">
+				<h2>Front-end Developer</h2>
+				<p>52000USD/m</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Full Time</p>
+				<p>0550030554</p>
+				<p>alan@jobs.com</p>
+			</div>
+		</article>
+	</section>
 	<footer></footer>
 </body>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
@@ -53,7 +69,23 @@ window.onload = ()=> {
 			`
 		})
 	}).then((res)=>{
-		console.log(res)
+
+		const jobsElement = document.querySelector('.jobs');
+		
+		for (let i = 0; i < res.data.data.jobs.length; i++) {
+			const jobElement = document.createElement('div');
+			const titleElement = document.createElement('h2');
+			const typeElement = document.createElement('p');
+
+			jobElement.classList.add('job')
+			titleElement.innerText = res.data.data.jobs[i].title;
+			typeElement.innerText = res.data.data.jobs[i].type;
+
+			jobElement.appendChild(titleElement)
+			jobElement.appendChild(typeElement)
+			jobsElement.appendChild(jobElement);	
+		}
+
 	}).catch((err)=>{
 		console.log(err)
 	})
