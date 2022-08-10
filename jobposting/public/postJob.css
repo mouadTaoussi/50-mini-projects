@@ -46,8 +46,6 @@ p {
 	font-size: 30px;
 	font-weight: bolder;
 	margin: 0;
-	/*padding:30px 40px;*/
-
 }
 ul {
 	color: white;
@@ -55,14 +53,13 @@ ul {
 	margin:0;
 }
 ul li {
-	/*font-family: "helvetica";*/
 	display: inline;
 	margin-right: 6px;
 	align-self:center;
 	cursor: pointer;
 }
 section {
-	width: 50%;
+	width: 40%;
 	margin: 130px auto;
 }
 .form {
@@ -85,19 +82,18 @@ input {
 	border: 0;
 }
 button {
+	font-family: "Poppins", "helvetica";
 	background: #007bff;
 	padding: 10px 20px 10px 20px;
 	border: 0;
 	color: white;
-	margin-top: 5px;
+	margin-top: 20px;
 	cursor: pointer;
 	width: 100%;
 	font-size: 15px;
 }
 .alert {
 	margin-top: 5px;
-	background: red;
 	width: 100%;
-	padding: 10px 0 10px 20px;
 	display: none;
 }

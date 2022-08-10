@@ -8,7 +8,6 @@ body {
 	box-sizing: border-box;
 	background: #272822;
 	color: white;
-	/*font-family: "helvetica";*/
 }
 a {
 	color: white;
@@ -54,7 +53,6 @@ ul {
 	margin:0;
 }
 ul li {
-	/*font-family: "helvetica";*/
 	display: inline;
 	margin-right: 6px;
 	align-self:center;
@@ -84,10 +82,7 @@ article {
 	cursor: pointer;
 }
 .job-detail-container {
-	/*position: fixed;*/
 	display: none;
-	/*width: 45%;
-	right: 0*/
 }
 .job-detail {
 	background: black;
