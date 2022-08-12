@@ -65,3 +65,9 @@ section {
 .gta-iv div button {
 	background-color: black;
 }
+.gta-v div button:hover {
+	opacity: 1;
+}
+.gta-iv div button:hover {
+	opacity: 1;
+}
