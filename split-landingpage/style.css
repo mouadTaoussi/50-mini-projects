@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+body {
+	font-family: 'Poppins', "helvetica";
+	margin: 0;
+	box-sizing: border-box;
+}
+section {
+	display: flex;
+}
+.gta-v {
+	background-image: linear-gradient(0deg, rgba(0 255 0 / 54%), rgba(0 255 0 / 69%)),url('./images/gta-v.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	display: grid;
+	justify-content: center;
+	transition: all .5s ease-out;
+	overflow: hidden;
+	width: 50%;
+
+}
+.gta-iv {
+	background-image: linear-gradient(0deg, rgba(0 0 0 / 54%), rgba(0 0 0 / 69%)),url('./images/gta-iv.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	display: grid;
+	justify-content: center;
+	transition: all .5s ease-out;
+	overflow: hidden;
+	width: 50%;
+}
+.gta-v:hover {
+	width: 100%;
+	overflow: hidden;
+}
+.gta-iv:hover {
+	width: 100%;
+	overflow: hidden;
+}
+.gta-v div, .gta-iv div {
+	margin-top: 40%;
+	width: 570px;
+}
+.gta-v div h1, .gta-iv div h1 {
+	color: white;
+	font-size: 60px;
+	/*text-align: center;*/
+	margin: 0 auto;
+}
+.gta-v div button, .gta-iv div button {
+	border: 0;
+	padding: 10px 40px 10px 40px;
+	color: white;
+	font-size: 30px;
+	font-family: 'Poppins', 'helvetica';
+	cursor: pointer;
+	opacity: .8;
+}
+.gta-v div button {
+	background-color: green;
+}
+.gta-iv div button {
+	background-color: black;
+}

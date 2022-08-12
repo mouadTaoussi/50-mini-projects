@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video Background landing PAGE</title>
+</head>
+<body>
+<section>
+	<article class="video-container">
+		<!-- <video class="video" loop autoplay>
+			<source src="./videos/traffic2.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+		</video> -->
+		<video autoplay muted loop class="video traffic-1 invisible">
+		  <source class="video-src" src="./videos/traffic1.mp4" type="video/mp4">
+		  Your browser does not support HTML5 video.
+		</video>
+		<video autoplay muted loop class="video traffic-2">
+		  <source class="video-src" src="./videos/traffic2.mp4" type="video/mp4">
+		  Your browser does not support HTML5 video.
+		</video>
+	</article>
+	<article class="content"><h1>Comfort Transportation that grows!</h1></article>
+</section>
+</body>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+	body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', 'helvetica';
+	}
+
+	video {
+		width: 100%;
+		height: 100%;
+		/*position: fixed;*/
+	    /*right: 0;*/
+	    /*bottom: 0;*/
+	    /*min-width: 100%; */
+	    /*min-height: 100%;*/
+	}
+	.invisible {
+		display: none;
+	}
+	.content {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: black;
+		color: white;
+		opacity: .5;
+	}
+	.content h1 {
+		text-align: center;
+		font-size: 50px;
+		margin-top: 20%;
+	}
+</style>
+</html>
+
+<script type="text/javascript">
+	window.setInterval(()=> {
+		const video_1 = document.querySelector('.traffic-1');
+		const video_2 = document.querySelector('.traffic-2');
+		if (video_1.classList.contains('invisible') && !video_2.classList.contains('invisible')) {
+			video_1.classList.remove('invisible');
+			video_2.classList.add('invisible');
+		}
+		else {
+			video_1.classList.add('invisible');
+			video_2.classList.remove('invisible');
+		}
+	},10000)
+</script>

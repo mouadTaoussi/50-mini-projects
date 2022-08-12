@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Joobs</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<header>
+		<div>
+			<div class="logo">
+				<p>JobPosting</p>
+			</div>
+			<p class="w-bnd">by mouadTaoussi</p>
+		</div>
+		<ul>
+			<li>Home</li>
+			<li>About</li>
+			<li><a href="./createJobPosting.html">Post Job</a></li>
+		</ul>
+	</header>
+	<section>
+		<article class="jobs">
+			
+		</article>
+		<article class="job-detail-container">
+			<div class="job-detail">
+				<h2>Front-end Developer</h2>
+				<p>52000USD/m</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>Full Time</p>
+				<p>0550030554</p>
+				<p>alan@jobs.com</p>
+			</div>
+		</article>
+	</section>
+	<center>
+		<button class="load-more">Load More</button>
+	</center>
+	<footer></footer>
+</body>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+</html>
+<script type="text/javascript">
+let skip = 0;
+const limit = 10;
+
+window.onload = ()=> {
+	axios({
+		method: "POST",
+		url: "/graphql",
+		headers : {
+			'Content-Type': 'application/json',
+		},
+		data : JSON.stringify({
+			query : `
+				query {
+				  jobs (limit: 10, skip: 0){
+				    _id
+				    title
+				    salary
+				    type
+				  }
+				}
+			`
+		})
+	}).then((res)=>{
+		skip += limit;
+		const jobsElement = document.querySelector('.jobs');
+		
+		for (let i = 0; i < res.data.data.jobs.length; i++) {
+			const jobElement = document.createElement('div');
+			const titleElement = document.createElement('h2');
+			const salaryElement = document.createElement('p');
+			const typeElement = document.createElement('p');
+
+			jobElement.classList.add('job')
+			jobElement.setAttribute("onclick",`fetchJob("${res.data.data.jobs[i]._id}")`);
+			titleElement.innerText = res.data.data.jobs[i].title;
+			salaryElement.innerText = res.data.data.jobs[i].salary;
+			typeElement.innerText = res.data.data.jobs[i].type;
+
+			jobElement.appendChild(titleElement);
+			jobElement.appendChild(salaryElement);
+			jobElement.appendChild(typeElement);
+			jobsElement.appendChild(jobElement);	
+		}
+		
+	}).catch((err)=>{
+		console.log(err)
+	})
+}
+
+document.querySelector('.load-more').onclick = ()=>{
+	axios({
+		method: "POST",
+		url: "/graphql",
+		headers : {
+			'Content-Type': 'application/json',
+		},
+		data : JSON.stringify({
+			query : `
+				query {
+				  jobs (limit: ${limit}, skip: ${skip}){
+				    _id
+				    title
+				    salary
+				    type
+				  }
+				}
+			`
+		})
+	}).then((res)=>{
+		skip += limit;
+		const jobsElement = document.querySelector('.jobs');
+		
+		for (let i = 0; i < res.data.data.jobs.length; i++) {
+			const jobElement = document.createElement('div');
+			const titleElement = document.createElement('h2');
+			const salaryElement = document.createElement('p');
+			const typeElement = document.createElement('p');
+
+			jobElement.classList.add('job')
+			jobElement.setAttribute("onclick",`fetchJob("${res.data.data.jobs[i]._id}")`);
+			titleElement.innerText = res.data.data.jobs[i].title;
+			salaryElement.innerText = res.data.data.jobs[i].salary;
+			typeElement.innerText = res.data.data.jobs[i].type;
+
+			jobElement.appendChild(titleElement);
+			jobElement.appendChild(salaryElement);
+			jobElement.appendChild(typeElement);
+			jobsElement.appendChild(jobElement);	
+		}
+		
+
+	}).catch((err)=>{
+		console.log(err)
+	})
+
+	
+
+}
+
+
+function fetchJob(id) {
+
+	axios({
+		method: 'POST',
+		url: '/graphql',
+		headers: {
+			'Content-Type': "application/json"
+		},
+		data : JSON.stringify({
+			query: `
+				query{
+					job (id : "${id}") {
+						user {
+							name
+							email
+						}
+						title
+						salary
+						type
+						description
+						contact {
+							email
+							phone
+						}
+					}
+				}
+			`,
+		})
+	}).then((res)=>{
+		const data = res.data.data.job;
+
+		const jobDetailContainer = document.querySelector('.job-detail-container');
+		jobDetailContainer.innerHTML = '';
+
+		// scroll up
+		window.scrollTo(0, 0);
+
+		const jobDetailElement = document.createElement('div');
+		const titleElement = document.createElement('h2');
+		const salaryElement = document.createElement('p');
+		const descriptionElement = document.createElement('p');
+		const typeElement = document.createElement('p');
+		const phoneElement = document.createElement('p');
+		const emailElement = document.createElement('a');
+
+		jobDetailElement.classList.add('job-detail');
+
+		titleElement.innerText = data.title;
+		salaryElement.innerText = data.salary;
+		descriptionElement.innerText = data.description;
+		typeElement.innerText = data.type;
+		phoneElement.innerText = data.contact.phone;
+		emailElement.innerText = data.contact.email;
+		emailElement.setAttribute('href', 'mailto:'+data.contact.email);
+		emailElement.style.color = 'blue';
+		emailElement.style.textDecoration = 'underline';
+
+		jobDetailElement.appendChild(titleElement)
+		jobDetailElement.appendChild(salaryElement)
+		jobDetailElement.appendChild(descriptionElement)
+		jobDetailElement.appendChild(typeElement)
+		jobDetailElement.appendChild(phoneElement)
+		jobDetailElement.appendChild(emailElement)
+
+
+		jobDetailContainer.appendChild(jobDetailElement);
+		
+		jobDetailContainer.style.display = "block";
+		// document.querySelector('.jobs').style.width = "50%";
+		// document.querySelector('section').style.width = "100%";
+	})
+	.catch((err)=>{
+
+	})
+}
+</script>
