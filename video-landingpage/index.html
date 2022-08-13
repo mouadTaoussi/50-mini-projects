@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Video Background landing PAGE</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <section>
@@ -31,7 +32,7 @@
 				<li>Entreprise</li>
 			</ul>
 			<div class="header-menu">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 				  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
 				</svg>
 				
@@ -44,7 +45,12 @@
 	</article>
 	<article>
 		<div class="menu menu-invisible">
-			<ul>
+			<div class="header-menu inner-header-menu menu-list-invisible">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+				</svg>
+			</div>
+			<ul class="menu-list menu-list-invisible">
 				<li>Services</li>
 				<li>Contact</li>
 				<li>Company</li>
@@ -55,136 +61,5 @@
 
 </section>
 </body>
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
-
-	body {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		font-family: 'Poppins', 'helvetica';
-	}
-	.showcase {
-		height: 100vh;
-		overflow: hidden;
-	}
-	video {
-		width: 100%;
-		height: 100%;
-		/*background-image: url('');*/
-	}
-	.invisible {
-		display: none;
-	}
-	.content {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: black;
-		color: white;
-		opacity: .5;
-	}
-	.content h1 {
-		text-align: center;
-		font-size: 50px;
-		margin-top: 15%;
-	}
-	header {
-		display: grid;
-		grid-template-columns: 50% 50%;
-		grid-gap: 10px;
-		align-items: center;
-		width: 80%;
-		height: 80px;
-		margin: 0 auto;
-	}
-	.header-logo {
-		font-size: 25px;
-		justify-self:start;
-	}
-	.header-list {
-		list-style: none;
-		justify-self:end;
-	}
-	.header-menu {
-		display: none;
-		justify-self:end;
-	}
-	.header-list li {
-		display: inline;
-		margin-right: 10px;
-		cursor: pointer;
-	}
-	.headline {
-		font-weight: 100;
-	}
-	.info {
-		position: absolute;
-		bottom: 20px;
-		left: 20px;
-		color: white;
-		font-size: 12px;
-	}
-	.menu {
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: black;
-		color: white;
-		width: 100%;
-		height: 100%;
-		transition: all .2s ease-out;
-	}
-	.menu-invisible {
-		display: block;
-		width: 0;
-		height: 0;
-		border-radius: 50%;
-	}
-	.menu-visible {
-		display: none;
-		width: 100%;
-		height: 100%;
-		border-radius: 0;
-	}
-	@media only screen and (max-width: 800px) {
-		.header-list {
-			display: none;
-		}	
-		.header-menu {
-			display: block;
-		}
-	}
-</style>
+<script type="text/javascript" src="script.js"></script>
 </html>
-
-<script type="text/javascript">
-	window.setInterval(()=> {
-		const video_1 = document.querySelector('.traffic-1');
-		const video_2 = document.querySelector('.traffic-2');
-		if (video_1.classList.contains('invisible') && !video_2.classList.contains('invisible')) {
-			video_1.classList.remove('invisible');
-			video_2.classList.add('invisible');
-		}
-		else {
-			video_1.classList.add('invisible');
-			video_2.classList.remove('invisible');
-		}
-	},10000)
-
-	document.querySelector('.header-menu').onclick = ()=>{
-		alert('fvuh')
-		const menu = document.querySelector('.menu');
-		if (menu.classList.contains('menu-visible') && !menu.classList.contains('menu-invisible')) {
-			menu.classList.add('menu-invisible');
-			menu.classList.remove('menu-visible');
-		}
-		else {
-			menu.classList.remove('menu-invisible');
-			menu.classList.add('menu-visible');
-		}
-
-	}
-</script>
