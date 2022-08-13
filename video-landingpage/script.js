@@ -1,13 +1,22 @@
 window.setInterval(()=> {
 	const video_1 = document.querySelector('.traffic-1');
 	const video_2 = document.querySelector('.traffic-2');
-	if (video_1.classList.contains('invisible') && !video_2.classList.contains('invisible')) {
+	const video_3 = document.querySelector('.traffic-3');
+
+	if (video_1.classList.contains('invisible') && !video_2.classList.contains('invisible') && !video_3.classList.contains('invisible')) {
 		video_1.classList.remove('invisible');
 		video_2.classList.add('invisible');
+		video_3.classList.add('invisible');
+	}
+	else if (!video_1.classList.contains('invisible') && video_2.classList.contains('invisible') && !video_3.classList.contains('invisible')) {
+		video_1.classList.add('invisible');
+		video_2.classList.remove('invisible');
+		video_3.classList.add('invisible');
 	}
 	else {
 		video_1.classList.add('invisible');
-		video_2.classList.remove('invisible');
+		video_2.classList.add('invisible');
+		video_3.classList.remove('invisible');
 	}
 },10000)
 
