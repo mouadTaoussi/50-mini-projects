@@ -15,6 +15,7 @@ video {
 	height: 100%;
 	display: none;
 	/*background-image: url('');*/
+	/*object-fit: cover;*/
 }
 .visible {
 	display: block;
@@ -27,7 +28,6 @@ video {
 	left: 0;
 	background-color: rgba(0,0,0,.5);
 	color: white;
-	/*opacity: .5;*/
 }
 .content h1 {
 	text-align: center;
@@ -94,17 +94,15 @@ header {
 }
 .inner-header-menu {
 	position: absolute;
-	top: 40px;
-	right: 60px;
+	top: 30px;
+	right: 40px;
 }
 .menu-invisible {
-	/*display: none;*/
 	width: 0;
 	height: 0;
 	border-radius: 50%;
 }
 .menu-visible {
-	/*display: block;*/
 	width: 100%;
 	height: 100%;
 	border-radius: 0;
@@ -123,5 +121,15 @@ header {
 	}	
 	.header-menu {
 		display: block;
+	}
+	.visible {
+		display: none;
+	}
+	.content {
+		background-color: none;
+		background-image: url('./videos/highway.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 }
