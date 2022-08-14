@@ -3,21 +3,19 @@ window.setInterval(()=> {
 	const video_2 = document.querySelector('.traffic-2');
 	const video_3 = document.querySelector('.traffic-3');
 
-	if (video_1.classList.contains('invisible') && !video_2.classList.contains('invisible') && !video_3.classList.contains('invisible')) {
-		video_1.classList.remove('invisible');
-		video_2.classList.add('invisible');
-		video_3.classList.add('invisible');
+	if (video_1.classList.contains('visible')) {
+		video_1.classList.remove('visible')
+		video_2.classList.add('visible')
 	}
-	else if (!video_1.classList.contains('invisible') && video_2.classList.contains('invisible') && !video_3.classList.contains('invisible')) {
-		video_1.classList.add('invisible');
-		video_2.classList.remove('invisible');
-		video_3.classList.add('invisible');
+	else if (video_2.classList.contains('visible')) {
+		video_2.classList.remove('visible');
+		video_3.classList.add('visible');
 	}
-	else {
-		video_1.classList.add('invisible');
-		video_2.classList.add('invisible');
-		video_3.classList.remove('invisible');
+	else if (video_3.classList.contains('visible')) {
+		video_3.classList.remove('visible')
+		video_1.classList.add('visible')
 	}
+
 },10000)
 
 document.querySelectorAll('.header-menu').forEach((menu)=>{
