@@ -7,7 +7,7 @@ body {
 	box-sizing: border-box;
 }
 .image {
-	background-image: url('./images/image.jpg');
+	background-image: url('./images/image2.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
