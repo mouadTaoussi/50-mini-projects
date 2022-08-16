@@ -7,7 +7,6 @@ body {
 	box-sizing: border-box;
 	background-color: #b60014;
 }
-
 .modal {
 	width: 500px;
 	height: 400px;
@@ -33,4 +32,7 @@ body {
 	-moz-user-select: none; /* Firefox */
 	-ms-user-select: none; /* IE10+/Edge */
 	user-select: none; /* Standard */
+}
+.content {
+	padding: 20px;
 }
