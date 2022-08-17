@@ -1,51 +1,72 @@
 const modal = document.querySelector('.modal');
 const upperBar = document.querySelector('.upper-bar');
-
-// upperBar.ondblclick = () => {
-// 	console.log('dblClick')
-// 	// Disable text selection
-// 	document.querySelector('.content').classList.add('disable-text-selection');
-// }
-// upperBar.onmouseleave = () => {
-// 	// Disable text selection
-// 	document.querySelector('.content').classList.remove('disable-text-selection');
-// }
+let CONFIG = {
+	currnetY: 50,
+	currentX: 50,
+	width: 600,
+	height: 400,
+	unit: "px"
+}
 
 upperBar.ondragstart = (event)=>{
 	// Disable text selection
 	document.querySelector('.content').classList.add('disable-text-selection');
+	// 
+	upperBar.style.cursor = "grabbing"
 }
 
 upperBar.ondrag = (event)=>{
-	// const offsetX = event.clientX - (event.clientX - parseInt(modal.style.left.slice(0,3)));
+	const offsetX = CONFIG.width - (event.clientX - CONFIG.currentX)
+	const offsetY = CONFIG.height - (event.clientY - CONFIG.currnetY);
 	
-	if (event.clientX < 0) {
-		modal.style.left = "0px";
-	}
-	else if (event.clientY < 0) {
-		modal.style.top = "0px";
-	}
-	else {
-		modal.style.top = event.clientY+ "px";
-		modal.style.left = event.clientX + "px";
-		// modal.style.left = offsetX + "px";
-	}
+	const newposX = offsetX;
+	const newposY = offsetY;
+	
+	CONFIG.currentX = newposX;
+	CONFIG.currnetY = newposY;
+
+	// If the modal touched the edge doesn't allow it to move outside of the window frame
+	// if (event.clientX < 0) {
+	// 	CONFIG.currentX = 0;
+	// 	modal.style.left = CONFIG.currentX + CONFIG.unit;
+	// }
+	// else if (event.clientY < 0) {
+	// 	CONFIG.currnetY = 0;
+	// 	modal.style.top = CONFIG.currnetY + CONFIG.unit;
+	// }
+	// else {
+		modal.style.left = CONFIG.currentX + CONFIG.unit;
+		modal.style.top = CONFIG.currnetY + CONFIG.unit;
+	// }
 }
 
 upperBar.ondragend = (event)=>{
-	// const offsetX = event.clientX - (event.clientX - parseInt(modal.style.left.slice(0,3)));
+	const offsetX = CONFIG.width - (event.clientX - CONFIG.currentX)
+	const offsetY = CONFIG.height - (event.clientY - CONFIG.currnetY);
+
 	// Disable text selection
 	document.querySelector('.content').classList.remove('disable-text-selection');
-	
-	if (event.clientX < 0) {
-		modal.style.left = "0px";
-	}
-	else if (event.clientY < 0) {
-		modal.style.top = "0px";
-	}
-	else {
-		modal.style.top = event.clientY+ "px";
-		modal.style.left = event.clientX + "px";
-		// modal.style.left = offsetX + "px";
-	}
+	upperBar.style.cursor = "grab";
+
+	const newposX = offsetX;
+	const newposY = offsetY;
+
+	CONFIG.currentX = newposX;
+	CONFIG.currnetY = newposY;
+
+	// If the modal touched the edge doesn't allow it to move outside of the window frame
+	// if (event.clientX < 0) {
+	// 	CONFIG.currentX = 0;
+	// 	modal.style.left = CONFIG.currentX + CONFIG.unit;
+	// }
+	// else if (event.clientY < 0) {
+	// 	CONFIG.currnetY = 0;
+	// 	modal.style.top = CONFIG.currnetY + CONFIG.unit;
+	// }
+	// else {
+		modal.style.left = CONFIG.currentX + CONFIG.unit;
+		modal.style.top = CONFIG.currnetY + CONFIG.unit;
+	// }
 }
+
+
