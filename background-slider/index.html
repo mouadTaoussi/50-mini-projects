@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Background Slider</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section>
+		<article class='image-background'>
+			<!-- <center> -->
+				<div class="left-area">Left</div>
+				<div class='image-showcase'></div>
+				<div class="right-area">Right</div>
+			<!-- </center> -->
+		</article>
+	</section>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', 'helvetica';
+		box-sizing: border-box;
+	}
+	.image-background {
+		background-image: linear-gradient(0deg, rgba(0 0 0 / 54%), rgba(0 0 0 / 69%)), 
+			url('./images/aurora-boreails-in-night.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100vh;
+		padding-top: 8%;
+		display: grid;
+		grid-template-columns: 10% 80% 10%;
+		justify-content: center;
+		justify-items: center; 
+	}
+	.image-showcase {
+		background-image: url('./images/aurora-boreails-in-night.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 650px;
+		height: 450px;
+	}
+	.left-area, .right-area {
+		color: white;
+	}
+</style>
+<script type="text/javascript">
+	const images = [
+		'./images/aurora-boreails-in-night.jpg'
+		'./images/aurora-boreails-in-night1.jpg'
+		'./images/cloudy-mountains.jpg'
+		'./images/forest-during-sunrise.jpg'
+		'./images/lake-with-mountains.jpg'
+		'./images/snow-with-trees.jpg'
+	]
+</script>
