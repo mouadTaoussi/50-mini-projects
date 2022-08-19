@@ -14,12 +14,12 @@
 	<section>
 		<article class='image-background-container'>
 			<!--<div class="image-background"></div> -->
-			<div class="image-background visible" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
-		 	<div class="image-background" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
-		 	<div class="image-background" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
-		 	<div class="image-background" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
-		 	<div class="image-background" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
-		 	<div class="image-background" style="background-image: url('./images/snow-with-trees.jpg');"></div>
+			<div class="image-background background-image-visible" style="background-image: url('./images/compressed/aurora-boreails-in-night.jpeg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/compressed/aurora-boreails-in-night1.jpeg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/compressed/cloudy-mountains.jpeg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/compressed/forest-during-sunrise.jpeg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/compressed/lake-with-mountains.jpeg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/compressed/snow-with-trees.jpeg');"></div>
 		</article>
 		<article class="slider-container">
 			<!-- <center> -->
@@ -30,12 +30,12 @@
 				</div>
 				<div class='image-showcase-container'>
 					<!-- <div class="image-showcase"></div> -->
-					<div class="image-showcase visible" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
-					<div class="image-showcase" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
-					<div class="image-showcase" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
-					<div class="image-showcase" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
-					<div class="image-showcase" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
-					<div class="image-showcase" style="background-image: url('./images/snow-with-trees.jpg');"></div>
+					<div class="image-showcase image-showcase-visible" style="background-image: url('./images/compressed/aurora-boreails-in-night.jpeg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/compressed/aurora-boreails-in-night1.jpeg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/compressed/cloudy-mountains.jpeg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/compressed/forest-during-sunrise.jpeg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/compressed/lake-with-mountains.jpeg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/compressed/snow-with-trees.jpeg');"></div>
 
 				</div>
 				<div class="right-area">
@@ -68,9 +68,9 @@
 		position: absolute;
 		top:0;
 		left:0;
-		
-
-		display: none;
+		opacity: 0;
+		transition: all .2s ease-out; 
+		/*display: none;*/
 	}
 	.slider-container {
 		padding-top: 8%;
@@ -95,8 +95,6 @@
 		background-repeat: no-repeat;
 		width: 750px;
 		height: 450px;
-		
-
 		display: none;
 	}
 	.left-area, .right-area {
@@ -112,8 +110,11 @@
 		border: 0;
 		cursor: pointer;
 	}
-	.visible {
+	.image-showcase-visible {
 		display: block;
+	}
+	.background-image-visible {
+		opacity: 1;
 	}
 </style>
 <script type="text/javascript">
@@ -122,7 +123,8 @@
 		rightArrow = document.querySelector('.right-arrow'),
 		imageBackground = document.querySelectorAll('.image-background');
 
-	let currentImage = 0;
+	let currentImage = 0,
+		limit = 5;
 
 
 
@@ -132,12 +134,35 @@
 
 	function leftSlide(){
 		// --
-		currentImage--;
+		if (currentImage !== 0) {
+			currentImage--;
+		}
+		slide(currentImage, 'left');
 		
 	}
 	function rightSlide(){
 		// ++
-		currentImage++;
+		if (currentImage !== limit) {
+			currentImage++;
+		}
+		slide(currentImage, 'right');
+	}
 
+	function slide(index, dir) {
+
+		if (dir == "right") {
+			image[index].classList.add('image-showcase-visible');
+			image[index - 1].classList.remove('image-showcase-visible');
+
+			imageBackground[index].classList.add('image-background-visible');
+			imageBackground[index - 1].classList.remove('image-background-visible');
+		}
+		else {
+			image[index].classList.add('image-showcase-visible');
+			image[index + 1].classList.remove('image-showcase-visible');
+
+			imageBackground[index].classList.add('image-background-visible');
+			imageBackground[index + 1].classList.remove('image-background-visible');
+		}
 	}
 </script>
