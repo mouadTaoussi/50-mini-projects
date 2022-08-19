@@ -13,7 +13,13 @@
 <body>
 	<section>
 		<article class='image-background-container'>
-			<div class="image-background"></div>
+			<!--<div class="image-background"></div> -->
+			<div class="image-background visible" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
+		 	<div class="image-background" style="background-image: url('./images/snow-with-trees.jpg');"></div>
 		</article>
 		<article class="slider-container">
 			<!-- <center> -->
@@ -23,7 +29,14 @@
 					</button>
 				</div>
 				<div class='image-showcase-container'>
-					<div class="image-showcase"></div>
+					<!-- <div class="image-showcase"></div> -->
+					<div class="image-showcase visible" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
+					<div class="image-showcase" style="background-image: url('./images/snow-with-trees.jpg');"></div>
+
 				</div>
 				<div class="right-area">
 					<button class="arrow right-arrow" id="right">
@@ -44,15 +57,20 @@
 		box-sizing: border-box;
 	}
 	.image-background-container {
-		
+		position: relative;
 	}
 	.image-background {
-		background-image: url('./images/aurora-boreails-in-night.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 		width: 100%;
 		height: 100vh;
+		position: absolute;
+		top:0;
+		left:0;
+		
+
+		display: none;
 	}
 	.slider-container {
 		padding-top: 8%;
@@ -65,16 +83,21 @@
 		justify-items: center; 
 		position: absolute;
 		top: 0;
-		left: 0;
+	}
+	.image-showcase-container {
+		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+		width: 750px;
+		height: 450px;
 	}
 	.image-showcase {
-		background-image: url('./images/aurora-boreails-in-night.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 		width: 750px;
 		height: 450px;
-		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+		
+
+		display: none;
 	}
 	.left-area, .right-area {
 		color: white;
@@ -89,6 +112,9 @@
 		border: 0;
 		cursor: pointer;
 	}
+	.visible {
+		display: block;
+	}
 </style>
 <script type="text/javascript">
 	const image = document.querySelectorAll('.image-showcase'),
@@ -98,20 +124,9 @@
 
 	let currentImage = 0;
 
-	// 	<div class="image-background" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
-	// 	<div class="image-background" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
-	// 	<div class="image-background" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
-	// 	<div class="image-background" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
-	// 	<div class="image-background" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
-	// 	<div class="image-background" style="background-image: url('./images/snow-with-trees.jpg');"></div>
 
-	// 	<div class="image-showcase" style="background-image: url('./images/aurora-boreails-in-night.jpg');"></div>
-	// 	<div class="image-showcase" style="background-image: url('./images/aurora-boreails-in-night1.jpg');"></div>
-	// 	<div class="image-showcase" style="background-image: url('./images/cloudy-mountains.jpg');"></div>
-	// 	<div class="image-showcase" style="background-image: url('./images/forest-during-sunrise.jpg');"></div>
-	// 	<div class="image-showcase" style="background-image: url('./images/lake-with-mountains.jpg');"></div>
-	// 	<div class="image-showcase" style="background-image: url('./images/snow-with-trees.jpg');"></div>
 
+		
 	leftArrow.addEventListener('click', leftSlide);
 	rightArrow.addEventListener('click', rightSlide);
 
