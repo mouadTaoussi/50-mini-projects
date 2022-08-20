@@ -14,7 +14,7 @@
 	<section>
 		<article class='image-background-container'>
 			<!--<div class="image-background"></div> -->
-			<div class="image-background background-image-visible" style="background-image: url('./images/compressed/aurora-boreails-in-night.jpeg');"></div>
+			<div class="image-background image-background-visible" style="background-image: url('./images/compressed/aurora-boreails-in-night.jpeg');"></div>
 		 	<div class="image-background" style="background-image: url('./images/compressed/aurora-boreails-in-night1.jpeg');"></div>
 		 	<div class="image-background" style="background-image: url('./images/compressed/cloudy-mountains.jpeg');"></div>
 		 	<div class="image-background" style="background-image: url('./images/compressed/forest-during-sunrise.jpeg');"></div>
@@ -69,11 +69,11 @@
 		top:0;
 		left:0;
 		opacity: 0;
-		transition: all .2s ease-out; 
+		transition: all .4s ease-out; 
 		/*display: none;*/
 	}
 	.slider-container {
-		padding-top: 8%;
+		padding-top: 9%;
 		width: 100%;
 		height: 100vh;
 		background-color: rgba(0,0,0,.5);
@@ -113,7 +113,7 @@
 	.image-showcase-visible {
 		display: block;
 	}
-	.background-image-visible {
+	.image-background-visible {
 		opacity: 1;
 	}
 </style>
@@ -124,45 +124,64 @@
 		imageBackground = document.querySelectorAll('.image-background');
 
 	let currentImage = 0,
-		limit = 5;
+		limit = image.length - 1;
 
 
 
 		
-	leftArrow.addEventListener('click', leftSlide);
 	rightArrow.addEventListener('click', rightSlide);
+	leftArrow.addEventListener('click', leftSlide);
 
+	function rightSlide(){
+		// ++
+		if (currentImage == limit) {
+			currentImage = 0;
+		}else {
+			currentImage++;
+		}
+
+		console.log(currentImage)
+		slide(currentImage, 'right');
+	}
 	function leftSlide(){
 		// --
-		if (currentImage !== 0) {
+		if (currentImage == 0) {
+			currentImage = limit;
+		}
+		else {
 			currentImage--;
 		}
+		console.log(currentImage)
 		slide(currentImage, 'left');
 		
 	}
-	function rightSlide(){
-		// ++
-		if (currentImage !== limit) {
-			currentImage++;
-		}
-		slide(currentImage, 'right');
-	}
 
 	function slide(index, dir) {
-
 		if (dir == "right") {
+			
 			image[index].classList.add('image-showcase-visible');
-			image[index - 1].classList.remove('image-showcase-visible');
-
 			imageBackground[index].classList.add('image-background-visible');
-			imageBackground[index - 1].classList.remove('image-background-visible');
+			
+			if (index > limit) {
+				console.log('Slide from start')
+			}else {
+				image[index - 1].classList.remove('image-showcase-visible');
+				imageBackground[index - 1].classList.remove('image-background-visible');
+			}
+			
+			
 		}
 		else {
 			image[index].classList.add('image-showcase-visible');
-			image[index + 1].classList.remove('image-showcase-visible');
-
 			imageBackground[index].classList.add('image-background-visible');
-			imageBackground[index + 1].classList.remove('image-background-visible');
+			
+			if (index == 0) {
+				console.log('Slide from last')
+
+			}else {
+				image[index + 1].classList.remove('image-showcase-visible');
+				imageBackground[index + 1].classList.remove('image-background-visible');
+			}
 		}
 	}
 </script>
