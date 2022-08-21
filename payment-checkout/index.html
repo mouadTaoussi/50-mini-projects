@@ -6,8 +6,154 @@
 </head>
 <body>
 	<section>
-		<article></article>
+		<article class="checkout-modal">
+			<!--  -->
+			<label for="email">Email</label><br/>
+			<input id="email" type="email" class="email" placeholder="Card owner's Email">
+			<!-- Card info -->
+			<div class="card-information">
+				<div class="card-logo"></div>
+				<label for="identity">Card Information</label><br/>
+				<input 
+					id="identity" 
+					class="identity-number" 
+					placeholder="4242 4242 4242 4242" 
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+					>
+				<!-- <script type="text/javascript">
+					  function keypresshandler(event)
+					    {
+					    	if (parseInt(event.key) >= 0 && parseInt(event.key) <= 9) {}
+					    	else {
+					    		event.path[0].value = ''
+					    	}
+					        // if() {
+					        // 	console.log('not number')
+					        // 	return false
+					        // }
+					    }
+				</script> -->
+				<div>
+					<input 
+						class="exp-date" 
+						placeholder="25/25" 
+						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+						onkeypress="validateExp()"
+					>
+					<input 
+						class="cvc" 
+						placeholder="CVC" 
+						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+						onkeypress="validateCVC()" 
+					>
+					<script type="text/javascript">
+						function validateCVC(){
+							if (event.path[0].value.length == 3) {
+								event.path[0].value = ''
+							}
+						}
+						function validateExp(){
+							if (event.path[0].value.length == 2) {
+								event.path[0].value += '/'
+							}
+							if (event.path[0].value.length == 5) {
+								event.path[0].value += '/'
+							}
+							if (event.path[0].value.length == 6) {
+								event.path[0].value = ''
+							}
+						}
+					</script>
+				</div>
+			</div>
+			<!--  -->
+			<label for="name">Full name</label><br/>
+			<input id="name" type="text" class="name" placeholder="Card owner's Name">
+			<br/>
+			<!-- Region -->
+			<label for="country">Country</label><br/>
+			<select id="country" type="text" class="country" placeholder="Region">
+				
+			</select>
+			<br/>
+			<!--  -->
+			<label for="postal">Postal code</label><br/>
+			<input id="postal" type="text" class="postal" placeholder="Postal code">
+			<br/>
+			<button>Pay for 99£</button>
+		</article>
+		<article class="after-payment"></article>
 	</section>
 </body>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="countries.js"></script>
 </html>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', "helvetica";
+		box-sizing: border-box;
+		/*background-color: #b60014;*/
+		background-color: #007bff;
+		/*background-image: url('./images/background.jpg');*/
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+	.checkout-modal {
+		width: 400px;
+		padding: 30px 20px 30px 20px;
+		height: auto;
+		background-color: white;
+		margin: 80px auto;
+		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+	}
+	input, select {
+		padding: 10px 0 10px 15px;
+		border-radius: 0px;
+		border: .1px solid rgba(0,0,0,.4);
+		font-family: 'Poppins', 'helvetica';
+	}
+	input:not(.exp-date):not(.cvc), select {
+		width: 100%;
+	}
+	input:not(.identity-number):not(.exp-date):not(.cvc), select, .card-information {
+		margin-bottom: 15px;
+	}
+	.card-information {
+		position: relative;
+	}
+	.card-information div {
+		display: grid;
+		grid-template-columns: 50% 50%; 
+	}
+	.card-logo {
+		position: absolute;
+		top: 35px;
+		right: 10px;
+		width: 30px;
+		height: 20px;
+		background-image: url('./images/cardlogo/visa.png');
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	button {
+		width: 100%;
+		padding: 10px 0 10px 15px;
+		border: 0;
+		background-color: #007bff;
+		color: white;
+		cursor: pointer;
+		font-family: 'Poppins', 'helvetica';
+	}
+	button:hover {
+		background-color: rgb(0,123,255,.7);
+	}
+</style>
