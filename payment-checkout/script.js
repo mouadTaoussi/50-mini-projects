@@ -5,6 +5,7 @@ const email = document.querySelector('.email'),
       cvc = document.querySelector('.cvc'),
       name_on_card = document.querySelector('.name'),
       country = document.querySelector('.country'),
+      button = document.querySelector('.pay-btn'),
       postal = document.querySelector('.postal');
 
 // Card numbers patterns to validate
@@ -17,20 +18,11 @@ const diners_carte_blanche = new RegExp("^30[0-5]");
 const jcb = new RegExp("^35(2[89]|[3-8][0-9])");
 const visa_electron =  new RegExp("^(4026|417500|4508|4844|491(3|7))");
 const email_regex = /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
-const text_regex = /^[a-zA-Z ]*$/;
+const only_text_regex = /^[a-zA-Z ]*$/;
+const only_numbers_regex = /[^0-9.]/;
 const exp_date_regex = /^(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$/; // MM/YY
 
-let  validation_status = {
-    email : false,
-    card_number : false,
-    exp_date : false,
-    cvc : false,
-    name_on_card : false,
-    country : false,
-    postal : false,
-}
-
-// Input patterns
+// Input conditions
 email.setAttribute('maxlength', '30');
 // card_number.setAttribute('oninput', "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');");
 card_number.setAttribute('maxlength', '16');
@@ -46,8 +38,6 @@ email.addEventListener('keyup',()=>{
         email.classList.add('not-valid');
     }else {
         email.classList.remove('not-valid');
-        // Mark as validated
-        // validation_status.email = true;
     }
 })
 card_number.addEventListener('keyup', getCardType);
@@ -62,32 +52,34 @@ exp_date.addEventListener('keyup',()=>{
         exp_date.classList.add('not-valid');
     }else {
         exp_date.classList.remove('not-valid');
-        // Mark as validated
-        // validation_status.exp_date = true;
     }
 });
 cvc.addEventListener('keypress',()=>{
     if (cvc.value.length == 2) {
-        // Mark as validated
-        // validation_status.cvc = true;
+        cvc.classList.remove('not-valid');
+    }else {
+        cvc.classList.add('not-valid');
     }
 });
 name_on_card.addEventListener('keypress',()=>{
-    if (name_on_card.value.length > 4) {
-        // Mark as validated
-        // validation_status.name_on_card = true;
+    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 ) {
+        name_on_card.classList.add('not-valid');
+    }else {
+        name_on_card.classList.remove('not-valid');
     }
 });
 country.addEventListener('keypress',()=>{
-    if (countries.contains(country.value)) {
-        // Mark as validated
-        // validation_status.postal = true;
+    if (!countries.includes(country.value)) {
+        country.classList.remove('not-valid')
+    }else {
+        country.classList.add('not-valid')
     }
 });
 postal.addEventListener('keypress',()=>{
-    if (postal.value.length == 4) {
-        // Mark as validated
-        // validation_status.postal = true;
+    if (postal.value.length != 4) {
+        postal.classList.add('not-valid');
+    }else {
+        postal.classList.remove('not-valid');
     }
 });
 
@@ -150,7 +142,7 @@ function getCardType()
             type.classList.remove('visible');
         });
         document.querySelector('.jcb').classList.add('visible');
-        return "JCB";
+        // return "JCB";
     }
     // Visa Electron
     else if (number.match(visa_electron) != null){
@@ -158,12 +150,12 @@ function getCardType()
             type.classList.remove('visible');
         });
         document.querySelector('.visa_electron').classList.add('visible');
-        return "Visa Electron";
+        // return "Visa Electron";
     }
     else {
     // ^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$
 
-    console.log('not')
+    console.log('card is not valid')
     // // Mark as validated
     // validation_status.card_number = true;
     // return "";
@@ -172,3 +164,35 @@ function getCardType()
 
 
 // Strict validation and submit
+button.onclick = () => {
+    // if (email.value == "" || card_number.value == "" || exp_date.value == "" || cvc.value == "" || name_on_card.value == "" || country == "" || postal.value == "") {
+    //     console.log('fill all of the inputs');
+    // }
+    if (!email_regex.test(email.value)) {
+        console.log('email is not valid');
+        return;
+    }
+    if (email.value.length < 5 || email.value.length > 30) {
+        console.log('email is not valid');
+    }
+    if(!exp_date_regex.test(exp_date.value) && exp_date.value.length != 5 /* Validation for numbers */) {
+        console.log('exp_date is not valid'); 
+        return;   
+    }
+    if (cvc.value.length != 3 /* Validation for numbers */) {
+        console.log('cvc is not valid');
+        return;
+    }
+    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 /* Validation for numbers */) {
+        console.log('name is not valid');
+        return;
+    }
+    if (!countries.includes(country.value)) {
+        console.log('country is not exist');
+        return;
+    }
+    if (postal.value.length != 5 /* Validation for numbers */) {
+        console.log('postal is not valid');
+        return;
+    }
+}
