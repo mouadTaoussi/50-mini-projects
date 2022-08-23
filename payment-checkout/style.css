@@ -6,8 +6,8 @@ body {
 	font-family: 'Poppins', "helvetica";
 	box-sizing: border-box;
 	/*background-color: #b60014;*/
-	/*background-color: #007bff;*/
-	background-image: url('./images/background.jpg');
+	background-color: #007bff;
+	/*background-image: url('./images/background.jpg');*/
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

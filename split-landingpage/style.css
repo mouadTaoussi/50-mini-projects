@@ -52,7 +52,7 @@ section {
 	/*text-align: center;*/
 	margin: 0 auto;
 }
-.gta-v div button, .gta-iv div button {
+.gta-v div a button, .gta-iv div a button {
 	border: 0;
 	padding: 10px 40px 10px 40px;
 	color: white;
@@ -61,15 +61,15 @@ section {
 	cursor: pointer;
 	opacity: .8;
 }
-.gta-v div button {
+.gta-v div a button {
 	background-color: green;
 }
-.gta-iv div button {
+.gta-iv div a button {
 	background-color: black;
 }
-.gta-v div button:hover {
+.gta-v div a button:hover {
 	opacity: 1;
 }
-.gta-iv div button:hover {
+.gta-iv div a button:hover {
 	opacity: 1;
 }
