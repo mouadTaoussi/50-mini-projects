@@ -1,12 +1,13 @@
-const email = document.querySelector('.email'),
-      card_types = document.querySelectorAll('.card-logo'),
-      card_number = document.querySelector('.identity-number'),
-      exp_date = document.querySelector('.exp-date'),
-      cvc = document.querySelector('.cvc'),
-      name_on_card = document.querySelector('.name'),
-      country = document.querySelector('.country'),
-      button = document.querySelector('.pay-btn'),
-      postal = document.querySelector('.postal');
+const email = document.querySelector('.email');
+const card_types = document.querySelectorAll('.card-logo');
+const card_number = document.querySelector('.identity-number');
+const exp_date = document.querySelector('.exp-date');
+const cvc = document.querySelector('.cvc');
+const name_on_card = document.querySelector('.name');
+const country = document.querySelector('.country');
+const postal = document.querySelector('.postal');
+const button = document.querySelector('.pay-btn');
+const message = document.querySelector('.error-message');
 
 // Card numbers patterns to validate
 const visa = new RegExp("^4");
@@ -19,7 +20,7 @@ const jcb = new RegExp("^35(2[89]|[3-8][0-9])");
 const visa_electron =  new RegExp("^(4026|417500|4508|4844|491(3|7))");
 const email_regex = /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
 const only_text_regex = /^[a-zA-Z ]*$/;
-const only_numbers_regex = /[^0-9.]/;
+const only_numbers_regex = /[0-9]/;
 const exp_date_regex = /^(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)$/; // MM/YY
 
 // Input conditions
@@ -34,7 +35,7 @@ name_on_card.setAttribute('maxlength', '20');
 
 // Validation events
 email.addEventListener('keyup',()=>{
-    if (!email_regex.test(email.value)) {
+    if (!email_regex.test(email.value) || email.value.length < 5 || email.value.length > 30) {
         email.classList.add('not-valid');
     }else {
         email.classList.remove('not-valid');
@@ -42,27 +43,28 @@ email.addEventListener('keyup',()=>{
 })
 card_number.addEventListener('keyup', getCardType);
 exp_date.addEventListener('keyup', (event)=>{
+    /* Format exp date*/
     if (event.path[0].value.length == 2) {
         const date = event.path[0].value.toString()
         event.path[0].value += '/'
     }
 });
 exp_date.addEventListener('keyup',()=>{
-    if (!exp_date_regex.test(exp_date.value)) {
+    if (!exp_date_regex.test(exp_date.value) || exp_date.value.length != 5) {
         exp_date.classList.add('not-valid');
     }else {
         exp_date.classList.remove('not-valid');
     }
 });
 cvc.addEventListener('keypress',()=>{
-    if (cvc.value.length == 2) {
+    if (cvc.value.length == 2 || !only_numbers_regex.test(parseInt(cvc.value))) {
         cvc.classList.remove('not-valid');
     }else {
         cvc.classList.add('not-valid');
     }
 });
 name_on_card.addEventListener('keypress',()=>{
-    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 ) {
+    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 || !only_text_regex.test(name_on_card.value) ) {
         name_on_card.classList.add('not-valid');
     }else {
         name_on_card.classList.remove('not-valid');
@@ -76,7 +78,7 @@ country.addEventListener('keypress',()=>{
     }
 });
 postal.addEventListener('keypress',()=>{
-    if (postal.value.length != 4) {
+    if (postal.value.length != 4 || !only_numbers_regex.test(parseInt(postal.value))) {
         postal.classList.add('not-valid');
     }else {
         postal.classList.remove('not-valid');
@@ -165,34 +167,46 @@ function getCardType()
 
 // Strict validation and submit
 button.onclick = () => {
-    // if (email.value == "" || card_number.value == "" || exp_date.value == "" || cvc.value == "" || name_on_card.value == "" || country == "" || postal.value == "") {
-    //     console.log('fill all of the inputs');
-    // }
+    if (email.value == "" || card_number.value == "" || exp_date.value == "" || cvc.value == "" || name_on_card.value == "" || country == "" || postal.value == "") {
+        message.innerText = 'Fill all of the inputs';
+        return;
+    }
     if (!email_regex.test(email.value)) {
-        console.log('email is not valid');
+        email.classList.add('not-valid');
+        message.innerText = 'Email is not valid';
         return;
     }
     if (email.value.length < 5 || email.value.length > 30) {
-        console.log('email is not valid');
-    }
-    if(!exp_date_regex.test(exp_date.value) && exp_date.value.length != 5 /* Validation for numbers */) {
-        console.log('exp_date is not valid'); 
-        return;   
-    }
-    if (cvc.value.length != 3 /* Validation for numbers */) {
-        console.log('cvc is not valid');
+        email.classList.add('not-valid');
+        message.innerText = 'Email is longer than expected';
         return;
     }
-    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 /* Validation for numbers */) {
-        console.log('name is not valid');
+    if(!exp_date_regex.test(exp_date.value) || exp_date.value.length != 5) {
+        exp_date.classList.add('not-valid');
+        message.innerText = 'Expiration date is not valid, or is from the past, or it is longer than expected'; 
+        return;   
+    }
+    if (cvc.value.length != 3 || !only_numbers_regex.test(parseInt(cvc.value))) {
+        cvc.classList.add('not-valid');
+        message.innerText = 'CVC is not valid';
+        return;
+    }
+    if (name_on_card.value.length < 4 || name_on_card.value.length > 20 || !only_text_regex.test(name_on_card.value)) {
+        name_on_card.classList.add('not-valid')
+        message.innerText = 'Name on card is not valid';
         return;
     }
     if (!countries.includes(country.value)) {
-        console.log('country is not exist');
+        country.classList.add('not-valid');
+        message.innerText = 'The selected country is not even Exist!';
         return;
     }
-    if (postal.value.length != 5 /* Validation for numbers */) {
-        console.log('postal is not valid');
+    if (postal.value.length != 5 || !only_numbers_regex.test(parseInt(postal.value)) ) {
+        postal.classList.add('not-valid');
+        message.innerText = 'Postal number is not valid';
         return;
     }
+
+    button.innerText = "Loading...";
+
 }
