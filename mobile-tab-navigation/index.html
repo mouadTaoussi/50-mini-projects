@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile tab navigation</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article class="content">
+		<div class="tab"></div>
+		<div class="tab"></div>
+		<div class="tab"></div>
+	</article>
+	<article class="nav-tabs">
+		<div class="nav-tab"><p>Home</p></div>
+		<div class="nav-tab"><p>Downloads</p></div>
+		<div class="nav-tab"><p>Library</p></div>
+		<div class="nav-tab"><p>Recent</p></div>
+	</article>
+</section>
+</body>
+<script type="text/javascript" script="script.js"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Poppins', "helvetica";
+		box-sizing: border-box;
+	}
+	.nav-tabs {
+		width: 100%;
+		height: 50px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		/*align-items: center;*/
+		position: absolute;
+		bottom: 0;
+	}
+	.nav-tab {
+		text-align: center;
+		cursor: pointer;
+		border-top: 2px solid transparent;
+	}
+	.nav-tab:hover {
+		background-color: rgb(25,135,84,.1);
+		color: rgb(25,135,84);
+		border-top: 2px solid rgb(25,135,84);
+	}
+</style>
+</html>
