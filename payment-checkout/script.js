@@ -207,6 +207,12 @@ button.onclick = () => {
         return;
     }
 
+    // Handle payment in backend
     button.innerText = "Loading...";
+    // Response from server 
+    setTimeout(()=>{
+        button.innerText = "Payment succeded!";
+        button.classList.add('succeded');
+    },1000)
 
 }
