@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', "helvetica";
+	box-sizing: border-box;
+	background-color: #530635;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+/*Layout*/
+section {
+	background-color: white;
+	height: 100vh;
+	position: relative;
+	/* Mobile device */
+	width: 30%;
+	margin: 0 auto;
+}
+.header {
+	background-color: rgb(25,135,84);
+	color: white;
+	padding: 20px;
+}
+.content {
+	height: 80%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+/*.content::-webkit-scrollbar {*/
+	/*display: none;*/
+/*}*/
+/* Hide scrollbar for IE, Edge and Firefox */
+/*.content {*/
+	/*-ms-overflow-style: none;  /* IE and Edge */
+	/*scrollbar-width: none;  /* Firefox */
+/*}*/
+.tabs {
+	display: grid;
+	grid-template-columns: 100% 100% 100% 100%;
+	grid-column-gap: 1px;
+	transition: all .3s ease-out;
+	transform: translateX(0);
+}
+.tab {
+	padding: 20px;
+}
+.nav-tabs {
+	height: 10%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	position: absolute;
+	bottom: 0;
+	background-color: white;
+}
+/*Layout*/
+.nav-tab {
+	background-color: rgb(25,135,84);
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	border-top: 2px solid transparent;
+	padding-top: 5px;
+}
+.active {
+	background-color: rgb(25,135,84,.8);
+	border-top: 2px solid white;	
+}
+.nav-tab p {
+	margin: 0;
+}
+@media only screen and (max-width: 800px) {
+	section {
+		width: 100%;
+	}
+	.nav-tab p {
+		font-size: 12px;
+	}
+}
