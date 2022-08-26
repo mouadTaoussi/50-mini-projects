@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Source+Code+Pro:wght@300;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	/*font-family: 'Silkscreen', "helvetica";*/
+	font-family: 'Source Code Pro', monospace;
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+.header {
+	width: 100%;
+	height: 80px;
+	background-color: black;
+	display: grid;
+	align-items: center;
+}
+.header div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	margin: 0 auto;
+}
+p {
+	padding: 0;
+	margin: 0;
+	color: white;
+	font-size: 40px;
+	justify-self: start;
+}
+.list {
+	color: white;
+	list-style: none;
+	justify-self: end;
+}
+.list li {
+	display: inline;
+	cursor: pointer;
+	margin-left: 5px;
+
+}
+.sub-header {
+	width: 100%;
+	height: 40px;
+	background-color: #5AFF00;
+	display: grid;
+	align-items: center;
+	color: white;
+	text-align: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0; 
+}
+.showcase {
+	background-color: #212529;
+	height: 500px;
+}
+h1 {
+	color: white;
+	margin: 0;
+	/*text-align: center;*/
+}
+.code {
+	padding-top: 180px;
+	width: 1080px;
+	/*background-color: red;*/
+	margin: 0 auto;
+}
+r {
+	color: orange;
+}
+o {
+	color: yellow;
+}
+g {
+	color: #bcff00;
+}
+b {
+	color: sky;
+}
+.element {
+	margin: 30px auto;
+	width: 80%;
+}
+.text {
+	color: black;
+	font-size: 16px
+}
