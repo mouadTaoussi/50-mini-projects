@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', 'helvetica';
+	box-sizing: border-box;
+	background-color: #445e00;
+	height: 100vh;
+}
+.card {
+	margin: 10% auto;
+	background-color: white;
+	width: 25%;
+	border-radius: 4px;
+
+}
+.card img {
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	width: 100%;
+}
+.content {
+	padding: 20px;
+}
+.content h2 {
+	margin: 0;
+}
+.content  p {
+	color: #212529;
+	margin-top: 0;
+}
+.content button {
+	background-color: #1633ff;
+	border-radius: 4px;
+	border: 0;
+	padding: 10px 20px 10px 20px;
+	color: white;
+	cursor: pointer;
+	font-family: 'Poppins', 'helvetica';
+}
+.content button:hover {
+	background-color: #0b27ef;
+}
+@media only screen and (max-width: 800px) {
+	.card {
+		width: 90%;
+	}
+}
