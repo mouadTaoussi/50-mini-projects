@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', 'helvetica';
+	box-sizing: border-box;
+}
+section {
+	height: 100vh;
+	width: 100%;
+	/*background: black;*/
+	overflow-y: hidden;
+	display: grid;
+	grid-template-columns: 25% 75%;
+}
+.left-side {
+	height: 100vh;
+	width: 100%;
+	transition: all .4s ease-out;
+	transform: translateY(-300vh);
+}
+.right-side {
+	height: 100vh;
+	width: 100%;
+	transition: all .4s ease-out;
+	transform: translateY(0vh);
+}
+.button-group {
+	position: absolute;
+	top: 30%;
+	left: 25%;
+}
+.button-group button {
+	margin: 1px;
+	background-color: transparent;
+	border:0;
+	padding: 15px;
+	cursor: pointer;
+	color: white;
+}
+.slide {
+	height: 100vh;
+	width: 100%;
+	position: relative;
+}
+.slide-image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+div.first {
+	background-color: #101f22;
+}
+div.second {
+	background-color: #792c0e;
+}
+div.third {
+	background-color: #dc3545;
+}
+div.fourth {
+	background-color: #7d5841;
+}
+.slide h1 {
+	color: white;
+	font-size: 30px;
+	font-weight: 200;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 40%;
+	left: 20px;
+}
