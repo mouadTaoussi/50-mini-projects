@@ -11,17 +11,17 @@
 <section>
 	<article class="card">
 		<img src="./images/tangier.jpg">
-		<!-- <div class="skeleton" style="height: 200px ;"></div> -->
+		<div class="skeleton animated" style="height: 200px ;"></div>
 		<div class="content">
 			<h2>Travel to Tangier, Morocco</h2>
 			<p>
 				Explore the historic heritage of the city and medina, 
 			</p>
 			<button>Book Trip Ticket</button>
-			<!-- <div class="skeleton" style="height: 30px;"></div>
-			<div class="skeleton" style="height: 20px;"></div>
-			<div class="skeleton" style="height: 20px;"></div>
-			<div class="skeleton" style="height: 20px; width: 80px;"></div> -->
+			<div class="skeleton animated my-lg" style="height: 30px;"></div>
+			<div class="skeleton animated my-lg" style="height: 20px;"></div>
+			<div class="skeleton animated my-lg" style="height: 20px;"></div>
+			<div class="skeleton animated my-lg" style="height: 40px; width: 120px;"></div>
 		</div>
 	</article>
 </section>
@@ -30,11 +30,56 @@
 </html>
 <style type="text/css">
 	.skeleton {
-		background-color: #dee2e6;
+		/*background-color: #dee2e6;*/
 		border-radius: 4px;
+		display: block;
+	}
+	.my-sm {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.my-md {
+		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+	.my-lg {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.my-xl {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.animated {
+		background-image: linear-gradient(to right, grey 20% , white 20%, grey 20%
+		);
+	    background-size: 200% 100%;
+		animation: animatedSkeleton 1s linear infinite;
+	}
+	@keyframes animatedSkeleton {
+		from {
+
+		}	
+		to {
+			
+		}
+	}
+	img, h2, p, button {
+		display: none;
 	}
 </style>
 <script type="text/javascript">
-	
+	window.onload = ()=>{
+		const data = document.querySelectorAll('img, h2, p, button');
+		const skeleton = document.querySelectorAll('.skeleton');
+
+		window.setTimeout(()=>{
+			data.forEach((item)=>{
+				item.style.display = "block";
+			})
+			skeleton.forEach((item)=>{
+				item.style.display = "none";
+			})
+		},3000)
+	}
 </script>
