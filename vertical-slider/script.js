@@ -30,3 +30,8 @@ down.onclick = ()=>{
 	left.style.transform = `translateY(${left_pos}vh)`;
 	right.style.transform = `translateY(${right_pos}vh)`;
 }
+
+window.setInterval(()=>{
+	//  Auto slide
+	up.click();
+}, 5000)
