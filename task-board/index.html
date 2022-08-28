@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section>
+		<article class="cards-container">
+			
+			<article class="card">
+				<div class="card-header">
+					<p class='card-title'>Planning</p>
+					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
+				</div>
+				<div class="card-content">
+					<div class="task" draggable="true">Downgrade windows 10</div>
+					<div class="task" draggable="true">Downgrade windows 10</div>
+					<div class="task" draggable="true">Downgrade windows 10</div>
+				</div>
+			</article>
+		<!-- 	<article class="card">
+				<div class="card-header">
+					<p class='card-title'>Planning</p>
+					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
+				</div>
+				<div class="card-content">
+					<div class="task" draggable="true">Downgrade windows 10</div>
+					<div class="task" draggable="true">Downgrade windows 10</div>
+				</div>
+			</article> -->
+			
+
+			
+		</article>
+		<article class="card card-add">Add</article>
+	</section>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
+<style type="text/css">
+	section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.cards-container {
+		display: grid;
+		grid-template-columns: repeat(33, 1fr);
+	}
+	.card {
+		background-color: white;
+		min-height: 300px;
+		border-radius: 4px;
+		width: 300px;
+		min-height: 300px;
+		margin: 10px;
+	}
+	.card-add {
+		background-color: rgba(255,255,255,.2)!important;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	.card-add:hover {
+		background-color: rgba(255,255,255,.5)!important;
+	}
+	.card-header {
+		display: flex;
+		align-items: center;
+		margin-left: 15px;
+	}
+	.card-header .card-delete {
+		padding: 5px;
+		margin-left: 15px;
+		background-color: red;
+		border:0;
+		color: white;
+		cursor: pointer;
+		height: 25px;
+	}
+	.card-content {
+		margin: 15px;
+	}
+	.task  {
+		background-color: rgba(0,0,0,.1);
+		padding: 10px 0 10px 10px;
+		margin-bottom: 5px;
+		color: rgba(0,0,0,.8);
+	}
+</style>
+<script type="text/javascript">
+	const addCard = document.querySelector('.card-add');
+	// const deleteCard = document.querySelectorAll('.card-delete');
+	const cards = document.querySelectorAll('.card');
+	const tasks = document.querySelectorAll('.task');
+	const cardsContainer = document.querySelector('.cards-container');
+
+	// events
+	addCard.onclick = ()=> {
+		const title = '' || 'Untitled';
+		cardsContainer.innerHTML += 
+		`
+			<article class="card">
+				<div class="card-header">
+					<p class='card-title'>${title}</p>
+					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
+				</div>
+				<div class="card-content">
+					
+				</div>
+			</article>
+		`;
+	}
+	function deleteCard(e) {
+		e.path[2].remove()
+	}
+	for (var i = 0; i < cards.length; i++) {
+		cards[i].addEventListener('dragEnter',dragEnter)
+		cards[i].addEventListener('dragOver',dragOver)
+		cards[i].addEventListener('dragLeave',dragLeave)
+		cards[i].addEventListener('drop',drop)
+	}
+	for (var i = 0; i < tasks.length; i++) { 
+		tasks[i].addEventListener('dragStart',dragStart)
+		tasks[i].addEventListener('dragEnd',dragEnd)
+	}
+
+	function dragEnter(){
+		console.log("dragEnter")
+	}
+	function dragOver(){
+		console.log("dragOver")
+	}
+	function dragLeave(){
+		console.log("dragLeave")
+	}
+	function drop(){
+		console.log("drop")
+	}
+	//
+	function dragStart(){
+		console.log("dragStart")
+	}
+	function dragEnd(){
+		console.log("dragEnd")
+	}
+	
+</script>
