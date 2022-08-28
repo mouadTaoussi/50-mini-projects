@@ -11,32 +11,25 @@
 	<section>
 		<article class="cards-container">
 			
-			<article class="card">
+<!-- 			<article class="card">
 				<div class="card-header">
 					<p class='card-title'>Planning</p>
 					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
 				</div>
-				<div class="card-content">
-					<div class="task" draggable="true">Downgrade windows 10</div>
-					<div class="task" draggable="true">Downgrade windows 10</div>
-					<div class="task" draggable="true">Downgrade windows 10</div>
-				</div>
-			</article>
-		<!-- 	<article class="card">
-				<div class="card-header">
-					<p class='card-title'>Planning</p>
-					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
+				<div class="add-task">
+					<input class="card-input" onkeydown="addTask(event)" placeholder="Add task">
 				</div>
 				<div class="card-content">
+					<div class="task" draggable="true">Downgrade windows 10</div>
 					<div class="task" draggable="true">Downgrade windows 10</div>
 					<div class="task" draggable="true">Downgrade windows 10</div>
 				</div>
 			</article> -->
 			
-
-			
 		</article>
-		<article class="card card-add">Add</article>
+		<article class="card-add">
+			<input type="text" onkeydown="addCard(event)" placeholder="Type the name of card">
+		</article>
 	</section>
 </body>
 <script type="text/javascript" src="script.js"></script>
@@ -59,6 +52,11 @@
 		margin: 10px;
 	}
 	.card-add {
+		min-height: 300px;
+		border-radius: 4px;
+		width: 300px;
+		min-height: 300px;
+		margin: 10px;
 		background-color: rgba(255,255,255,.2)!important;
 		color: white;
 		display: flex;
@@ -67,7 +65,17 @@
 		cursor: pointer;
 	}
 	.card-add:hover {
-		background-color: rgba(255,255,255,.5)!important;
+		background-color: rgba(255,255,255,.3)!important;
+	}
+	.card-add input {
+		background-color: transparent;
+		border: 0;
+		font-family: 'Poppins', 'helvetica';
+		color: white;
+		font-size: 15px;
+	}
+	.card-add input::placeholder {
+		color: white;
 	}
 	.card-header {
 		display: flex;
@@ -83,6 +91,11 @@
 		cursor: pointer;
 		height: 25px;
 	}
+	.card-input {
+		margin-left: 15px;
+		border: 0;
+		font-family: 'Poppins', 'helvetica';
+	}
 	.card-content {
 		margin: 15px;
 	}
@@ -94,31 +107,53 @@
 	}
 </style>
 <script type="text/javascript">
-	const addCard = document.querySelector('.card-add');
-	// const deleteCard = document.querySelectorAll('.card-delete');
-	const cards = document.querySelectorAll('.card');
 	const tasks = document.querySelectorAll('.task');
+	// const tasksContainer = document.querySelector('.card-content');
+	const cards = document.querySelectorAll('.card');
 	const cardsContainer = document.querySelector('.cards-container');
 
 	// events
-	addCard.onclick = ()=> {
-		const title = '' || 'Untitled';
-		cardsContainer.innerHTML += 
-		`
-			<article class="card">
-				<div class="card-header">
-					<p class='card-title'>${title}</p>
-					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
-				</div>
-				<div class="card-content">
-					
-				</div>
-			</article>
-		`;
+	function addCard(e) {
+		if (e.keyCode == 13) {
+			const title = e.path[0].value || 'Untitled';
+			cardsContainer.innerHTML += 
+			`
+				<article class="card">
+					<div class="card-header">
+						<p class='card-title'>${title}</p>
+						<button onclick="deleteCard(event)" class="card-delete">Delete</button>
+					</div>
+					<div class="add-task">
+						<input class="card-input" onkeydown="addTask(event)" placeholder="Add task">
+					</div>
+					<div class="card-content">
+						
+					</div>
+				</article>
+			`;
+			e.path[0].value = '';
+		}
 	}
 	function deleteCard(e) {
-		e.path[2].remove()
+		e.path[2].remove();
 	}
+	function addTask(e){
+		if (e.keyCode == 13) {
+			const tasks = e.path[2].children[2]
+			const text = e.path[0].value;
+			
+			if (text == '') return
+
+			const task = 
+			`
+				<div class="task" draggable="true">${text}</div>
+			`
+			tasks.innerHTML += task;
+			e.path[0].value = "";
+		}
+	}
+
+	// Drag and drop functionnality
 	for (var i = 0; i < cards.length; i++) {
 		cards[i].addEventListener('dragEnter',dragEnter)
 		cards[i].addEventListener('dragOver',dragOver)
