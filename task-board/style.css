@@ -6,11 +6,92 @@ body {
 
 	font-family: 'Poppins', 'helvetica';
 	box-sizing: border-box;
-	background-color: #792c0e;
+	/*background-color: #792c0e;*/
+	background-color: #b60014;
 	/*background-color: #445e00;*/
 	/*background-color: #dee2e6;*/
 	height: 100vh;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+
+section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.cards-container {
+	display: grid;
+	grid-template-columns: repeat(33, 1fr);
+}
+.card {
+	background-color: white;
+	min-height: 300px;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	width: 300px;
+	margin: 10px;
+}
+.card-add {
+	min-height: 300px;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	width: 300px;
+	height: 300px;
+	margin: 10px;
+	background-color: rgba(255,255,255,.2)!important;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.card-add:hover {
+	background-color: rgba(255,255,255,.3)!important;
+}
+.card-add input {
+	background-color: transparent;
+	border: 0;
+	font-family: 'Poppins', 'helvetica';
+	color: white;
+	font-size: 15px;
+}
+.card-add input::placeholder {
+	color: white;
+}
+.card-header {
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
+}
+.card-header .card-delete {
+	padding: 5px;
+	margin-left: 15px;
+	background-color: red;
+	border:0;
+	color: white;
+	cursor: pointer;
+	height: 25px;
+}
+.card-input {
+	margin-left: 15px;
+	border: 0;
+	font-family: 'Poppins', 'helvetica';
+}
+.card-content {
+	margin: 15px;
+}
+.task  {
+	background-color: rgba(0,0,0,.1);
+	padding: 10px 0 10px 10px;
+	margin-bottom: 5px;
+	color: rgba(0,0,0,.8);
+}
+
+
+.hold {
+	border:2px solid blue;
 }

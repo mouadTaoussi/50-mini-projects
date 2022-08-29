@@ -9,23 +9,9 @@
 </head>
 <body>
 	<section>
+		<!-- Cards goes here -->
 		<article class="cards-container">
-			
-<!-- 			<article class="card">
-				<div class="card-header">
-					<p class='card-title'>Planning</p>
-					<button onclick="deleteCard(event)" class="card-delete">Delete</button>
-				</div>
-				<div class="add-task">
-					<input class="card-input" onkeydown="addTask(event)" placeholder="Add task">
-				</div>
-				<div class="card-content">
-					<div class="task" draggable="true">Downgrade windows 10</div>
-					<div class="task" draggable="true">Downgrade windows 10</div>
-					<div class="task" draggable="true">Downgrade windows 10</div>
-				</div>
-			</article> -->
-			
+	
 		</article>
 		<article class="card-add">
 			<input type="text" onkeydown="addCard(event)" placeholder="Type the name of card">
@@ -34,84 +20,13 @@
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
-<style type="text/css">
-	section {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
-	.cards-container {
-		display: grid;
-		grid-template-columns: repeat(33, 1fr);
-	}
-	.card {
-		background-color: white;
-		min-height: 300px;
-		border-radius: 4px;
-		width: 300px;
-		min-height: 300px;
-		margin: 10px;
-	}
-	.card-add {
-		min-height: 300px;
-		border-radius: 4px;
-		width: 300px;
-		min-height: 300px;
-		margin: 10px;
-		background-color: rgba(255,255,255,.2)!important;
-		color: white;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-	}
-	.card-add:hover {
-		background-color: rgba(255,255,255,.3)!important;
-	}
-	.card-add input {
-		background-color: transparent;
-		border: 0;
-		font-family: 'Poppins', 'helvetica';
-		color: white;
-		font-size: 15px;
-	}
-	.card-add input::placeholder {
-		color: white;
-	}
-	.card-header {
-		display: flex;
-		align-items: center;
-		margin-left: 15px;
-	}
-	.card-header .card-delete {
-		padding: 5px;
-		margin-left: 15px;
-		background-color: red;
-		border:0;
-		color: white;
-		cursor: pointer;
-		height: 25px;
-	}
-	.card-input {
-		margin-left: 15px;
-		border: 0;
-		font-family: 'Poppins', 'helvetica';
-	}
-	.card-content {
-		margin: 15px;
-	}
-	.task  {
-		background-color: rgba(0,0,0,.1);
-		padding: 10px 0 10px 10px;
-		margin-bottom: 5px;
-		color: rgba(0,0,0,.8);
-	}
-</style>
 <script type="text/javascript">
-	const tasks = document.querySelectorAll('.task');
+	let tasks = document.querySelectorAll('.task');
 	// const tasksContainer = document.querySelector('.card-content');
-	const cards = document.querySelectorAll('.card');
+	let cards = document.querySelectorAll('.card');
 	const cardsContainer = document.querySelector('.cards-container');
-
+	console.log(cards)
+	console.log(tasks)
 	// events
 	function addCard(e) {
 		if (e.keyCode == 13) {
@@ -132,57 +47,68 @@
 				</article>
 			`;
 			e.path[0].value = '';
+			// Update NodeLists and then refire drag & drop to work with updated NodeList 
+			cards = document.querySelectorAll('.card');
+			fireDragDropFunctionality()
 		}
 	}
 	function deleteCard(e) {
 		e.path[2].remove();
+		// Update NodeLists
+		cards = document.querySelectorAll('.card');
 	}
 	function addTask(e){
 		if (e.keyCode == 13) {
-			const tasks = e.path[2].children[2]
+			const current_tasks = e.path[2].children[2]
 			const text = e.path[0].value;
 			
 			if (text == '') return
 
 			const task = 
 			`
-				<div class="task" draggable="true">${text}</div>
+				<div class="task" draggable="true" oncontextmenu="deleteTask(event)">${text}</div>
 			`
-			tasks.innerHTML += task;
+			current_tasks.innerHTML += task;
 			e.path[0].value = "";
+			// Update NodeLists and then refire drag & drop to work with updated NodeList 
+			tasks = document.querySelectorAll('.task');
+			fireDragDropFunctionality()
+
 		}
 	}
-
+	function deleteTask(e) {
+		e.preventDefault();
+		e.path[0].remove()
+		// Update Node Lists and then refire drag & drop to work with updated NodeList 
+		tasks = document.querySelectorAll('.task');
+		fireDragDropFunctionality()
+	}
+	let taskDragging = null;
 	// Drag and drop functionnality
-	for (var i = 0; i < cards.length; i++) {
-		cards[i].addEventListener('dragEnter',dragEnter)
-		cards[i].addEventListener('dragOver',dragOver)
-		cards[i].addEventListener('dragLeave',dragLeave)
-		cards[i].addEventListener('drop',drop)
-	}
-	for (var i = 0; i < tasks.length; i++) { 
-		tasks[i].addEventListener('dragStart',dragStart)
-		tasks[i].addEventListener('dragEnd',dragEnd)
-	}
+	function fireDragDropFunctionality (){
+		for (var i = 0; i < cards.length; i++) {
+			cards[i].ondragenter = (e)=>{
+			};
+			cards[i].ondragover =(e)=>{
+				e.preventDefault()
+				
+			};
+			cards[i].ondragleave = (e)=>{
+			};
+			cards[i].ondrop = (e)=>{
+				const dropOver = e.path.filter((items)=>{
+					return items.className == "card";
+				})
+				dropOver[0].children[2].appendChild(taskDragging);
+			};
+		}
 
-	function dragEnter(){
-		console.log("dragEnter")
+		for (var i = 0; i < tasks.length; i++) { 
+			tasks[i].ondragstart = (e)=>{
+				taskDragging = e.path[0];
+			};
+			tasks[i].ondragend = (e)=>{
+			};
+		}
 	}
-	function dragOver(){
-		console.log("dragOver")
-	}
-	function dragLeave(){
-		console.log("dragLeave")
-	}
-	function drop(){
-		console.log("drop")
-	}
-	//
-	function dragStart(){
-		console.log("dragStart")
-	}
-	function dragEnd(){
-		console.log("dragEnd")
-	}
-	
 </script>
