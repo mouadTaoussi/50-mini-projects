@@ -7,11 +7,30 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="background-color: #445e00;">
+	<div class="settings">
+		<div class="settings-content">
+			<img src="./images/aurora-boreails-in-night1.jpeg" width="100px">
+			<img src="./images/cloudy-mountains.jpeg" width="100px">
+			<img src="./images/cherry_blossom.jpeg" class="active" width="100px">
+			<img src="./images/cherry_blossom1.jpeg" width="100px">
+			<img src="./images/lake-with-mountains.jpeg" width="100px">
+			<img src="./images/cherry_blossom2.jpeg" width="100px">
+			<img src="./images/snow-with-trees.jpeg" width="100px">
+			<div style="background-color: black;" class="image-background"></div>
+			<div style="background-color: #792c0e;" class="image-background"></div>
+			<div style="background-color: #b60014;" class="image-background"></div>
+			<div style="background-color: #445e00;" class="image-background"></div>
+		</div>
+		<div class="settings-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+			  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+			</svg>
+		</div>
+	</div>
 	<section>
 		<!-- Cards goes here -->
 		<article class="cards-container">
-	
 		</article>
 		<article class="card-add">
 			<input type="text" onkeydown="addCard(event)" placeholder="Type the name of card">
@@ -19,96 +38,64 @@
 	</section>
 </body>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="settings.js"></script>
 </html>
+<style>
+	.settings {
+		width: 100%;
+		height: 100px;
+		background-color: white;
+		position: absolute;
+		top: -100px;
+		left: 0;
+		position: fixed;
+		transition: all .2s ease-out;
+		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+		padding: 10px;
+	}
+	.settings-content {
+		display: flex;
+	}
+	img {
+		margin-left: 10px;
+		border: 4px solid transparent;
+	}
+	img.active {
+		border-color: #007bff; 
+	}
+	.image-background {
+		width: 100px;
+		height: 77px;
+		background-color: red;
+		margin-left: 10px;
+		border: 4px solid transparent;
+	}
+	.settings-icon {
+		width: 30px;
+		height: 20px;
+		background-color: white;	
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		transform: translateY(12px) translateX(20px);
+		opacity: .3;
+		text-align: center;
+	}
+	.settings-icon:hover {
+		opacity: 1;
+	}
+</style>
+
 <script type="text/javascript">
-	let tasks = document.querySelectorAll('.task');
-	// const tasksContainer = document.querySelector('.card-content');
-	let cards = document.querySelectorAll('.card');
-	const cardsContainer = document.querySelector('.cards-container');
-	console.log(cards)
-	console.log(tasks)
-	// events
-	function addCard(e) {
-		if (e.keyCode == 13) {
-			const title = e.path[0].value || 'Untitled';
-			cardsContainer.innerHTML += 
-			`
-				<article class="card">
-					<div class="card-header">
-						<p class='card-title'>${title}</p>
-						<button onclick="deleteCard(event)" class="card-delete">Delete</button>
-					</div>
-					<div class="add-task">
-						<input class="card-input" onkeydown="addTask(event)" placeholder="Add task">
-					</div>
-					<div class="card-content">
-						
-					</div>
-				</article>
-			`;
-			e.path[0].value = '';
-			// Update NodeLists and then refire drag & drop to work with updated NodeList 
-			cards = document.querySelectorAll('.card');
-			fireDragDropFunctionality()
-		}
-	}
-	function deleteCard(e) {
-		e.path[2].remove();
-		// Update NodeLists
-		cards = document.querySelectorAll('.card');
-	}
-	function addTask(e){
-		if (e.keyCode == 13) {
-			const current_tasks = e.path[2].children[2]
-			const text = e.path[0].value;
-			
-			if (text == '') return
 
-			const task = 
-			`
-				<div class="task" draggable="true" oncontextmenu="deleteTask(event)">${text}</div>
-			`
-			current_tasks.innerHTML += task;
-			e.path[0].value = "";
-			// Update NodeLists and then refire drag & drop to work with updated NodeList 
-			tasks = document.querySelectorAll('.task');
-			fireDragDropFunctionality()
+	const settings_icon = document.querySelector('.settings-icon');
+	const settings = document.querySelector('.settings');
 
+	// Toggle display
+	settings_icon.onclick = ()=>{
+		if ( settings.style.top == "0px" ) {
+			settings.style.top = "-100px";
+			return;
 		}
-	}
-	function deleteTask(e) {
-		e.preventDefault();
-		e.path[0].remove()
-		// Update Node Lists and then refire drag & drop to work with updated NodeList 
-		tasks = document.querySelectorAll('.task');
-		fireDragDropFunctionality()
-	}
-	let taskDragging = null;
-	// Drag and drop functionnality
-	function fireDragDropFunctionality (){
-		for (var i = 0; i < cards.length; i++) {
-			cards[i].ondragenter = (e)=>{
-			};
-			cards[i].ondragover =(e)=>{
-				e.preventDefault()
-				
-			};
-			cards[i].ondragleave = (e)=>{
-			};
-			cards[i].ondrop = (e)=>{
-				const dropOver = e.path.filter((items)=>{
-					return items.className == "card";
-				})
-				dropOver[0].children[2].appendChild(taskDragging);
-			};
-		}
-
-		for (var i = 0; i < tasks.length; i++) { 
-			tasks[i].ondragstart = (e)=>{
-				taskDragging = e.path[0];
-			};
-			tasks[i].ondragend = (e)=>{
-			};
-		}
+		settings.style.top = "0px";
 	}
 </script>

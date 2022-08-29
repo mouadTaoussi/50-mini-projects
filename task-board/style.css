@@ -7,10 +7,15 @@ body {
 	font-family: 'Poppins', 'helvetica';
 	box-sizing: border-box;
 	/*background-color: #792c0e;*/
-	background-color: #b60014;
+	/*background-color: #b60014;*/
 	/*background-color: #445e00;*/
 	/*background-color: #dee2e6;*/
 	height: 100vh;
+	/*background-image: url('./images/cherry_blossom.jpeg');*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
@@ -34,6 +39,7 @@ section {
 	border-radius: 4px;
 	width: 300px;
 	margin: 10px;
+	box-shadow:  8px 8px 8px rgba(0,0,0,.2);
 }
 .card-add {
 	min-height: 300px;
@@ -48,6 +54,7 @@ section {
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	box-shadow:  8px 8px 8px rgba(0,0,0,.2);
 }
 .card-add:hover {
 	background-color: rgba(255,255,255,.3)!important;
@@ -56,11 +63,11 @@ section {
 	background-color: transparent;
 	border: 0;
 	font-family: 'Poppins', 'helvetica';
-	color: white;
+	color: black;
 	font-size: 15px;
 }
 .card-add input::placeholder {
-	color: white;
+	color: black;
 }
 .card-header {
 	display: flex;
