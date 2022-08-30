@@ -2,10 +2,19 @@ let tasks = document.querySelectorAll('.task');
 // const tasksContainer = document.querySelector('.card-content');
 let cards = document.querySelectorAll('.card');
 const cardsContainer = document.querySelector('.cards-container');
+const instructions = document.querySelector('.instructions');
+
+window.onload = ()=>{
+	// Receive data from localstorage
+}
 
 // events
 function addCard(e) {
+
 	if (e.keyCode == 13) {
+		// delete instructions
+		instructions.style.display = "none";
+		
 		const title = e.path[0].value || 'Untitled';
 		cardsContainer.innerHTML += 
 		`
@@ -23,21 +32,45 @@ function addCard(e) {
 			</article>
 		`;
 		e.path[0].value = '';
+
 		// Update NodeLists and then refire drag & drop to work with updated NodeList 
 		cards = document.querySelectorAll('.card');
 		fireDragDropFunctionality()
+
+		// Save to localstorage
+		const board = JSON.parse(localStorage.getItem('board'));
+		if (!board) {
+			const firstNewCard = {
+				cards : [{[title]: []}]
+			}
+			localStorage.setItem('board',JSON.stringify(firstNewCard))
+		}else {
+			board.cards.push({[title]: []});
+			localStorage.setItem('board',JSON.stringify(board))
+		}
+
 	}
 }
 function deleteCard(e) {
+	const title = e.path[2].children[0].children[0].innerText;
+
 	e.path[2].remove();
 	// Update NodeLists
 	cards = document.querySelectorAll('.card');
+
+	// Delete from local storage 
+	const board = JSON.parse(localStorage.getItem('board'));
+	const cards_without_deleted = board.cards.filter((card)=>{
+		return title !== Object.keys(card)[0]
+	})
+	localStorage.setItem('board', JSON.stringify(cards_without_deleted))
 }
 function addTask(e){
 	if (e.keyCode == 13) {
 		const current_tasks = e.path[2].children[2]
 		const text = e.path[0].value;
-		
+		const cardTitle = e.path[2].children[0].children[0].innerText
+
 		if (text == '') return
 
 		const task = 
@@ -50,14 +83,37 @@ function addTask(e){
 		tasks = document.querySelectorAll('.task');
 		fireDragDropFunctionality()
 
+		// Save to localstorage
+		const board = JSON.parse(localStorage.getItem('board'));
+
+		for (var i = 0; i < board.cards.length; i++) {
+			if (Object.keys(board.cards[i])[0] == cardTitle) {
+				board.cards[i][cardTitle]/*<- returns array of tasks*/.push(text)
+			}
+		}
+		localStorage.setItem('board', JSON.stringify(board))
+		
+
 	}
 }
 function deleteTask(e) {
+	const cardTitle = e.path[2].children[0].children[0].innerText;
+
 	e.preventDefault();
 	e.path[0].remove()
 	// Update Node Lists and then refire drag & drop to work with updated NodeList 
 	tasks = document.querySelectorAll('.task');
 	fireDragDropFunctionality()
+
+	// Delete from local storage
+	const board = JSON.parse(localStorage.getItem('board'));
+	for (var i = 0; i < board.cards.length; i++) {
+		if (Object.keys(board.cards[i])[0] == cardTitle) {
+			// board.cards[i][cardTitle].push(text)
+			console.log( board.cards[i][cardTitle]/*<- returns array of tasks*/)
+		}
+	}
+	localStorage.setItem('board', JSON.stringify(board))
 }
 let taskDragging = null;
 // Drag and drop functionnality
@@ -67,7 +123,6 @@ function fireDragDropFunctionality (){
 		};
 		cards[i].ondragover =(e)=>{
 			e.preventDefault()
-			
 		};
 		cards[i].ondragleave = (e)=>{
 		};

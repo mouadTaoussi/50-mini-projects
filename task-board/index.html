@@ -21,6 +21,7 @@
 			<div style="background-color: #792c0e;" class="image-background"></div>
 			<div style="background-color: #b60014;" class="image-background"></div>
 			<div style="background-color: #445e00;" class="image-background"></div>
+			<div style="background-color: #212529;" class="image-background"></div>
 		</div>
 		<div class="settings-icon">
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -31,6 +32,11 @@
 	<section>
 		<!-- Cards goes here -->
 		<article class="cards-container">
+			<div class="instructions">
+				<p>Type the name of the card and hit <strong>Enter</strong> to add new one</p>
+				<p>Type the name of the task and hit <strong>Enter</strong> to add new one</p>
+				<p><strong>Right Click</strong> on a specific task to delete it</p>
+			</div>
 		</article>
 		<article class="card-add">
 			<input type="text" onkeydown="addCard(event)" placeholder="Type the name of card">
@@ -40,62 +46,15 @@
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="settings.js"></script>
 </html>
-<style>
-	.settings {
-		width: 100%;
-		height: 100px;
-		background-color: white;
-		position: absolute;
-		top: -100px;
-		left: 0;
-		position: fixed;
-		transition: all .2s ease-out;
-		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
-		padding: 10px;
+<style type="text/css">
+	.instructions {
+		color: white;
+		font-size: 13px;
+		width: 500px;
+		padding-top: 10px;
 	}
-	.settings-content {
-		display: flex;
-	}
-	img {
-		margin-left: 10px;
-		border: 4px solid transparent;
-	}
-	img.active {
-		border-color: #007bff; 
-	}
-	.image-background {
-		width: 100px;
-		height: 77px;
-		background-color: red;
-		margin-left: 10px;
-		border: 4px solid transparent;
-	}
-	.settings-icon {
-		width: 30px;
-		height: 20px;
-		background-color: white;	
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
-		transform: translateY(12px) translateX(20px);
-		opacity: .3;
-		text-align: center;
-	}
-	.settings-icon:hover {
-		opacity: 1;
+	.instructions p  {
+		/*margin: 0;*/
+		padding: 0;
 	}
 </style>
-
-<script type="text/javascript">
-
-	const settings_icon = document.querySelector('.settings-icon');
-	const settings = document.querySelector('.settings');
-
-	// Toggle display
-	settings_icon.onclick = ()=>{
-		if ( settings.style.top == "0px" ) {
-			settings.style.top = "-100px";
-			return;
-		}
-		settings.style.top = "0px";
-	}
-</script>

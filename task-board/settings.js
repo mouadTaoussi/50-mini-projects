@@ -1,6 +1,7 @@
-
 const images = document.querySelectorAll('img, .image-background');
 const body = document.querySelector('body');
+const settings_icon = document.querySelector('.settings-icon');
+const settings = document.querySelector('.settings');
 
 for (var i = 0; i < images.length; i++) {
 	images[i].onclick = (e)=>{
@@ -17,4 +18,13 @@ for (var i = 0; i < images.length; i++) {
 		})
 		e.path[0].classList.add('active');
 	}
+}
+
+// Toggle display
+settings_icon.onclick = ()=>{
+	if ( settings.style.top == "0px" ) {
+		settings.style.top = "-100px";
+		return;
+	}
+	settings.style.top = "0px";
 }

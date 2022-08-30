@@ -3,15 +3,9 @@
 body {
 	margin: 0;
 	padding: 20px;
-
 	font-family: 'Poppins', 'helvetica';
 	box-sizing: border-box;
-	/*background-color: #792c0e;*/
-	/*background-color: #b60014;*/
-	/*background-color: #445e00;*/
-	/*background-color: #dee2e6;*/
 	height: 100vh;
-	/*background-image: url('./images/cherry_blossom.jpeg');*/
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -22,6 +16,28 @@ body {
 }
 textarea:focus, input:focus{
     outline: none;
+}
+
+/*add custom scroll bar*/
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
 }
 
 section {
@@ -99,6 +115,46 @@ section {
 }
 
 
-.hold {
-	border:2px solid blue;
+.settings {
+	width: 100%;
+	height: 100px;
+	background-color: white;
+	position: absolute;
+	top: -100px;
+	left: 0;
+	position: fixed;
+	transition: all .2s ease-out;
+	box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+	padding: 10px;
 }
+.settings-content {
+	display: flex;
+}
+img {
+	margin-left: 10px;
+	border: 4px solid transparent;
+}
+img.active {
+	border-color: #007bff; 
+}
+.image-background {
+	width: 100px;
+	height: 77px;
+	background-color: red;
+	margin-left: 10px;
+	border: 4px solid transparent;
+}
+.settings-icon {
+	width: 30px;
+	height: 20px;
+	background-color: white;	
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	transform: translateY(12px) translateX(20px);
+	opacity: .3;
+	text-align: center;
+}
+.settings-icon:hover {
+	opacity: 1;
+}
+
