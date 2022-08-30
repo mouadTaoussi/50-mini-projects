@@ -17,6 +17,7 @@ for (var i = 0; i < images.length; i++) {
 			image.classList.remove('active');
 		})
 		e.path[0].classList.add('active');
+		console.log(e.path[0])
 	}
 }
 

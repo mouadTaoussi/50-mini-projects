@@ -134,15 +134,14 @@ img {
 	margin-left: 10px;
 	border: 4px solid transparent;
 }
-img.active {
-	border-color: #007bff; 
-}
 .image-background {
 	width: 100px;
 	height: 77px;
-	background-color: red;
 	margin-left: 10px;
 	border: 4px solid transparent;
+}
+.active {
+	border-color: #007bff; 
 }
 .settings-icon {
 	width: 30px;
