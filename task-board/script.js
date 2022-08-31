@@ -1,12 +1,16 @@
-let tasks = document.querySelectorAll('.task');
-// const tasksContainer = document.querySelector('.card-content');
-let cards = document.querySelectorAll('.card');
 const cardsContainer = document.querySelector('.cards-container');
 const instructions = document.querySelector('.instructions');
+let cards = document.querySelectorAll('.card');
+// const tasksContainer = document.querySelector('.card-content');
+let tasks = document.querySelectorAll('.task');
 
 window.onload = ()=>{
 	// Receive data from @localstorage
 	const board = JSON.parse(localStorage.getItem('board'));
+	const bg = localStorage.getItem('background');
+
+	body.style.backgroundColor = bg;
+	body.style.backgroundImage = `url(${bg})`;
 
 	for (var i = 0; i < board.cards.length; i++) {
 
@@ -41,6 +45,7 @@ window.onload = ()=>{
 
 	// Update NodeLists and then refire drag & drop to work with updated NodeList 
 	cards = document.querySelectorAll('.card');
+	tasks = document.querySelectorAll('.task');
 	fireDragDropFunctionality()
 
 }
@@ -77,15 +82,15 @@ function addCard(e) {
 		// Save to @localstorage
 		const board = JSON.parse(localStorage.getItem('board'));
 		if (!board) {
+			// Assign the name of each card's object to its title : [title]: [tasks]
 			const firstNewCard = {
-				cards : [{[title]: []}]
+				cards : [{[title]: [/*tasks goes here*/]}]
 			}
 			localStorage.setItem('board',JSON.stringify(firstNewCard))
 		}else {
-			board.cards.push({[title]: []});
+			board.cards.push({[title]: [/*tasks goes here*/]});
 			localStorage.setItem('board',JSON.stringify(board))
 		}
-
 	}
 }
 function deleteCard(e) {
@@ -129,7 +134,7 @@ function addTask(e){
 				board.cards[i][cardTitle]/*<- returns array of tasks*/.push(text)
 			}
 		}
-		localStorage.setItem('board', JSON.stringify(board))
+		localStorage.setItem('board', JSON.stringify(board));
 		
 
 	}
@@ -161,9 +166,13 @@ function deleteTask(e) {
 
 	localStorage.setItem('board', JSON.stringify(board))
 }
-let taskDragging = null;
+
+
 // Drag and drop functionnality
 function fireDragDropFunctionality (){
+	let taskDragging = null;
+	let fromCard = null;
+
 	for (var i = 0; i < cards.length; i++) {
 		cards[i].ondragenter = (e)=>{
 		};
@@ -171,18 +180,49 @@ function fireDragDropFunctionality (){
 			e.preventDefault()
 		};
 		cards[i].ondragleave = (e)=>{
+
 		};
 		cards[i].ondrop = (e)=>{
-			const dropOver = e.path.filter((items)=>{
-				return items.className == "card";
-			})
-			dropOver[0].children[2].appendChild(taskDragging);
+			const dropOver = e.path[0];
+
+			const cardTitle = dropOver.children[0].children[0].innerText;
+			// Add the task into the target card
+			dropOver.children[2].appendChild(taskDragging);
+
+			// Save to @localstorage
+			const board = JSON.parse(localStorage.getItem('board'));
+			// Loop over to find that target card
+			for (var i = 0; i < board.cards.length; i++) {
+				// Add the task into to the target card
+				if (board.cards[i][cardTitle]) {
+					board.cards[i][cardTitle].push(taskDragging.innerText);
+				}
+			}
+
+			localStorage.setItem('board', JSON.stringify(board))
 		};
 	}
 
 	for (var i = 0; i < tasks.length; i++) { 
 		tasks[i].ondragstart = (e)=>{
+			fromCard = e.path[2].children[0].children[0].innerText;
+			// Assign to the current task is dragging
 			taskDragging = e.path[0];
+
+			// Delete task from the origin card in @localstorage
+			const board = JSON.parse(localStorage.getItem('board'));
+			// Loop over to find that origin card
+			for (var i = 0; i < board.cards.length; i++) {
+				// Delete the task from the origin card
+				if (board.cards[i][fromCard]) {
+					const tasks_without_dragged = board.cards[i][fromCard].filter((task)=>{
+						return task !== e.path[0].innerText;
+					})
+					// Assign the new array that exluded the deleted task
+					board.cards[i][fromCard] = tasks_without_dragged;
+				} 
+			}
+			localStorage.setItem('board', JSON.stringify(board))
 		};
 		tasks[i].ondragend = (e)=>{
 		};

@@ -48,6 +48,16 @@ section {
 	display: grid;
 	grid-template-columns: repeat(33, 1fr);
 }
+.instructions {
+	color: white;
+	font-size: 13px;
+	width: 500px;
+	padding-top: 10px;
+}
+.instructions p  {
+	/*margin: 0;*/
+	padding: 0;
+}
 .card {
 	background-color: white;
 	min-height: 300px;
