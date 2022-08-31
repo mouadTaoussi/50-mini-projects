@@ -5,7 +5,25 @@ body {
 	padding: 0;
 	font-family: 'Poppins', 'helvetica';
 	box-sizing: border-box;
-	/*background-color: #445e00;*/
-	background-color: #dee2e6;
+	background-color: #101f22;
 	height: 100vh;
+}
+
+article {
+	transform: translateY(250px);
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20%;
+	grid-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+.title, .number {
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	padding: 0;
+	margin: 0;
+}
+.number {
+	font-weight: bold;
 }
