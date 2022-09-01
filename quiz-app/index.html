@@ -9,12 +9,134 @@
 </head>
 <body>
 <section>
-	<article></article>
+
+	
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
 <style type="text/css">
-	
+	.card {
+		width: 500px;
+		height: auto;
+		border-radius: 4px;
+		box-shadow:  8px 8px 8px rgba(0,0,0,.2);
+		background-color: white;
+		/*margin: 10px auto;*/
+		position: absolute;
+		top: 20%;
+		left: 30%;
+	}
+	.card-content {
+		padding: 20px;
+	}
+	.card-content-question {
+		font-weight: bold;
+		font-size: 25px;
+	}
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
+	.submit {
+		background-color: #198754;
+		width: 100%;
+		height: 50px;
+		color: white;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		border: 0;
+		font-family: 'Poppins','helvetica';
+	}
+	.submit:hover {
+		background-color: green;
+		cursor: pointer;
+	}
+
 </style>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+	// let submitBtn = document.querySelector('.submit');
+	const cardsContainer = document.querySelector('section');
+	let currentQuestion = 0;
+	let currentResponse = null;
+
+	const data = [
+		{
+			question: "What is MaterializeCSS ?",
+			options : [
+				{ id: 'a', text: "UI CSS Fm" }, 
+				{ id: 'b', text: "Programing language" },
+				{ id: 'c', text: "Windows 10" },
+			],
+			correct: 'a'
+		},
+		{
+			question: "What is the difference between PostCSS and Bootstrap5 ?",
+			options : [
+				{ id: 'a', text: "UI CSS Fm" }, 
+				{ id: 'b', text: "Programing language" },
+				{ id: 'c', text: "Windows 11" },
+			],
+			correct: 'a'
+		},
+		{
+			question: "What is the difference between KAFKA and Docker ?",
+			options : [
+				{ id: 'a', text: "Nothing" }, 
+				{ id: 'b', text: "A language" },
+				{ id: 'c', text: "Windows 7" },
+			],
+			correct: 'a'
+		}
+	]
+
+		
+	function loadQuestion() {
+			let options = ``;
+
+			for (var io = 0; io < data[currentQuestion].options.length; io++) {
+				options += `
+					<li onclick="currentResponse = ${data[currentQuestion].options[io].id}">
+						<input type="radio" name="answer" id="${data[currentQuestion].options[io].id}" class="answer">
+						<label for="${data[currentQuestion].options[io].id}" id="${data[currentQuestion].options[io].id}_text">${data[currentQuestion].options[io].text}</label>
+					</li>
+				`
+			}
+
+			// Question
+			cardsContainer.innerHTML = `
+				<article class="card">
+					<div class="card-content">
+						<p class="card-content-question">${data[currentQuestion].question}</p>
+						<div class="card-content-options">
+						<ul>
+							${options}
+						</ul>
+						</div>
+					</div>
+					<button onclick="submitBtn(event)" class="submit">Submit response</button>
+				</article>
+			`
+			// submitBtn = document.querySelector('.submit')
+	}
+	loadQuestion();
+
+
+	// zfor (var i = 0; i < submit.length; i++) {
+		function submitBtn(e){
+			console.log(data.length < currentQuestion)
+			if (data.length <= currentQuestion) {
+				console.log(data)
+			}else {
+				// Collect response 
+				data[currentQuestion].response = currentResponse.id
+				// Load next question
+				currentQuestion++;
+				loadQuestion();
+
+			}
+		}
+	// }
+
+
+</script>
