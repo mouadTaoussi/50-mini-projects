@@ -15,6 +15,32 @@
 <script type="text/javascript" src="script.js"></script>
 </html>
 <style type="text/css">
-	
+	article {
+		width: 50px;
+		height: 50px;
+		background-color: white;
+		position: absolute;
+		top: 45%;
+		left: 49%;
+		transition: all 1s ease-out;
+		animation: flipLoader 1s linear infinite;
+		opacity: 0;
+	}
+	@keyframes flipLoader {
+		0% {
+			opacity: .9;
+			transform: perspective(200px) rotateY(180deg);
+		}
+		50% {
+			opacity: .9;
+			transform: perspective(200px) rotateY(0);
+		}
+		100% {
+			opacity: .9;
+			transform:perspective(200px)  rotateX(180deg);
+		}
+	}
+
+
 </style>
 <script type="text/javascript"></script>
