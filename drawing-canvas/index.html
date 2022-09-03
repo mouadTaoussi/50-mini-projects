@@ -32,11 +32,73 @@
 	const canvas = document.querySelector('#canvas')
 	const ctx = canvas.getContext('2d');
 	let clicked = false;
-	// ctx.beginPath();
- //    // ctx.moveTo(75, 40);
- //    ctx.arc(110, 50, 10, 0, Math.PI * 2);
- //    ctx.fillStyle = "black"
- //    ctx.fill();
+
+	ctx.beginPath();
+    ctx.arc(150, 150, 50, 0, Math.PI * 2);
+    ctx.arc(350, 350, 50, 0, Math.PI * 2);
+    ctx.fillStyle = "red"
+    ctx.strokeStyle = "red"
+    ctx.fill();
+
+
+    // ctx.lineTo(100,300);
+    // ctx.stroke();
+
+    ctx.fillStyle = 'green'
+    ctx.fillRect(200,200,150,50)
+
+    // ctx.beginPath()
+    ctx.moveTo(120,300)
+    ctx.lineTo(120,300)
+    ctx.strokeStyle = 'green';
+    ctx.stroke();
+
+setInterval(()=>{
+	const x = Math.random() * 1000;
+	const y = Math.random() * 1000;
+	ctx.beginPath()
+	ctx.fillStyle = "#792c0e"
+	ctx.strokeStyle = "blue"
+	ctx.arc(x,y, 50, 0, Math.PI * 2)
+	ctx.stroke()
+	ctx.fill()
+	
+},5)
+
+function move(d){
+	let ds = d;
+	if (ds < 1200) {
+		ctx.beginPath()
+		ctx.fillStyle = "blue"
+		ctx.strokeStyle = "blue"
+		ctx.arc(ds,450, 20, 0, Math.PI * 2)
+		ctx.stroke()
+		ctx.fill()
+		ds++;
+		setTimeout(move(ds),200)
+	}
+}
+move(0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  	canvas.onmousedown = function (){
  		clicked = true
@@ -46,6 +108,7 @@
  	}
     canvas.onmousemove = function (e){
     	if (clicked){
+    		// ctx.clearRect(0,0,1200,700)
 	    	ctx.beginPath();
 		    ctx.arc(e.offsetX, e.offsetY, 5, 0, Math.PI * 2);
 		    ctx.fillStyle = "black"
