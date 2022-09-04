@@ -60,7 +60,6 @@
 	{date: "14/04",scale:'185'},
 	{date: "14/04",scale:'120'},
 
-	{date: "14/04",scale:'158'},
 	]
 
 
@@ -92,9 +91,9 @@ function loadData(data) {
 
 		const scale = parseInt(data[i].scale)
 		const y = 200 - scale
-		const width = 50;
+		const width = 30;
 		ctx.beginPath();
-		ctx.fillStyle = "red";
+		ctx.fillStyle = "#198754";
 		ctx.fillRect(x/*pos x*/,y/*pos y*/,width,scale)
 		ctx.fill();
 		x += width + 5;
@@ -108,38 +107,71 @@ function loadData(data) {
 
 }
 
+// loadData(datca)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loadData(data) {
+	const x_width = 500;
+	const y_height = 300;
+	const margin = 20;
+	const bar_width = 500 / (data.length + 1 + 5);
+	let x_bar = bar_width;
+	// Y 
+	ctx.beginPath()
+	ctx.moveTo(margin, margin);
+	ctx.lineTo(margin, y_height);
+	ctx.stroke();
+
+	// X
+	ctx.beginPath();
+	ctx.moveTo(margin,y_height);
+	ctx.lineTo(x_width,y_height);
+	ctx.stroke();
+
+
+
+	for (var i = 0; i < data.length; i++) {
+		// Bars
+		const scale = parseInt(data[i].scale);
+		const y_bar = ( 300 - scale );
+
+		ctx.beginPath();
+		ctx.fillStyle = "#dc3545";
+		ctx.fillRect(x_bar, y_bar, bar_width, scale);
+		ctx.fill();
+		x_bar += bar_width + 5;
+	}
+
+}
+
+
+
+
+
+
+
 loadData(datca)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
