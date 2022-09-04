@@ -33,37 +33,202 @@
 	const ctx = canvas.getContext('2d');
 	let clicked = false;
 
-	ctx.beginPath();
-    ctx.arc(150, 150, 50, 0, Math.PI * 2);
-    ctx.arc(350, 350, 50, 0, Math.PI * 2);
-    ctx.fillStyle = "red"
-    ctx.strokeStyle = "red"
-    ctx.fill();
 
 
+
+
+
+
+
+
+
+
+
+	const datca = [
+	{date : "12/04", scale: '190'},
+	{date: "13/04", scale:'120'},
+	{date: "14/04",scale:'100'},
+	{date: "14/04",scale:'99'},
+	{date :"14/04", scale: '86'},
+	{date: "15/04", scale:'70'},
+	{date: "15/04", scale:'86'},
+	{date: "14/04",scale:'90'},
+	{date: "16/04",scale:'99'},
+	{date: "14/04",scale:'120'},
+	{date: "14/04",scale:'156'},
+	{date: "14/04",scale:'179'},
+	{date: "14/04",scale:'185'},
+	{date: "14/04",scale:'120'},
+
+	{date: "14/04",scale:'158'},
+	]
+
+
+
+
+	// ctx.beginPath()
+	// ctx.moveTo(0, 200);
+	// ctx.lineTo(1200, 200);
+	// ctx.stroke();
+
+
+	// ctx.beginPath()
+	// ctx.moveTo(0, 0);
+	// ctx.lineTo(1200, 400);
+	// ctx.stroke();
+
+
+	
+function loadData(data) {
+	let x = 25;
+
+	// y line
+	ctx.beginPath()
+	ctx.moveTo(20, 0);
+	ctx.lineTo(20, 200);
+	ctx.stroke();
+
+	for (var i = 0; i < data.length; i++) {
+
+		const scale = parseInt(data[i].scale)
+		const y = 200 - scale
+		const width = 50;
+		ctx.beginPath();
+		ctx.fillStyle = "red";
+		ctx.fillRect(x/*pos x*/,y/*pos y*/,width,scale)
+		ctx.fill();
+		x += width + 5;
+	}
+	
+	// x line
+	ctx.beginPath()
+	ctx.moveTo(20/*from x*/, 200 /* from y*/);
+	ctx.lineTo(x/*width*/, 200/*top*/);
+	ctx.stroke();
+
+}
+
+loadData(datca)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// ctx.beginPath();
+ //    ctx.arc(150, 150, 50, 0, Math.PI * 2);
+ //    ctx.arc(350, 350, 50, 0, Math.PI * 2);
+ //    ctx.fillStyle = "red"
+ //    ctx.strokeStyle = "red"
+ //    ctx.fill();
+
+ 	// ctx.beginPath()
     // ctx.lineTo(100,300);
+    // ctx.moveTo(100,300);
     // ctx.stroke();
 
-    ctx.fillStyle = 'green'
-    ctx.fillRect(200,200,150,50)
+    // ctx.fillStyle = 'green'
+    // ctx.fillRect(200,200,150,50)
 
     // ctx.beginPath()
-    ctx.moveTo(120,300)
-    ctx.lineTo(120,300)
-    ctx.strokeStyle = 'green';
-    ctx.stroke();
+    // ctx.moveTo(120,300)
+    // ctx.lineTo(120,300)
+    // ctx.strokeStyle = 'green';
+    // ctx.stroke();
 
-setInterval(()=>{
-	const x = Math.random() * 1000;
-	const y = Math.random() * 1000;
-	ctx.beginPath()
-	ctx.fillStyle = "#792c0e"
-	ctx.strokeStyle = "blue"
-	ctx.arc(x,y, 50, 0, Math.PI * 2)
-	ctx.stroke()
-	ctx.fill()
+// setInterval(()=>{
+// 	const x = Math.random() * 1000;
+// 	const y = Math.random() * 1000;
+// 	ctx.beginPath()
+// 	ctx.fillStyle = "#792c0e"
+// 	ctx.strokeStyle = "blue"
+// 	ctx.arc(x,y, 50, 0, Math.PI * 2)
+// 	ctx.stroke()
+// 	ctx.fill()
 	
-},5)
+// },5)
 
 function move(d){
 	let ds = d;
@@ -79,6 +244,56 @@ function move(d){
 	}
 }
 move(0)
+
+// const colors = ['blue','red','green','yellow','purple','#dc3545'];
+
+
+// canvas.onmousemove = (e)=>{
+// 	if (clicked) {
+
+// 		// ctx.fillRect(e.offsetX,e.offsetY,30,30);
+// 		ctx.beginPath()
+// 		ctx.arc(e.offsetX,e.offsetY,5,0,Math.PI* 2)
+// 		ctx.fillStyle = colors[Math.floor(Math.random()*10)]
+// 		ctx.fill()
+
+// 	}
+// }
+
+
+
+// ctx.fillStyle = "blue";
+// ctx.fillRect(120,120,200,200);
+// ctx.fill()
+
+
+// ctx.fillStyle = "green";
+// ctx.fillRect(220,220,200,200);
+// ctx.fill()
+
+
+// ctx.fillStyle = "red";
+// ctx.fillRect(320,320,200,200);
+// ctx.fill()
+
+
+
+
+// ctx.fillStyle = "blue";
+// ctx.fillRect(1200-120,120,200,200);
+// ctx.fill()
+
+
+// ctx.fillStyle = "green";
+// ctx.fillRect(1200-220,220,200,200);
+// ctx.fill()
+
+
+// ctx.fillStyle = "red";
+// ctx.fillRect(1200-320,320,200,200);
+// ctx.fill()
+
+
 
 
 
@@ -108,7 +323,6 @@ move(0)
  	}
     canvas.onmousemove = function (e){
     	if (clicked){
-    		// ctx.clearRect(0,0,1200,700)
 	    	ctx.beginPath();
 		    ctx.arc(e.offsetX, e.offsetY, 5, 0, Math.PI * 2);
 		    ctx.fillStyle = "black"
