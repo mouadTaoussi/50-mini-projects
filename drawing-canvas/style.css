@@ -12,3 +12,28 @@ body {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+
+canvas {
+	border: 1px solid black;
+	background-color: white;
+}
+article {
+	width: 1200px;
+	height: 700px;
+	margin: 0 auto;
+	transform: translateY(20px);
+}
+.tools {
+	margin: 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#favcolor  {
+	height: 50px;
+}
+#size {
+	outline: none;
+	width: 50px;
+	height: 25px;
+}
