@@ -9,3 +9,6 @@ body {
 	background-color: #272822;
 	height: 100vh;
 }
+*, *:before, *:after {
+	box-sizing: inherit;
+}
