@@ -37,3 +37,9 @@ article {
 	width: 50px;
 	height: 25px;
 }
+#clear {
+	background-color: grey;
+	color: white;
+	width: 50px;
+	height: 25px;
+}

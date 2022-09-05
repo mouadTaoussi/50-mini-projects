@@ -9,13 +9,13 @@
 </head>
 <body>
 <section>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
-	<article></article>
+	<article class="box"></article>
+	<article class="box"></article>
+	<article class="box"></article>
+	<article class="box"></article>
+	<article class="box"></article>
+	<article class="box"></article>
+	<article class="box"></article>
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
@@ -26,13 +26,30 @@
 		height: 300px;
 		background-color: red;
 		margin: 20px auto;
+		transform: translateX(-440%);
+		transition: all .2s ease-out;
+	}
+	.show {
+		transform: translateX(0);
 	}
 </style>
 <script type="text/javascript">
-	
-	window.onscroll = (e)=>{
-		console.log(window.scrollY)
-	}
+	const windowHeight = window.innerHeight / 5 * 4;
+	const boxs = document.querySelectorAll('.box');
 
+
+	const sxroll = ()=>{
+		boxs.forEach((box)=>{
+			const bottom  =  box.getBoundingClientRect().top
+			
+			if (bottom < windowHeight) {
+				box.classList.add('show');
+			}else {
+				box.classList.remove('show');
+			}
+		})
+	}
+	sxroll()
+	window.onscroll = sxroll
 
 </script>

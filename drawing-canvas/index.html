@@ -11,7 +11,8 @@
 <section>
 	<div class="tools">
 		<input type="color" id="favcolor" onchange="changeColor(event)" name="favcolor" value="black"><br><br>
-		<input type="text" name="size" onchange="changeSize(event)" value="20" id="size">
+		<input type="text" name="size" onchange="changeSize(event)" value="20" id="size"><br><br>
+		<button id="clear" onclick="clearCanvas()">Clear</button>
 	</div>
 	<article>
 		<canvas onmousemove="mousemoving(event)" id="canvas" width="1200" height="700"></canvas>
