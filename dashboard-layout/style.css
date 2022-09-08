@@ -4,6 +4,8 @@
 	--body: white;
 	--primary: #007bff;
 	--primary-darker: #1633ff;
+	--success: #198754;
+	--danger: #b60014;
 	--secondary: rgba(0,0,0,.1);
 	--warning: #c4aa2b;
 	--text-color-dark: rgba(0,0,0,.8);
@@ -22,6 +24,10 @@ body {
 }
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+p{
+	margin: 0;
+	padding: 0;
 }
 /*add custom scroll bar*/
 /* width */
