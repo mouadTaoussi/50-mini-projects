@@ -89,11 +89,25 @@
 					  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
 					  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
 					</svg>
-					<div class="dropdown">sofhzefoij</div>
+					<!-- Dropdown must exist right after the target button -->
+					<div class="dropdown">
+						<p>Current theme:</p>
+						<div class="themes-container">
+							<div class="themes" onclick="changeTheme(event)" style="background-color: #007bff;"></div>
+							<div class="themes" onclick="changeTheme(event)" style="background-color: #b60014;"></div>
+							<div class="themes" onclick="changeTheme(event)" style="background-color: #445e00;"></div>
+							<div class="themes" onclick="changeTheme(event)" style="background-color: #792c0e;"></div>
+						</div>
+					</div>
+					<div onclick="toggleDropdown(event)" class="dropdown-overlay"></div>
+					<!-- Dropdown must exist right after the target button -->
 				</div>
 				<div class="avatar">
 					<div onclick="toggleDropdown(event)" class="avatar">MT</div>
+					<!-- Dropdown must exist right after the target button -->
 					<div class="dropdown">sofhzefoij</div>
+					<div onclick="toggleDropdown(event)" class="dropdown-overlay"></div>
+					<!-- Dropdown must exist right after the target button -->
 				</div>
 			</div>
 		</header>
@@ -113,15 +127,81 @@
 				Realtime</h1>
 				<div class="buttons-group">
 					<button>+Add Data stream</button>
-					<button style="background-color: #007bff; color: white;">Download CSV</button>
+					<button style="background-color: var(--primary); color: var(--text-color-white);">Download CSV</button>
 				</div>
 				<!-- Tables, graphes, Lists -->
 				<div class="nav-tab-content">
-					<div class="nav-tab-content-card">vfdfvdfv</div>
+					<div class="nav-tab-content-card">
+						<p class="card-title">Current visits</p>
+						<table class="table">
+							<thead>
+								<tr>
+									<td>User</td>
+									<td>Country</td>
+									<td>Aquisition</td>
+									<td>Engagement duration</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Morocco</td>
+									<td>Github</td>
+									<td>01:35</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>United states</td>
+									<td>Github</td>
+									<td>12:35</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>China</td>
+									<td>Baidu</td>
+									<td>25:23</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Germany</td>
+									<td>Facebook</td>
+									<td>12:32</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Singapore</td>
+									<td>Instagram</td>
+									<td>10:23</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>India</td>
+									<td>Google search</td>
+									<td>05:25</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>Japan</td>
+									<td>Yandex</td>
+									<td>14:32</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>United Kingdom</td>
+									<td>Google search</td>
+									<td>14:38</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 				<div class="nav-tab-content flex">
-					<div class="nav-tab-content-card">vfdfvdfv</div>
-					<div class="nav-tab-content-card">vfdfvdfv</div>
+					<div class="nav-tab-content-card">
+						<p class="card-title">User Engagement (Last 24hours)</p>
+					</div>
+					<div class="nav-tab-content-card">
+						<p class="card-title">Country visit</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -144,7 +224,7 @@
 		grid-template-columns: 0% 100%;
 	}
 	aside {
-		background-color: #007bff;
+		background-color: var(--primary);
 		width: 100%;
 		height: 100%;
 		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
@@ -166,7 +246,7 @@
 	header {
 		width: 100%;
 		height: 50px;
-		background-color: rgba(0,0,0,.1);
+		background-color: var(--secondary);
 		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
 		display: flex;
 		justify-content: space-between;
@@ -179,38 +259,59 @@
 		font-family: 'Poppins','helvetica';
 		cursor: pointer;
 	}
+	table {
+		width: 100%;
+		color: var(--text-color-dark);
+	}
+	table, th, td {
+		border:1px solid var(--secondary);
+		border-collapse: collapse;
+	}
+	table thead {
+		background-color: var(--secondary);
+	}
+	td {
+		padding: 7px;
+	}
+	table tr:hover {
+		background-color: var(--secondary);
+	}
+	table {
+		border:1px solid var(--secondary);
+	}
 	/* SIDE BAR */
 	.brand-section {
 		height: 80px;
 		width: 100%;
 	}
 	.logo {
-		color: white;
+		color: var(--text-color-white);
 		font-size: 30px;
-		margin-left: 20px;
+		margin-left: var(--margin);
 		cursor: pointer;
 	}
 	.dashboard-side-bar-list {
 		list-style: none;
-		color: white;
+		color: var(--text-color-white);
 		margin: 0;
 		padding:0;
 	}
 	.dashboard-side-bar-list li {
-		padding: 10px 20px;
+		padding: 10px var(--margin);
 		cursor: pointer;
 		/*border-bottom: 1px solid rgba(255,255,255,.3);*/
 	}
 	.dashboard-side-bar-list li:hover {
-		background-color: #1633ff;
+		background-color: rgba(0,0,0,.2);
+		color: var(--text-color-white-hover)
 	}
 	.upgrade-btn {
-		background-color: #c4aa2b;
-		color: white;
+		background-color: var(--warning);
+		color: var(--text-color-white);
 		width: 90%;
 		position: absolute;
-		bottom: 20px;
-		left: 20px;
+		bottom: var(--margin);
+		left: var(--margin);
 	}
 	/* HEADER */
 	.toogle-side-bar {
@@ -242,10 +343,10 @@
 	}
 	.header-options {
 		display: flex;
-		gap: 10px;
+		gap: var(--flex-gap);
 		justify-content: center;
 		align-items: center;
-		margin-right: 20px;
+		margin-right: var(--margin);
 	}
 	.avatar {
 		width: 30px;
@@ -255,7 +356,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: white;
+		color: var(--text-color-white);
 		font-size: 12px;
 		cursor: pointer;
 		position: relative;
@@ -268,17 +369,42 @@
 		cursor: pointer;
 		position: relative;
 	}
+	.themes-container {
+		margin-top: var(--margin);
+		margin-bottom: var(--margin);
+		width: 100%;
+		display: grid;
+		grid-template-columns: 75px 75px;
+		grid-gap: 3px;
+		justify-content: center;
+		align-items: center;
+	}
+	.themes {
+		width: 75px;
+		height: 50px;
+	}
 	.dropdown {
-		background-color: white;
+		background-color: var(--text-color-white);
 		position: absolute;
 		right: 0;
 		top: 50px;
 		width: 200px;
-		height: 200px;
+		height: auto;
 		border: 1px solid rgba(0,0,0,.2);
 		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
-		z-index: 999;
+		z-index: 999; /* <- top of overlay */
 		display: none;
+	}
+	.dropdown-overlay {
+		z-index: 998;  /* <- back of dropdown and top of all content */
+		display: none;
+	}
+	.dropdown-overlay.show {
+		display: block;
+	}
+	.dropdown p {
+		margin: var(--margin);
+		padding: 0;
 	}
 	.dropdown.show {
 		display: block;
@@ -293,7 +419,7 @@
 	}
 	/* CONTENT OR NAVTABS */
 	.nav-tab {
-		margin: 20px;
+		margin: var(--margin);
 		display: none;
 		position: relative;
 	}
@@ -311,16 +437,16 @@
 	}
 	.breadcrumb li a, header .list li a {
 		text-decoration: none;
-		color: rgba(0,0,0,.8);
+		color: var(--text-color-dark);
 	}
 	.breadcrumb li:not(:last-child):after {
 		content : ' /';
-		color: rgba(0,0,0,.8);
+		color: var(--text-color-dark);
 	}
 	.title {
 		font-weight: 100;
 		font-size: 25px;
-		color: rgba(0,0,0,.8);
+		color: var(--text-color-dark);
 		margin: 0;
 		padding: 0;
 	}
@@ -331,19 +457,25 @@
 		right: 0;
 	}
 	.nav-tab-content {
-		margin-top: 20px;
+		margin-top: var(--margin);
 	}
 	.nav-tab-content.flex {
 		display: flex;
-		gap:10px;
+		gap: var(--flex-gap);
 	}
 	.nav-tab-content-card {
 		padding: 15px;
-		border: 1px solid rgba(0,0,0,.1);
+		border: 1px solid var(--secondary);
 		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 		width: 100%;
 		height: 300px;
-		border-left: 4px solid #007bff;
+		overflow-y: scroll;
+		border-left: 4px solid var(--primary);
+	}
+	.card-title {
+		padding: 0;
+		margin: 0;
+		margin-bottom: var(--margin);
 	}
 	@media only screen and (max-width: 700px) {
 		section.show-side-bar {
@@ -364,15 +496,38 @@
 	}
 	@media only screen and (max-width: 900px) {
 		.brand-section .logo {
-			font-size: 20px;
+			font-size: var(--margin);
+		}
+		.settings, .avatar {
+			position: static;
 		} 
+		.dropdown {
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			width: 80%;
+			position: static;
+			position: fixed;
+			z-index: 999; 
+		}
+		.dropdown-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vh;
+			height: 100vh;
+			background-color: rgba(0,0,0,.5);
+		}
 	}
 </style>
 
 <script type="text/javascript">
 	const sideBar = document.querySelector('aside');
 	const container = document.querySelector('section');
+	const dropdowns = document.querySelectorAll('.dropdown');
+	const dropdown_overlays = document.querySelectorAll('.dropdown-overlay')
 	const mediaQuery = window.matchMedia("(max-width: 700px)")
+	const root = document.querySelector(':root');
 
 	function toggleSideBar(){
 
@@ -390,20 +545,36 @@
 
 	}
 	function toggleDropdown(e){
+		e.preventDefault();
 		const dropdown = e.path[1].children[1];
-		const dropdowns = document.querySelectorAll('.dropdown');
+		const dropdown_overlay = e.path[1].children[2];
 
 		if (dropdown.classList.contains('show')) {
 				dropdown.classList.remove('show');
+				dropdown_overlay.classList.remove('show');
 		}else {
-			dropdowns.forEach((dp)=>{
-				dp.classList.remove('show');
-			})
+			closeDropdowns();
 			dropdown.classList.add('show');
-
+			dropdown_overlay.classList.add('show');
 		}
 	}
-	// toggleSideBar()
+	function changeTheme(e){
+		const cssVars = getComputedStyle(root);
+		root.style.setProperty('--primary', e.path[0].style.backgroundColor);
+		root.style.setProperty('--primary-darker', e.path[0].style.backgroundColor);
+
+		closeDropdowns();
+	}
+
+	function closeDropdowns() {
+		dropdowns.forEach((dp)=>{
+			dp.classList.remove('show');
+		})
+		dropdown_overlays.forEach((dpo)=>{
+			dpo.classList.remove('show');
+		})
+	}
+	toggleSideBar()
 	mediaQuery.addListener(toggleSideBar)
 </script>
 
