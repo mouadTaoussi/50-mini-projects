@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', "helvetica";
+	box-sizing: border-box;
+	background-color: var(--body);
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+h1 {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 60px;
+	margin-bottom: 50px;
+}
+article.images {
+	margin: 0 auto;
+	width: 80%;
+	/*align-items: start;*/
+	display: grid;
+	/*grid-template-columns: repeat(3,minmax(0,1fr));*/
+	/*grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));*/
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 5px;
+
+}
+.image {
+	width: 320px;
+	/*background-color: black;*/
+}
+.image-skeleton {
+	width: 320px;
+}
+@media only screen and (max-width: 700px) {
+	article.images {
+		display: block;
+		width: 90%;
+	}
+	.image {
+		width: 100%;
+	}
+}
