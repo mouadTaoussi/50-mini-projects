@@ -20,7 +20,7 @@
 		padding: 0;
 		font-family: 'Poppins', "helvetica";
 		box-sizing: border-box;
-		background-color: #792c0e;
+		/*background-color: #792c0e;*/
 		/*height: 100vh;*/
 		/*width: 100vw;*/
 	}
@@ -35,26 +35,114 @@
 <script type="text/javascript">
 	const canvas = document.querySelector('#chart');
 	const c = canvas.getContext('2d');
+	const config = {
+		canvasWidth: canvas.width,
+		canvasHeight: canvas.height,
+		barsColor: "red",
+		lineWidth: 1,
+		lineColor: "rgba(0,0,0,.8)"
+	}
 
-	c.fillStyle = "red";
-	c.beginPath()
-	c.fillRect(20,20,50,50)
-	c.fill();
 
-	c.fillStyle = "red";
-	c.beginPath()
-	c.fillRect(42,20,50,50)
-	c.fill();
+	const data   =  [
+		{date: "12/02", scale: 12},
+		{date: "13/02", scale: 15},
+		{date: "14/02", scale: 20},
+		{date: "15/02", scale: 26},
+		{date: "16/02", scale: 31},
+		{date: "17/02", scale: 38},
+		{date: "18/02", scale: 122},
+		{date: "19/02", scale: 120},
+		{date: "20/02", scale: 205},
+		{date: "20/02", scale: 125},
+		{date: "20/02", scale: 152},
+		{date: "20/02", scale: 122},
+		{date: "20/02", scale: 156},
+		{date: "20/02", scale: 125},
+		{date: "20/02", scale: 130},
+		{date: "20/02", scale: 156},
+		{date: "20/02", scale: 171},
+		{date: "20/02", scale: 200}
+	];
 
-	c.fillStyle = "red";
-	c.beginPath()
-	c.fillRect(64,20,50,50)
-	c.fill();
+	function createAxes() {
 
-	c.fillStyle = "red";
-	c.beginPath()
-	c.fillRect(88,20,50,50)
-	c.fill();
+		c.beginPath();
+		c.lineWidth = config.lineWidth;
+		c.strokeStyle = config.lineColor;
+		c.moveTo(0,0); // from
+		c.lineTo(0,300); // to
+		c.stroke();
 
+		c.beginPath();
+		c.lineWidth = config.lineWidth;
+		c.strokeStyle = config.lineColor;
+		c.moveTo(0,300); // from
+		c.lineTo(500,300); // to
+		c.stroke();
+
+	}
+
+
+	function loadData(){
+		const barWidth = config.canvasWidth / data.length;
+		let   marginX = 0;
+		let   x = marginX;
+		let   y = 0;
+
+		for (var i = 0; i < data.length; i++) {
+			const scale = (data[i].scale / config.canvasHeight) * 100;
+
+			// Set the y position of the bar
+			y = config.canvasHeight - data[i].scale;
+			// create Bar
+			c.beginPath();
+			c.lineWidth = 2;
+			c.strokeStyle = "white";
+			c.fillStyle = config.barsColor;
+			c.fillRect(x, y, barWidth, data[i].scale);
+			c.strokeRect(x, y, barWidth, data[i].scale);
+			c.stroke();
+			c.fill();
+			// position the next bar
+			x += barWidth + marginX;
+		}
+
+	}
+
+	createAxes();
+	loadData();
+	// c.lineTo(0,0); c.moveTo(0,300); c.stroke()
+	// c.lineTo(0,300); c.moveTo(500,300); c.stroke()
+	// c.lineTo(0,300); c.moveTo(500,300); c.stroke()
+	// c.lineTo(0,300); c.moveTo(500,300); c.stroke()
+
+	// c.beginPath();
+	// c.lineTo(20,20);
+	// c.moveTo(300,20);
+	// c.stroke();
+
+	// c.beginPath();
+	// c.lineTo(20,300);
+	// c.moveTo(500,300);
+	// c.stroke();
+
+	// c.beginPath();
+	// c.fillStyle = "red";
+	// c.beginPath()
+	// c.fillRect(150,150,50,50)
+	// c.fill();
+
+	// c.beginPath();
+	// c.fillStyle = "red";
+	// c.beginPath()
+	// c.fillRect(200,200,50,50)
+	// c.fill();
+
+	// c.beginPath();
+	// c.fillStyle = "red";
+	// c.beginPath()
+	// c.fillRect(50,50,50,650)
+	// c.fill();
 </script>
 </html>
