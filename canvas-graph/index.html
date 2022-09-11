@@ -10,7 +10,7 @@
 <body>
 <section>
 	<article>
-		<canvas id="chart" width="700" height="420"></canvas>
+		<canvas id="chart" width="700" height="520"></canvas>
 	</article>
 </section>
 </body>
@@ -29,12 +29,12 @@
 	}
 
 	article {
-		padding-top: 20px;
-		padding-right: 20px;
+		/*padding-top: 35px;*/
+		/*padding-right: 35px;*/
 		width: 700px;
-		height: 420px;
+		height: 520px;
 		background-color: white;
-		margin: 7% auto;
+		margin: 5% auto;
 		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 	}
 </style>
@@ -47,17 +47,19 @@
 		barsColor: "#dc3545", // #0dcaf0
 		lineWidth: 2,
 		lineColor: "rgba(0,0,0,.5)",
-		paddingLeft: 20,
-		paddingBottom: 20,
+		padding : 55,
 		propreHeight: 0, // the height of the chart
 		propreWidth: 0, // the width of the chart
 	}
 
 	// Set the height and the width of the chart without the padding that reserverd for chart labels
-	config.propreHeight = config.canvasHeight - config.paddingBottom;
-	config.propreWidth = config.canvasWidth - config.paddingLeft;
+	config.propreHeight = config.canvasHeight - config.padding;
+	config.propreWidth = config.canvasWidth - config.padding; 
 
 	const data   =  [
+		{date: "12/02", scale: 220},
+		{date: "12/02", scale: 220},
+		{date: "12/02", scale: 220},
 		{date: "12/02", scale: 220},
 		{date: "13/02", scale: 160},
 		{date: "14/02", scale: 110},
@@ -70,7 +72,7 @@
 		{date: "20/02", scale: 125},
 		{date: "20/02", scale: 152},
 		{date: "20/02", scale: 122},
-		// {date: "20/02", scale: 156},
+		// {date: "20/02", scale: 356},
 		// {date: "20/02", scale: 125},
 		// {date: "20/02", scale: 130},
 		// {date: "20/02", scale: 156},
@@ -80,36 +82,69 @@
 
 	function createAxes() {
 
-		//x 
+		// Y Axe 
 		c.beginPath();
 		c.lineWidth = config.lineWidth;
 		c.strokeStyle = config.lineColor;
-		c.moveTo(config.paddingLeft, 0); // from
-		c.lineTo(config.paddingLeft, config.propreHeight); // to
+		c.moveTo(config.padding, config.padding); // from
+		c.lineTo(config.padding, config.propreHeight); // to
 		c.stroke();
-		// y
+		// X Axe
 		c.beginPath();
 		c.lineWidth = config.lineWidth;
 		c.strokeStyle = config.lineColor;
-		c.moveTo(config.paddingLeft, config.propreHeight); // from
-		c.lineTo(config.canvasWidth, config.propreHeight); // to
+		c.moveTo(config.padding, config.propreHeight); // from
+		c.lineTo(config.propreWidth, config.propreHeight); // to
 		c.stroke();
 
 	}
-	function createScalesAxes(){
+	// Y Axies
+	function createScalesY(){
+		let divider = 11; /* How many X lines */
+		// let highestValue = 100;
+		// let datasetLength = data.length;
+		let y = config.padding; // First X line's position
+		let spaceBetweenXLines = (config.propreHeight - config.padding) / divider; // The space between two X lines in the Y Axe
+		let getScaleValues = [];
+		// Get the maximum scale
+		data.forEach((scale)=>{ 
+			getScaleValues.push(parseInt(scale.scale));
+		})
+		let scale = Math.max(...getScaleValues); // Start by the maximum scale in the Y Axe
+		let scaleDifference = Math.floor(scale / divider); // Difference between to scales in the Y Axe 
 
+		for (var i = 0; i < data.length; i++) {
+			if (scale >= 0) {
+				// line X
+				c.beginPath();
+				c.moveTo(config.padding, y); 
+				c.lineTo(config.propreWidth, y);
+				c.lineWidth = 1;
+				c.strokeStyle = 'rgba(0,0,0,.2)';
+				c.stroke();
+
+				// Y Axe scale number
+				c.fillText(scale, config.padding - 30, y/*Y*/)
+
+				// position the next Y line
+				y += spaceBetweenXLines;
+
+				// Next Y Axe scale
+				scale -= scaleDifference;
+			}
+		}
 	}
 	function loadData(){
-		const barWidth = config.propreWidth / data.length;
-		let   paddingX = config.paddingLeft;
+		const barWidth = (config.propreWidth - config.padding) / data.length;
+		let   paddingX = config.padding;
 		let   x = paddingX;
 		let   y = 0;
 
 		for (var i = 0; i < data.length; i++) {
 			const scale = (data[i].scale / config.propreHeight) * 100;
 
-			// Set the y position of the bar
-			y = config.canvasHeight - data[i].scale - config.paddingLeft;
+			// Set the Y position of the bar
+			y = config.canvasHeight - data[i].scale - config.padding;
 			// create Bar
 			c.beginPath();
 			c.lineWidth = 1;
@@ -119,35 +154,33 @@
 			c.strokeRect(x, y, barWidth, data[i].scale);
 			c.fill();
 
-			// Put the label and line in the position
-			createBarLabel(x, barWidth);
+			// Put the label and Y line in the position
+			createBarLabelX(x, barWidth, data[i].date);
 			// position the next bar
 			x += barWidth;
 		}
 
 	}
-	function createBarLabel(x, barWidth) {
-		// Put the label and line in the position
+	// X axies
+	function createBarLabelX(x, barWidth, label) {
+		// Put the label and Y line in the position
 		const labelLinePosition = x + (barWidth / 2);
-
+		const textPosition = x;
+		// line Y
 		c.beginPath();
 		c.moveTo(labelLinePosition, config.propreHeight); 
-		c.lineTo(labelLinePosition, config.propreHeight + 5/*height of the small line*/); 
-
+		c.lineTo(labelLinePosition, config.propreHeight + 5/* 5 height of the small Y line*/);
 		c.strokeStyle = config.lineColor;
 		c.stroke();
+		// text
+		c.fillStyle = "black";
+		c.font = "14px";
+		c.fillText(label, textPosition, config.propreHeight + 17/*Y*/)
+
 	}
 
-
-
-
-
-
-
-
-
-
 	loadData();
+	createScalesY();
 	createAxes();
 </script>
 </html>
