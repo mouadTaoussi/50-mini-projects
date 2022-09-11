@@ -44,7 +44,7 @@
 	const config = {
 		canvasWidth: canvas.width,
 		canvasHeight: canvas.height,
-		barsColor: "#dc3545", // #0dcaf0
+		barsColor: "#530635", // #0dcaf0 #dc3545
 		lineWidth: 2,
 		lineColor: "rgba(0,0,0,.5)",
 		padding : 55,
@@ -56,8 +56,10 @@
 	config.propreHeight = config.canvasHeight - config.padding;
 	config.propreWidth = config.canvasWidth - config.padding; 
 
-	const data   =  [
-		{date: "12/02", scale: 220},
+	let YAxes = [/*{scale:11, y: 200}*/]
+
+	const data = [
+		{date: "12/02", scale: 200},
 		{date: "12/02", scale: 220},
 		{date: "12/02", scale: 220},
 		{date: "12/02", scale: 220},
@@ -71,13 +73,14 @@
 		{date: "20/02", scale: 205},
 		{date: "20/02", scale: 125},
 		{date: "20/02", scale: 152},
-		{date: "20/02", scale: 122},
-		// {date: "20/02", scale: 356},
-		// {date: "20/02", scale: 125},
-		// {date: "20/02", scale: 130},
-		// {date: "20/02", scale: 156},
-		// {date: "20/02", scale: 171},
-		// {date: "20/02", scale: 200}
+		{date: "20/02", scale: 250},
+
+		{date: "20/02", scale: 356},
+		{date: "20/02", scale: 125},
+		{date: "20/02", scale: 130},
+		{date: "20/02", scale: 156},
+		{date: "20/02", scale: 171},
+		{date: "20/02", scale: 200}
 	];
 
 	function createAxes() {
@@ -100,9 +103,7 @@
 	}
 	// Y Axies
 	function createScalesY(){
-		let divider = 11; /* How many X lines */
-		// let highestValue = 100;
-		// let datasetLength = data.length;
+		let divider = data.length - 1; /* How many X lines */
 		let y = config.padding; // First X line's position
 		let spaceBetweenXLines = (config.propreHeight - config.padding) / divider; // The space between two X lines in the Y Axe
 		let getScaleValues = [];
@@ -111,7 +112,7 @@
 			getScaleValues.push(parseInt(scale.scale));
 		})
 		let scale = Math.max(...getScaleValues); // Start by the maximum scale in the Y Axe
-		let scaleDifference = Math.floor(scale / divider); // Difference between to scales in the Y Axe 
+		let scaleDifference = Math.floor(scale / divider); // Difference between two scales in the Y Axe 
 
 		for (var i = 0; i < data.length; i++) {
 			if (scale >= 0) {
@@ -126,10 +127,16 @@
 				// Y Axe scale number
 				c.fillText(scale, config.padding - 30, y/*Y*/)
 
+				// Push to Y axes object to another use
+				YAxes.push({
+					scale: scale,
+					y: Math.floor(y)
+				});
+
 				// position the next Y line
 				y += spaceBetweenXLines;
 
-				// Next Y Axe scale
+				// Next Y scale in the Axe
 				scale -= scaleDifference;
 			}
 		}
@@ -141,28 +148,35 @@
 		let   y = 0;
 
 		for (var i = 0; i < data.length; i++) {
-			const scale = (data[i].scale / config.propreHeight) * 100;
+			// const scale = (data[i].scale / config.propreHeight) * 100;
+
+			// Returns the bar's height which is appropriate to the scale
+			const scale = setBarHeight(data[i].scale)
 
 			// Set the Y position of the bar
-			y = config.canvasHeight - data[i].scale - config.padding;
+			y = config.canvasHeight - scale - config.padding;
 			// create Bar
 			c.beginPath();
 			c.lineWidth = 1;
 			c.strokeStyle = "white";
 			c.fillStyle = config.barsColor;
-			c.fillRect(x, y, barWidth, data[i].scale);
-			c.strokeRect(x, y, barWidth, data[i].scale);
+			c.fillRect(x, y, barWidth, scale);
+			c.strokeRect(x, y, barWidth, scale);
 			c.fill();
 
 			// Put the label and Y line in the position
-			createBarLabelX(x, barWidth, data[i].date);
+			createLabelsX(x, barWidth, data[i].date);
 			// position the next bar
 			x += barWidth;
 		}
 
 	}
+	function setBarHeight(currentScale){
+		
+		return currentScale;
+	}
 	// X axies
-	function createBarLabelX(x, barWidth, label) {
+	function createLabelsX(x, barWidth, label) {
 		// Put the label and Y line in the position
 		const labelLinePosition = x + (barWidth / 2);
 		const textPosition = x;
