@@ -60,27 +60,27 @@
 
 	const data = [
 		{date: "12/02", scale: 200},
-		{date: "12/02", scale: 220},
-		{date: "12/02", scale: 220},
-		{date: "12/02", scale: 220},
-		{date: "13/02", scale: 160},
-		{date: "14/02", scale: 110},
-		{date: "15/02", scale: 115},
-		{date: "16/02", scale: 120},
-		{date: "17/02", scale: 121},
-		{date: "18/02", scale: 122},
-		{date: "19/02", scale: 120},
-		{date: "20/02", scale: 205},
-		{date: "20/02", scale: 125},
-		{date: "20/02", scale: 152},
-		{date: "20/02", scale: 250},
+		{date: "13/02", scale: 250},
+		{date: "14/02", scale: 260},
+		// {date: "12/02", scale: 220},
+		// {date: "13/02", scale: 160},
+		// {date: "14/02", scale: 110},
+		// {date: "15/02", scale: 115},
+		// {date: "16/02", scale: 120},
+		// {date: "17/02", scale: 121},
+		// {date: "18/02", scale: 122},
+		// {date: "19/02", scale: 120},
+		// {date: "20/02", scale: 205},
+		// {date: "20/02", scale: 125},
+		// {date: "20/02", scale: 152},
+		// {date: "20/02", scale: 250},
 
-		{date: "20/02", scale: 356},
-		{date: "20/02", scale: 125},
-		{date: "20/02", scale: 130},
-		{date: "20/02", scale: 156},
-		{date: "20/02", scale: 171},
-		{date: "20/02", scale: 200}
+		// {date: "20/02", scale: 356},
+		// {date: "20/02", scale: 125},
+		// {date: "20/02", scale: 130},
+		// {date: "20/02", scale: 156},
+		// {date: "20/02", scale: 171},
+		// {date: "20/02", scale: 200}
 	];
 
 	function createAxes() {
@@ -143,8 +143,7 @@
 	}
 	function loadData(){
 		const barWidth = (config.propreWidth - config.padding) / data.length;
-		let   paddingX = config.padding;
-		let   x = paddingX;
+		let   x = config.padding;
 		let   y = 0;
 
 		for (var i = 0; i < data.length; i++) {
@@ -172,7 +171,20 @@
 
 	}
 	function setBarHeight(currentScale){
-		
+		// const relevantScale = YAxes.filter((scale)=>{
+		// 	return scale.scale > currentScale;
+		// })
+		let scaleY = 0;
+		for (var i = 0; i < YAxes.length; i++) {
+
+			if (currentScale < YAxes[i].scale && currentScale > YAxes[i+1].scale) {
+				scaleY = YAxes[i].y;
+			}
+			console.log(YAxes[i].scale)
+		}
+
+
+		// console.log(relevantScale)
 		return currentScale;
 	}
 	// X axies
@@ -193,8 +205,8 @@
 
 	}
 
-	loadData();
 	createScalesY();
+	loadData();
 	createAxes();
 </script>
 </html>
