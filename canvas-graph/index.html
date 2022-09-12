@@ -10,41 +10,17 @@
 <body>
 <section>
 	<article>
-		<canvas id="chart" width="700" height="520"></canvas>
+		<canvas id="chart" width="1000" height="520"></canvas>
 	</article>
 </section>
 </body>
-<style type="text/css">
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: 'Poppins', "helvetica";
-		box-sizing: border-box;
-		/*background-color: #792c0e;*/
-		background-color: #dee2e6;
-		/*height: 100vh;*/
-		/*width: 100vw;*/
-	}
-
-	article {
-		/*padding-top: 35px;*/
-		/*padding-right: 35px;*/
-		width: 700px;
-		height: 520px;
-		background-color: white;
-		margin: 5% auto;
-		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-	}
-</style>
 <script type="text/javascript">
 	const canvas = document.querySelector('#chart');
 	const c = canvas.getContext('2d');
 	const config = {
 		canvasWidth: canvas.width,
 		canvasHeight: canvas.height,
-		barsColor: "#530635", // #0dcaf0 #dc3545
+		barsColor: "rgb(220,53,69,.8)", // rgba(83,6,53,.8) rgb(220,53,69,.8) rgba(255,193,7,.8)
 		lineWidth: 2,
 		lineColor: "rgba(0,0,0,.5)",
 		padding : 55,
@@ -59,28 +35,36 @@
 	let YAxes = [/*{scale:11, y: 200}*/]
 
 	const data = [
-		{date: "12/02", scale: 200},
-		{date: "13/02", scale: 250},
-		{date: "14/02", scale: 260},
-		// {date: "12/02", scale: 220},
-		// {date: "13/02", scale: 160},
-		// {date: "14/02", scale: 110},
-		// {date: "15/02", scale: 115},
-		// {date: "16/02", scale: 120},
-		// {date: "17/02", scale: 121},
-		// {date: "18/02", scale: 122},
-		// {date: "19/02", scale: 120},
-		// {date: "20/02", scale: 205},
-		// {date: "20/02", scale: 125},
-		// {date: "20/02", scale: 152},
-		// {date: "20/02", scale: 250},
+		{date: "01/02", scale: 220},
+		{date: "02/02", scale: 210},
+		{date: "03/02", scale: 250},
+		{date: "04/02", scale: 225},
+		{date: "05/02", scale: 199},
+		{date: "06/02", scale: 244},
+		{date: "07/02", scale: 265},
+		{date: "08/02", scale: 214},
+		{date: "09/02", scale: 200},
+		{date: "10/02", scale: 222},
+		{date: "11/02", scale: 260},
+		{date: "12/02", scale: 280},
+		{date: "13/02", scale: 160},
+		{date: "14/02", scale: 110},
+		{date: "15/02", scale: 115},
+		{date: "16/02", scale: 155},
+		{date: "17/02", scale: 121},
+		{date: "18/02", scale: 122},
+		{date: "19/02", scale: 120},
+		{date: "20/02", scale: 205},
+		{date: "21/02", scale: 125},
+		{date: "22/02", scale: 152},
+		{date: "23/02", scale: 270},
 
-		// {date: "20/02", scale: 356},
-		// {date: "20/02", scale: 125},
-		// {date: "20/02", scale: 130},
-		// {date: "20/02", scale: 156},
-		// {date: "20/02", scale: 171},
-		// {date: "20/02", scale: 200}
+		{date: "24/02", scale: 356},
+		{date: "25/02", scale: 125},
+		{date: "26/02", scale: 130},
+		{date: "27/02", scale: 156},
+		{date: "28/02", scale: 171},
+		{date: "29/02", scale: 200}
 	];
 
 	function createAxes() {
@@ -129,7 +113,7 @@
 
 				// Push to Y axes object to another use
 				YAxes.push({
-					scale: scale,
+					scale: parseInt(scale),
 					y: Math.floor(y)
 				});
 
@@ -150,7 +134,7 @@
 			// const scale = (data[i].scale / config.propreHeight) * 100;
 
 			// Returns the bar's height which is appropriate to the scale
-			const scale = setBarHeight(data[i].scale)
+			const scale = setBarHeight(parseInt(data[i].scale))
 
 			// Set the Y position of the bar
 			y = config.canvasHeight - scale - config.padding;
@@ -171,21 +155,18 @@
 
 	}
 	function setBarHeight(currentScale){
-		// const relevantScale = YAxes.filter((scale)=>{
-		// 	return scale.scale > currentScale;
-		// })
 		let scaleY = 0;
-		for (var i = 0; i < YAxes.length; i++) {
 
-			if (currentScale < YAxes[i].scale && currentScale > YAxes[i+1].scale) {
-				scaleY = YAxes[i].y;
+		for (var i = 0; i < YAxes.length; i++) {
+			if (currentScale <= YAxes[i].scale && currentScale >= YAxes[i+1].scale) {
+				scaleY = config.propreHeight - YAxes[i].y;
 			}
-			console.log(YAxes[i].scale)
+			else {
+				continue;
+			}
 		}
 
-
-		// console.log(relevantScale)
-		return currentScale;
+		return scaleY;
 	}
 	// X axies
 	function createLabelsX(x, barWidth, label) {
@@ -202,7 +183,6 @@
 		c.fillStyle = "black";
 		c.font = "14px";
 		c.fillText(label, textPosition, config.propreHeight + 17/*Y*/)
-
 	}
 
 	createScalesY();
