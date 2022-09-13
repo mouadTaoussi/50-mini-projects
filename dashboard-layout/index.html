@@ -135,6 +135,24 @@
 					style="background-color: var(--primary); color: var(--text-color-white);">Download CSV</button>
 				</div>
 				<!-- Tables, graphes, Lists -->
+
+				<!--Dashboard content card groups -->
+				<!--Dashboard content card groups -->
+				<div class="nav-tab-content flex">
+					<div class="nav-tab-content-card graph">
+						<p class="card-title">User Engagement <i class="grey">(Last 24hours)</i></p>
+						<center>
+							<canvas id="chart" width="500" height="280"></canvas>
+						</center>
+					</div>
+					<div class="nav-tab-content-card graph">
+						<p class="card-title">Country visit <i class="grey">(Last 24hours)</i></p>
+						<center>	
+							<canvas id="chart" width="500" height="280"></canvas>
+						</center>
+					</div>
+				</div>
+				<!--Dashboard content card groups-->
 				<!--Dashboard content card groups-->
 				<div class="nav-tab-content">
 					<div class="nav-tab-content-card">
@@ -210,17 +228,6 @@
 						</table>
 					</div>
 				</div>
-				<!--Dashboard content card groups -->
-				<!--Dashboard content card groups -->
-				<div class="nav-tab-content flex">
-					<div class="nav-tab-content-card">
-						<p class="card-title">User Engagement <i class="grey">(Last 24hours)</i></p>
-					</div>
-					<div class="nav-tab-content-card">
-						<p class="card-title">Country visit <i class="grey">(Last 24hours)</i></p>
-					</div>
-				</div>
-				<!--Dashboard content card groups-->
 			</div>
 			<!-- Navtab (Realtime, DebugMode, Engagement...) -->
 		</div>
@@ -229,4 +236,5 @@
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="canvas-graph.js"></script>
 </html>
