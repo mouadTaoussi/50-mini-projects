@@ -12,20 +12,20 @@ const c1 = canvas1.getContext('2d');
 window.onload = ()=>{
 
 	barChart(c, [
-			{date: "01/02", scale: 325},
-			{date: "02/02", scale: 544},
-			{date: "03/02", scale: 250},
-			{date: "04/02", scale: 225},
-			{date: "05/02", scale: 199},
-			{date: "06/02", scale: 122},
-			{date: "07/02", scale: 154},
-			{date: "08/02", scale: 266},
-			{date: "09/02", scale: 758},
-			{date: "10/02", scale: 588},
-			{date: "11/02", scale: 425},
-			{date: "12/02", scale: 631},
-			{date: "13/02", scale: 160},
-			{date: "14/02", scale: 110}
+			{label: "01/02", scale: 325},
+			{label: "02/02", scale: 544},
+			{label: "03/02", scale: 250},
+			{label: "04/02", scale: 225},
+			{label: "05/02", scale: 199},
+			{label: "06/02", scale: 122},
+			{label: "07/02", scale: 154},
+			{label: "08/02", scale: 266},
+			{label: "09/02", scale: 758},
+			{label: "10/02", scale: 588},
+			{label: "11/02", scale: 425},
+			{label: "12/02", scale: 631},
+			{label: "13/02", scale: 160},
+			{label: "14/02", scale: 110}
 		], {
 			canvasWidth: canvas.width,
 			canvasHeight: canvas.height,
@@ -36,20 +36,20 @@ window.onload = ()=>{
 	})
 
 	barChart(c1, [
-			{date: "01/02", scale: 220},
-			{date: "02/02", scale: 210},
-			{date: "03/02", scale: 250},
-			{date: "04/02", scale: 225},
-			{date: "05/02", scale: 199},
-			{date: "06/02", scale: 244},
-			{date: "07/02", scale: 265},
-			{date: "08/02", scale: 514},
-			{date: "09/02", scale: 200},
-			{date: "10/02", scale: 222},
-			{date: "11/02", scale: 260},
-			{date: "12/02", scale: 280},
-			{date: "13/02", scale: 160},
-			{date: "14/02", scale: 110}
+			{label: "01/02", scale: 220},
+			{label: "02/02", scale: 210},
+			{label: "03/02", scale: 250},
+			{label: "04/02", scale: 225},
+			{label: "05/02", scale: 199},
+			{label: "06/02", scale: 244},
+			{label: "07/02", scale: 265},
+			{label: "08/02", scale: 514},
+			{label: "09/02", scale: 200},
+			{label: "10/02", scale: 222},
+			{label: "11/02", scale: 260},
+			{label: "12/02", scale: 280},
+			{label: "13/02", scale: 160},
+			{label: "14/02", scale: 110}
 		], {
 			canvasWidth: canvas.width,
 			canvasHeight: canvas.height,

@@ -91,7 +91,7 @@ function barChart(ctx, data, config) {
 			ctx.fillText(data[i].scale, x + 5, scale.scaleYText + 15/*Y*/)
 
 			// Put the label and Y line in the position
-			createLabelsX(x, barWidth, data[i].date);
+			createLabelsX(x, barWidth, data[i].label);
 			// position the next bar
 			x += barWidth;
 		}

@@ -2,36 +2,36 @@ const canvas = document.querySelector('#chart');
 const c = canvas.getContext('2d');
 
 barChart(c,[
-		{date: "01/02", scale: 220},
-		{date: "02/02", scale: 210},
-		{date: "03/02", scale: 250},
-		{date: "04/02", scale: 225},
-		{date: "05/02", scale: 199},
-		{date: "06/02", scale: 244},
-		{date: "07/02", scale: 265},
-		{date: "08/02", scale: 214},
-		{date: "09/02", scale: 200},
-		{date: "10/02", scale: 222},
-		{date: "11/02", scale: 260},
-		{date: "12/02", scale: 280},
-		{date: "13/02", scale: 160},
-		{date: "14/02", scale: 110},
-		{date: "15/02", scale: 115},
-		{date: "16/02", scale: 155},
-		{date: "17/02", scale: 121},
-		{date: "18/02", scale: 122},
-		{date: "19/02", scale: 120},
-		{date: "20/02", scale: 205},
-		{date: "21/02", scale: 125},
-		{date: "22/02", scale: 152},
-		{date: "23/02", scale: 270},
+		{label: "01/02", scale: 220},
+		{label: "02/02", scale: 210},
+		{label: "03/02", scale: 250},
+		{label: "04/02", scale: 225},
+		{label: "05/02", scale: 199},
+		{label: "06/02", scale: 244},
+		{label: "07/02", scale: 265},
+		{label: "08/02", scale: 214},
+		{label: "09/02", scale: 200},
+		{label: "10/02", scale: 222},
+		{label: "11/02", scale: 260},
+		{label: "12/02", scale: 280},
+		{label: "13/02", scale: 160},
+		{label: "14/02", scale: 110},
+		{label: "15/02", scale: 115},
+		{label: "16/02", scale: 155},
+		{label: "17/02", scale: 121},
+		{label: "18/02", scale: 122},
+		{label: "19/02", scale: 120},
+		{label: "20/02", scale: 205},
+		{label: "21/02", scale: 125},
+		{label: "22/02", scale: 152},
+		{label: "23/02", scale: 270},
 
-		{date: "24/02", scale: 356},
-		// {date: "25/02", scale: 125},
-		// {date: "26/02", scale: 130},
-		// {date: "27/02", scale: 156},
-		// {date: "28/02", scale: 171},
-		// {date: "29/02", scale: 200}
+		{label: "24/02", scale: 356},
+		// {label: "25/02", scale: 125},
+		// {label: "26/02", scale: 130},
+		// {label: "27/02", scale: 156},
+		// {label: "28/02", scale: 171},
+		// {label: "29/02", scale: 200}
 	], {
 		canvasWidth: canvas.width,
 		canvasHeight: canvas.height,
@@ -137,7 +137,7 @@ function barChart(ctx, data, config) {
 			ctx.fillText(data[i].scale, x + 5, scale.scaleYText + 15/*Y*/)
 
 			// Put the label and Y line in the position
-			createLabelsX(x, barWidth, data[i].date);
+			createLabelsX(x, barWidth, data[i].label);
 			// position the next bar
 			x += barWidth;
 		}
