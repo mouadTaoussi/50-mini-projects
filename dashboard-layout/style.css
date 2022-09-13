@@ -339,6 +339,12 @@ header .list li {
 .grey {
 	color: grey;
 }
+@media only screen and (max-width: 1200px) {
+	.nav-tab-content-card.graph {
+		height: 350px;
+		overflow-x: scroll;
+	}
+}
 @media only screen and (max-width: 700px) {
 	section.show-side-bar {
 		grid-template-columns: 0 100%;
