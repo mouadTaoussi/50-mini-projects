@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Realtime search</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article>
+		<input
+		 	oninput="search(event)" 
+			placeholder="Search People..." 
+			autofocus="true">
+		<div class="results"></div>
+	</article>
+</section>
+</body>
+</html>
+
+<style type="text/css">
+	article {
+		width: 400px;
+		height: auto;
+		margin: 10% auto;
+		/*background-color: white;*/
+		/*overflow-y: scroll;*/
+		/*box-shadow: 8px 8px 8px rgba(0,0,0,.1);*/
+		padding: 0;
+	}
+	input {
+		width: 400px;
+		height: 50px;
+		margin: 0;
+		background-color: rgba(0,0,0,.8);
+		padding: 20px;
+		border: 0;
+	}
+	input, input::placeholder {
+		font-family: 'Poppins', 'helvetica';
+		font-size: 20px;
+		color: white;
+	}
+</style>
+<script type="text/javascript">
+	const container = document.querySelector('.results');
+	const data = [{
+		name: "MouadT",
+		avatar: 'url',
+		post: 'software developer',
+		degree: 'associate degree'
+	},{
+		name: "Jhone doe",
+		avatar: 'url',
+		post: 'software enginner',
+		degree: 'Bachelor degree'
+	},{
+		name: "Jane Doe",
+		avatar: 'url',
+		post: 'back-end developer',
+		degree: 'PHD'
+	}]
+
+	function search(e) {
+		const results = data.filter((item)=>{
+			return item.name.includes(e.path[0].value) 
+		})
+		for (var i = 0; i < results.length; i++) {
+			container.innerHTML = `<div>${results[i].name}</div>`
+		}
+
+	}
+</script>

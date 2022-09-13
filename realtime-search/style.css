@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', 'helvetica';
+	box-sizing: border-box;
+	/*background-color: #445e00;*/
+	background-color: #dee2e6;
+	height: 100vh;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+input {
+	outline: none;
+}
+/*add custom scroll bar*/
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
