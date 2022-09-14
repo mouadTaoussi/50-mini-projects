@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', "helvetica";
+	box-sizing: border-box;
+	background-color: #dee2e6;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.sidebar {
+	position: absolute;
+	top: 0;
+}
+.sidebar div {
+	transition: all .2s ease-out;
+}
+.sidebar div:nth-child(1) {
+	width: 350px ;
+	height: 100vh;
+	background-color: rgba(0,0,0,.8);
+	position: absolute;
+	top: 0;
+	left:  -350px;
+}
+.sidebar div:nth-child(2) {
+	width: 350px ;
+	height: 100vh;
+	background-color: #445e00;
+	position: absolute;
+	top: 0;
+	left:  -350px;
+}
+.sidebar div:nth-child(3) {
+	width: 350px ;
+	height: 100vh;
+	background-color: white;
+	position: absolute;
+	top: 0;
+	left:  -350px;
+	border: 1px solid rgba(0,0,0,.3);
+}
+.show {
+	left: 0!important;
+}
+
+ul {
+	list-style: none;
+}
+li {
+	padding-top: 20px;
+	cursor: pointer;
+}
