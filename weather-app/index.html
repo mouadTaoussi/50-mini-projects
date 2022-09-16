@@ -13,13 +13,13 @@
 	<article class="weather">
 		<div class="content">
 			<h1 class="text-white">50°</h1>
-			<center>
+			<div class="list">
 				<ul class="text-white">
 					<li>115.2</li>
 					<li>115.2</li>
 					<li>115.2</li>
 				</ul>
-			</center>
+			</div>
 			<p class="text-white">Casablanca, Morocco</p>
 		</div>
 	</article>
@@ -63,6 +63,9 @@
 		margin: 0;
 		padding: 0;
 	}
+	.list {
+		/*width: 100%;*/
+	}
 	ul {
 		list-style: none;
 		/*padding-top: 0;
@@ -73,9 +76,36 @@
 	}
 	ul li {
 		display: inline;
-		margin-right: 30px;
+		text-align: center;
+		margin-right: 50px;
 	}
 	.text-white {
 		color: white;
 	}
 </style>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+<script type="text/javascript">
+	let latitude;
+	let longitude;
+	let url = "https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85"
+
+	function getUrl(lat, lon){
+		return `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85`
+	}
+	if (window.navigator.geolocation) {
+		window.navigator.geolocation.getCurrentPosition((position)=>{
+			latitude = position.coords.latitude
+			longitude = position.coords.longitude
+			
+			axios({
+				method: "GET",
+				url: `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85`
+
+			}).then((res)=>{
+				console.log(res)
+			})
+		})
+	}
+
+
+</script>
