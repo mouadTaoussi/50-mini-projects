@@ -9,3 +9,58 @@ body {
 	/*background-color: #272822;*/
 	height: 100vh;
 }
+
+.background {
+	background-image: url('./images/raining.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.weather {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.3);
+}
+.content {
+	width: 300px;
+	margin: 13% auto;
+	text-align: left;
+	background-color: rgba(0,0,0,.5);
+	padding: 20px;
+	border-radius: 5px;
+}
+.temperature {
+	font-size: 70px;
+	margin: 0;
+	font-weight: 100;
+}
+.location, .desc {
+	margin: 0;
+}
+.desc {
+	margin-bottom: 15px;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+.text-white {
+	color: white;
+}
+@media only screen and (max-width: 900px) {
+	.content {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
