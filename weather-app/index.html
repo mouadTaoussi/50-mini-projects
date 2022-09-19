@@ -57,21 +57,43 @@
 				url: getUrl(latitude,longitude)
 
 			}).then((res)=>{
-				city.innerText = res.data.name;
-				temperature.innerText = `${res.data.main.temp}°`;
-				desc.innerText = res.data.weather[0].description;
-				img.src = `https://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`;
-				wind.innerHTML = `${icons.wind_speed}${res.data.wind.speed}km/h`;
-				humidity.innerHTML = `${icons.humidity}${res.data.main.humidity}%`;
+				const { name, main, weather, wind } = res.data;
+				const icon = weather[0].icon;
+
+				city.innerText = name;
+				temperature.innerText = `${main.temp}°`;
+				desc.innerText = weather[0].description;
+				img.src = `https://openweathermap.org/img/wn/${icon}.png`;
+				wind.innerHTML = `${icons.wind_speed}${wind.speed}km/h`;
+				humidity.innerHTML = `${icons.humidity}${main.humidity}%`;
+				// console.log(wind.speed)
+				// Set the background image based on the current weather
+				// Clear sky 01n
+				if (icon == '01n') {
+					console.log('clear sky')
+				}
+				// Sunny with clouds 02n
+				if (icon == '02n') {
+					console.log(' Sunny with clouds')
+				}
+				// Clouds 03n 04n
+				if (icon == '03n' || icon == '04n') {
+					console.log('clouds')
+				}
+				// Rain  09n 10n 11n
+				if (icon == '09n' || icon == '10n' || icon == '11n') {
+					console.log('rain')
+				}
+				// Snow 13n
+				if (icon == '13n') {
+					console.log('snow')
+				}
+				// Mist 50n
+				if (icon == '50n') {
+					console.log('mist')
+				}
 			})
 
-			// Set the background image based on the current weather
-			// Clear sky 01n
-			// Sunny with clouds 02n
-			// Clouds 03n 04n
-			// Rain  09n 10n 11n
-			// Snow 13n
-			// Mist 50n
 		})
 	}
 
