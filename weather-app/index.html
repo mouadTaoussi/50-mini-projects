@@ -15,11 +15,12 @@
 		<div class="content">
 			<p class="location text-white"></p>
 			<p class="temperature text-white"></p>
+				<img class="img" width="50" height="50">
 				<p class="desc text-white"></p>
 			<!-- <div class="list"> -->
 				<ul class="text-white">
 					<li class="wind-speed"></li>
-					<li class="temp-fer">75°F</li>
+					<!-- <li class="temp-fer">75°F</li> -->
 					<li class="humidity"></li>
 				</ul>
 			<!-- </div> -->
@@ -36,15 +37,15 @@
 	const city = document.querySelector('.location');
 	const temperature = document.querySelector('.temperature');
 	const desc = document.querySelector('.desc');
+	const img = document.querySelector('.img');
 	const wind = document.querySelector('.wind-speed');
 	const fer = document.querySelector('.temp-fer');
 	const humidity = document.querySelector('.humidity');
 	let latitude;
 	let longitude;
-	let url = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85"
 
 	function getUrl(lat, lon){
-		return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85`
+		return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85&units=metric`
 	}
 	if (window.navigator.geolocation) {
 		window.navigator.geolocation.getCurrentPosition((position)=>{
@@ -59,9 +60,18 @@
 				city.innerText = res.data.name;
 				temperature.innerText = `${res.data.main.temp}°`;
 				desc.innerText = res.data.weather[0].description;
+				img.src = `https://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`;
 				wind.innerHTML = `${icons.wind_speed}${res.data.wind.speed}km/h`;
 				humidity.innerHTML = `${icons.humidity}${res.data.main.humidity}%`;
 			})
+
+			// Set the background image based on the current weather
+			// Clear sky 01n
+			// Sunny with clouds 02n
+			// Clouds 03n 04n
+			// Rain  09n 10n 11n
+			// Snow 13n
+			// Mist 50n
 		})
 	}
 
