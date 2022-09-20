@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
 <section>
@@ -28,74 +27,8 @@
 	</article>
 </section>
 </body>
-<script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+<script type="text/javascript" src='icons.js'></script>
+<script type="text/javascript" src="script.js"></script>
 </html>
 
-<script type="text/javascript" src='icons.js'></script>
-<script type="text/javascript">
-	const city = document.querySelector('.location');
-	const temperature = document.querySelector('.temperature');
-	const desc = document.querySelector('.desc');
-	const img = document.querySelector('.img');
-	const wind = document.querySelector('.wind-speed');
-	const fer = document.querySelector('.temp-fer');
-	const humidity = document.querySelector('.humidity');
-	let latitude;
-	let longitude;
-
-	function getUrl(lat, lon){
-		return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7ff247e9ce6e9fe018b6f6814a6bdf85&units=metric`
-	}
-	if (window.navigator.geolocation) {
-		window.navigator.geolocation.getCurrentPosition((position)=>{
-			latitude = position.coords.latitude
-			longitude = position.coords.longitude
-
-			axios({
-				method: "GET",
-				url: getUrl(latitude,longitude)
-
-			}).then((res)=>{
-				const { name, main, weather, wind } = res.data;
-				const icon = weather[0].icon;
-
-				city.innerText = name;
-				temperature.innerText = `${main.temp}°`;
-				desc.innerText = weather[0].description;
-				img.src = `https://openweathermap.org/img/wn/${icon}.png`;
-				wind.innerHTML = `${icons.wind_speed}${wind.speed}km/h`;
-				humidity.innerHTML = `${icons.humidity}${main.humidity}%`;
-				// console.log(wind.speed)
-				// Set the background image based on the current weather
-				// Clear sky 01n
-				if (icon == '01n') {
-					console.log('clear sky')
-				}
-				// Sunny with clouds 02n
-				if (icon == '02n') {
-					console.log(' Sunny with clouds')
-				}
-				// Clouds 03n 04n
-				if (icon == '03n' || icon == '04n') {
-					console.log('clouds')
-				}
-				// Rain  09n 10n 11n
-				if (icon == '09n' || icon == '10n' || icon == '11n') {
-					console.log('rain')
-				}
-				// Snow 13n
-				if (icon == '13n') {
-					console.log('snow')
-				}
-				// Mist 50n
-				if (icon == '50n') {
-					console.log('mist')
-				}
-			})
-
-		})
-	}
-
-
-</script>
