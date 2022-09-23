@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Animation Landing Page</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<canvas width="1363" height="650" class="canvas"></canvas>
+</section>
+</body>
+<style type="text/css">
+	canvas {
+		border: 1px solid white;
+	}
+</style>
+<script type="text/javascript">
+	const canvas = document.querySelector('canvas');
+	const c = canvas.getContext('2d');
+
+	// c.fillRect(0,0,200,200);
+	// c.fillStyle = "black";
+	// c.fill();
+
+	// c.fillStyle = "red";
+	// c.fillRect(0,0,100,20);
+	// c.fill()
+	// c.clearRect(0,0,100,20);
+
+	// c.arc(100,100,50,0,Math.PI*2)
+	// c.fillStyle = "white";
+	// c.fill();
+
+	let x = 0;
+	let y = 4;
+	
+	// function move (){
+	// 	requestAnimationFrame(move);
+
+	// 	c.clearRect(x-4, y-4,100,100);
+	// 	c.fillRect(x, y, 100, 100);
+	// 	c.fillStyle = "red";
+	// 	c.fill();
+
+	// 	if (x - 100 >= canvas.width || x < 0) {
+	// 		x = -x;
+	// 		console.log('limit 1')
+	// 	}
+	// 	if (y - 100 >= canvas.height || y < 0) {
+	// 		y = -y;
+	// 		console.log('limit 0')
+	// 	}
+	
+	// 	x += 4;
+	// 	y += 4;
+		
+	// }
+	let h = 250;
+	for (var i = 0; i < 205; i++) {
+		c.fillRect(x, 0, 20, h);
+		c.fillStyle = "red";
+		c.fill();
+		x += 21 
+	}
+	// move();
+	let remove = 0
+	function move(){
+		requestAnimationFrame(move)
+		c.clearRect(remove, 0, 20, h);
+		c.fillRect(remove-21, 0, 20, h);
+		c.fillStyle = "red";
+		c.fill();
+		remove += 21;
+	}
+	move()
+</script>
+</html>
