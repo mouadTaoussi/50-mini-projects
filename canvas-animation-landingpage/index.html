@@ -21,60 +21,85 @@
 	const canvas = document.querySelector('canvas');
 	const c = canvas.getContext('2d');
 
-	// c.fillRect(0,0,200,200);
-	// c.fillStyle = "black";
-	// c.fill();
+	// let x = 0;
+	// let y = 0;
+	// let stepsY = 4;
+	// let stepsX = 4;
 
-	// c.fillStyle = "red";
-	// c.fillRect(0,0,100,20);
-	// c.fill()
-	// c.clearRect(0,0,100,20);
-
-	// c.arc(100,100,50,0,Math.PI*2)
-	// c.fillStyle = "white";
-	// c.fill();
-
-	let x = 0;
-	let y = 4;
-	
 	// function move (){
 	// 	requestAnimationFrame(move);
 
-	// 	c.clearRect(x-4, y-4,100,100);
+	// 	c.clearRect(x-4, y-4,canvas.width,canvas.height);
 	// 	c.fillRect(x, y, 100, 100);
 	// 	c.fillStyle = "red";
 	// 	c.fill();
 
-	// 	if (x - 100 >= canvas.width || x < 0) {
-	// 		x = -x;
-	// 		console.log('limit 1')
+	// 	if (x + 100  > canvas.width || x < 0) {
+	// 		stepsX = -stepsX;
 	// 	}
-	// 	if (y - 100 >= canvas.height || y < 0) {
-	// 		y = -y;
-	// 		console.log('limit 0')
+	// 	if (y + 100  > canvas.height || y < 0) {
+	// 		stepsY = -stepsY;
 	// 	}
 	
-	// 	x += 4;
-	// 	y += 4;
+	// 	x += stepsX;
+	// 	y += stepsY;
 		
 	// }
-	let h = 250;
-	for (var i = 0; i < 205; i++) {
-		c.fillRect(x, 0, 20, h);
-		c.fillStyle = "red";
-		c.fill();
-		x += 21 
+	// move()
+	// function moveCircles(){
+	// 	requestAnimationFrame(moveCircles)
+		
+
+	// }
+	// moveCircles();
+
+	class Particle {
+		x = null;
+		y = null;
+		dx = 5;
+		dy = 5;
+		radius = 50;
+		constructor(x, y, radius){
+			this.x = x;
+			this.y = y;
+			this.radius = radius
+		}
+
+		draw(){
+			c.clearRect(0, 0, canvas.width, canvas.height);
+			c.beginPath();
+			c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+			c.fillStyle = "red";
+			c.fill();
+		}
+		update(){
+			this.x += this.dy;
+			this.y += this.dx;
+			this.draw();
+		}
 	}
-	// move();
-	let remove = 0
+	let particles = [];
+
+	addEventListener('load',(event)=> {
+		for (var i = 0; i < 200; i++) {
+			particles.push(new Particle(Math.floor(Math.random()*1000),Math.floor(Math.random()*1000), 50))
+		}
+		particles.forEach((Particle)=>{
+			Particle.draw();
+		})
+
+	})
+
 	function move(){
-		requestAnimationFrame(move)
-		c.clearRect(remove, 0, 20, h);
-		c.fillRect(remove-21, 0, 20, h);
-		c.fillStyle = "red";
-		c.fill();
-		remove += 21;
+		requestAnimationFrame(move);
+		particles.forEach((Particle)=>{
+			Particle.update();
+		})
 	}
-	move()
+	move();
+	c.clearRect(0,0,canvas.width, canvas.height)
+
+
+	
 </script>
 </html>
