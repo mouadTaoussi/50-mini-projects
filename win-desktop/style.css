@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', 'helvetica';
+	box-sizing: border-box;
+	background-color: #dee2e6;
+	height: 100vh;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+section {
+	width: 100%;
+	height: 100vh;
+	background-image: url('./images/wallpapersden.com_windows-11-in-4k_3840x2400.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+article {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 45px;
+	background-color: rgba(255,255,255,.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+div {
+	color: white;
+}
