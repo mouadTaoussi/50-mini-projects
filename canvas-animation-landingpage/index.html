@@ -62,7 +62,7 @@
 		constructor(x, y, radius){
 			this.x = x;
 			this.y = y;
-			this.radius = radius
+			this.radius = radius;
 		}
 
 		draw(){
@@ -73,8 +73,17 @@
 			c.fill();
 		}
 		update(){
+			if (this.y < canvas.height || this.y < 0) {
+				// this.dy = -this.dy;
+				console.log('fdvjn')
+			}
+			if (this.x < canvas.width || this.x < 0) {
+				// this.dx = -this.dx;
+				console.log('fdvjn')
+			}
 			this.x += this.dy;
 			this.y += this.dx;
+
 			this.draw();
 		}
 	}
@@ -82,7 +91,7 @@
 
 	addEventListener('load',(event)=> {
 		for (var i = 0; i < 200; i++) {
-			particles.push(new Particle(Math.floor(Math.random()*1000),Math.floor(Math.random()*1000), 50))
+			particles.push(new Particle(Math.floor(Math.random()*10),Math.floor(Math.random()*10), 50));
 		}
 		particles.forEach((Particle)=>{
 			Particle.draw();
