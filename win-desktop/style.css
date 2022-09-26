@@ -7,9 +7,18 @@ body {
 	box-sizing: border-box;
 	background-color: #dee2e6;
 	height: 100vh;
+	color: white;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+:root {
+	--primary : rgb(0,123,255,.5);
+	--primary-transparent : rgb(0,123,255,.1);
 }
 section {
 	width: 100%;
@@ -19,18 +28,18 @@ section {
 	background-repeat: no-repeat;
 	background-position: center;
 }
-.task-bar {
+.task-bar-container .task-bar {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 45px;
-	background-color: rgba(0,0,0,.5);
+	background-color: var(--primary-transparent);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
 }
-.status {
+.task-bar-container .status {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -41,22 +50,21 @@ section {
 	align-items: center;
 	justify-content: flex-end;
 }
-.status div:not(.show-desktop), .status img {
+.task-bar-container .status div:not(.show-desktop), .status img {
 	font-size: 12px;
 	margin-right: 20px;
 }
-.status .show-desktop {
+.task-bar-container .status .show-desktop {
 	height: 45px;
 	width: 5px;
 	border-left: 1px solid white;
 	position: absolute;
 	right: 0;
 }
-.status .date {
+.task-bar-container .status .date {
 	text-align: center;
 }
 div {
-	color: white;
 }
 .windows-icon {
 	background-image: url('./images/Windows%2011.svg');
@@ -65,4 +73,35 @@ div {
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 40px;
+}
+.modal {
+	margin: 0 auto;
+	transform: translateY(100px);
+	background-color: var(--primary);
+	width: 500px;
+	height: 500px;
+	padding: 20px;
+	position: relative;
+}
+.modal .header {
+	width: 100%;
+	height: 50px;
+	display: flex; 
+	justify-content: space-between;
+	align-items: center;
+}
+.modal .header .apps-select {
+	height: 25px;
+	background-color: rgba(255,255,255,.2);
+	border: 0;
+	/*color: white;*/
+	font-family: 'Poppins', 'helvetica';
+}
+.modal .footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: rgba(255,255,255,.2);
 }

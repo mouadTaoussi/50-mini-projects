@@ -9,23 +9,40 @@
 </head>
 <body>
 <section>
-	<article class="status">
-		<!-- <div>dfv</div> -->
-		<img src="./images/icons/One Drive-6.png">
-		<img src="./images/icons/Keyboard-5.png">
-		<div class="language">ENG</div>
-		<div class="date">11:00<br>25/09/2022</div>
-		<div class="show-desktop"></div>
-	</article>
-	<article class="task-bar">
-		<div class="windows-icon"></div>
-		<img src="./images/icons/Search-5.png">
-		<img src="./images/icons/Run-5.png">
-		<img src="./images/icons/Explorer-5.png">
-		<img src="./images/icons/Settings-5.png">
-		<img src="./images/icons/Edge-8.png" width="25" height="25">
-		<!-- <div>egereregg</div> -->
-	</article>
+	<div class="task-bar-container">
+		<article class="status">
+			<!-- <div>dfv</div> -->
+			<img src="./images/icons/One Drive-6.png">
+			<img src="./images/icons/Keyboard-5.png">
+			<div class="language">ENG</div>
+			<div class="date">11:00<br>25/09/2022</div>
+			<div class="show-desktop"></div>
+		</article>
+		<article class="task-bar">
+			<div class="windows-icon"></div>
+			<img src="./images/icons/Search-5.png">
+			<img src="./images/icons/Run-5.png">
+			<img src="./images/icons/Explorer-5.png">
+			<img src="./images/icons/Settings-5.png">
+			<img src="./images/icons/Edge-8.png" width="25" height="25">
+			<!-- <div>egereregg</div> -->
+		</article>
+	</div>
+	<div class="modal">
+		<div class="header">
+			<p class="pinned">Pinned</p>
+			<select class="apps-select">
+				<option>All apps</option>
+				<option>Last opened</option>
+				<option>Favorite</option>
+			</select>
+		</div>
+		<div class="apps"></div>
+		<div class="recommended"></div>
+		<div class="footer">
+			
+		</div>
+	</div>
 </section>
 </body>
 </html>
@@ -33,7 +50,7 @@
 <script type="text/javascript">
 	const windows_icon = document.querySelector('.windows-icon');
 
-	windows_icon.onclick = (){
+	windows_icon.onclick = ()=>{
 		alert('clicked')
 	}
 </script>
