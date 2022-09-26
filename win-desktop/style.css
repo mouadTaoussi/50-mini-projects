@@ -41,7 +41,7 @@ section {
 	align-items: center;
 	justify-content: flex-end;
 }
-.status div:not(.show-desktop) {
+.status div:not(.show-desktop), .status img {
 	font-size: 12px;
 	margin-right: 20px;
 }
@@ -58,7 +58,7 @@ section {
 div {
 	color: white;
 }
-.logo {
+.windows-icon {
 	background-image: url('./images/Windows%2011.svg');
 	background-size: contain;
 	background-position: center;
