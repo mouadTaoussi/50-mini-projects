@@ -124,8 +124,13 @@
 
 <script type="text/javascript">
 	const windows_icon = document.querySelector('.windows-icon');
+	const modal = document.querySelector('.modal');
 
 	windows_icon.onclick = ()=>{
-		alert('clicked')
+		if (modal.classList.contains('show')) {
+			modal.classList.remove('show');
+		}else {
+			modal.classList.add('show');
+		}
 	}
 </script>
