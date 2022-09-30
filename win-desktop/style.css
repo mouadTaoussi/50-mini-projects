@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
 /*http://www.rw-designer.com/icon-set/windowsicons-zip*/
+:root {
+	--primary : rgb(16,45,136,.9);
+	--primary-transparent : rgb(16,45,136,.4);
+	--border-radius: 4px;
+	--font-family: 'Poppins', 'helvetica';
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -12,12 +19,6 @@ body {
 }
 *, *:before, *:after {
 	box-sizing: inherit;
-}
-:root {
-	--primary : rgb(16,45,136,.9);
-	--primary-transparent : rgb(16,45,136,.4);
-	--border-radius: 4px;
-	--font-family: 'Poppins', 'helvetica';
 }
 input, input {
 	outline: none;
@@ -82,9 +83,9 @@ div {
 }
 .modal {
 	background-color: var(--primary);
-	width: 550px;
+	width: 600px;
 	height: 550px;
-	padding: 20px;
+	padding: 30px;
 	position: absolute;
 	left: 50%;
 	bottom: -550px;
@@ -97,14 +98,20 @@ div {
 }
 .modal .search {
 	margin-bottom: 20px;
+	position: relative;
 }
 .modal .search .search-input {
 	width: 100%;
 	background-color: rgba(255,255,255,.1);
 	border: 0;
 	border-bottom: 2px solid white;
-	padding: 8px 0 8px 20px;
+	padding: 8px 0 8px 30px;
 	color: rgba(255,255,255,.7);
+}
+.modal .search svg {
+	position: absolute;
+	top: 7px;
+	left: 7px;
 }
 .modal .search .search-input::placeholder {
 	font-family: var(--font-family);
@@ -136,8 +143,25 @@ div {
 .pinned-apps .app-title {
 	font-size: 12px;
 }
+.recommended {
+	margin-bottom: 20px;
+}
 .recommended .recommended-apps {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+.main-title {
+	margin-bottom: 20px;
+}
+.recommended .recommended-apps #recommended-one {
 	display: flex;
+	font-size: 12px;
+	align-items: center;
+	gap: 8px;
+}
+.date {
+	color: rgba(255,255,255,.7);
 }
 .modal .footer {
 	position: absolute;

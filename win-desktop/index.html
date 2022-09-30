@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 <section>
@@ -31,6 +30,9 @@
 	</div>
 	<div class="modal">
 		<div class="search">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+			  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+			</svg>
 			<input class="search-input" placeholder="Type here to search">
 		</div>
 		<div class="header">
@@ -116,8 +118,31 @@
 			</div>
 		</div>
 		<div class="recommended">
-			<p>Recommended</p>
-			<div class="recommended-apps"></div>
+			<p class="main-title">Recommended</p>
+			<div class="recommended-apps">
+				<div id='recommended-one'>
+					<img src="./images/icons/Library Music-8.png" width="45" height="45">
+					<div>
+						<p class="title">Music</p>
+						<p class="date">2 Days ago</p>
+					</div>
+
+				</div>
+				<div id='recommended-one'>
+					<img src="./images/icons/Folder Downloads-8.png" width="45" height="45">
+					<div>
+						<p class="title">Downloads</p>
+						<p class="date">12 Days ago</p>
+					</div>
+				</div>
+				<div id='recommended-one'>
+					<img src="./images/icons/Folder Green-8.png" width="45" height="45">
+					<div>
+						<p class="title">Documents</p>
+						<p class="date">15 Days ago</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 			<div class="user">
@@ -131,17 +156,5 @@
 	</div>
 </section>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
-
-<script type="text/javascript">
-	const windows_icon = document.querySelector('.windows-icon');
-	const modal = document.querySelector('.modal');
-
-	windows_icon.onclick = ()=>{
-		if (modal.classList.contains('show')) {
-			modal.classList.remove('show');
-		}else {
-			modal.classList.add('show');
-		}
-	}
-</script>
