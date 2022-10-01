@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Github profiles</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article>
+		<input class="search" placeholder="Search for user">
+		<article class="user">
+			<img src="../payment-checkout/images/mouadTaoussi.jpeg" width="150" height="150">
+			<div class="user-info">
+				<h3>Mouad Taoussi</h3>
+				<p>A Full-stack web developer</p>
+				<div class="quantitative-info">
+					<p class="following">Following: 20</p>
+					<p class="followers">Followers: 13</p>
+					<p class="repo">Repositories 26</p>
+				</div>
+				<div class="pinned-repos">
+					<a>Learning-Data-Structure-and-Algorithms</a>
+					<a>theme-bulma</a>
+					<a>appwrite</a>
+					<a>spectrum</a>
+					<a>spectrum</a>
+					<a>spectrum</a>
+					<a>spectrum</a>
+				</div>
+			</div>
+		</article>
+	</article>
+</section>
+</body>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js'></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+	const APIURL = 'https://api.github.com/users/';
+
+	async function getData(){
+		const data = await axios({method:"GET", url: APIURL+"mouadTaoussi"})
+		console.log(data)
+		return data;
+	}
+	
+	getData()
+
+
+</script>
+</html>
