@@ -16,9 +16,13 @@ p, h3, a {
 	margin-bottom: 5px;
 	color: white;
 }
-article {
+.container {
 	width: 60%;
-	margin: 50px auto;
+	/*margin: 10% auto;*/
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -30%;
 }
 .search {
 	width: 100%;
@@ -26,6 +30,8 @@ article {
 	padding: 15px 0 15px 20px;
 	background-color: rgba(255,255,255,.3);
 	border: 0;
+	font-family: 'Poppins', 'helvetica';
+	font-size: 15px;
 	color: white;
 	outline: none;
 }
@@ -35,6 +41,7 @@ article {
 	color: white;
 }
 .user {
+	margin-top: 10px;
 	background-color: rgba(255,255,255,.3);
 	width: 100%;
 	padding: 20px;
