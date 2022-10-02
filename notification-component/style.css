@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+:root {
+	--primary: #0e5d79;
+	--danger: #b60014;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', "helvetica";
+	box-sizing: border-box;
+	background-color: var(--primary);
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+.Notification {
+	padding: 10px 20px 10px 20px;
+	color: white;
+	width: 400px;
+	position: absolute;
+	top: -100px;
+	left: 50%;
+	margin-left: -200px;
+	text-align: center;
+	background-color: var(--danger);
+	border-radius: 4px;
+	transition: all .2s ease-out;
+}
+progress {
+	width: 100%;
+	position: absolute;
+	bottom: -13px;
+	left: 0;
+	transition: all .2s ease-out;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+progress::-webkit-progress-bar {
+	/*background-color: var(--danger);*/
+	background-color: white;
+	height: 5px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+progress::-webkit-progress-value {
+	/*background-color: white;*/
+	background-color: var(--danger);
+	transition: all .2s ease-out;
+/*	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;*/
+}
+progress::-moz-progress-bar {
+	background-color: var(--danger);
+}
+.Notification.show {
+	top: 20px;
+}
+button {
+	width: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -50px;
+	background-color: #007bff;
+	border: 0;
+	border-radius: 4px;
+	color: white;
+	font-family: 'Poppins', 'helvetica';
+	padding: 5px 20px;
+}
