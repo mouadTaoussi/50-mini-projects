@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resizable modal</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article class="modal">
+		<div class="content">
+			Resizable Modal
+		</div>
+		<div>
+			<!-- <div 
+				draggable="true" 
+				ondrag="yDrag(event)" 
+				ondragend="yDrag(event)" class="top"></div> -->
+			<div 
+				draggable="true" 
+				ondrag="xDrag(event)" 
+				ondragend="xDrag(event)" class="right"></div>
+			<div 
+				draggable="true" 
+				ondrag="yDrag(event)" 
+				ondragend="yDrag(event)" class="bottom"></div>
+			<!-- <div 
+				draggable="true" 
+				ondrag="xDrag(event)" 
+				ondragend="xDrag(event)" class="left"></div> -->
+			<!-- <div class="top-left"></div>
+			<div class="top-right"></div> -->
+			<div 
+				draggable="true" 
+				ondrag="xyDrag(event)" 
+				ondragend="xyDrag(event)"
+			class="bottom-right"></div>
+			<div class="bottom-left"></div>
+		</div>
+	</article>
+</section>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', "helvetica";
+	box-sizing: border-box;
+	background-color: #212529;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.modal {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 400px;
+	height: 300px;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+/*.top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	cursor: n-resize;
+}*/
+.right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 3px;
+	height: 100%;
+	cursor: e-resize;
+}
+.bottom {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 3px;
+	cursor: n-resize;
+}
+/*.left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 100%;
+	cursor: e-resize;
+}*/
+/*.top-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 3px;
+	cursor: nwse-resize;
+	z-index: 999;
+}*/
+/*.top-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 3px;
+	height: 3px;
+	cursor: nesw-resize;
+	z-index: 999;
+}*/
+.bottom-right {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 3px;
+	height: 3px;
+	cursor: nwse-resize;
+	z-index: 999;
+}
+/*.bottom-left {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 3px;
+	height: 3px;
+	cursor: nesw-resize;
+	z-index: 999;
+}*/
