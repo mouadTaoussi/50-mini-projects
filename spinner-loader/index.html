@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spinner loader</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article class="spinner-loader">
+		<div class="spinner"></div>
+		Loading
+	</article>
+</section>
+</body>
+<script type="text/javascript"></script>
+</html>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
+
+	:root {
+		--background-color: #0e5d79;
+		--color: white;
+		--duration: 1.5s;
+		--tennis-ball-color: red;
+	}
+	section {
+		position: absolute;
+		top: 45%;
+		left: 45%;
+		width: 170px;
+	}
+	.spinner-loader {
+		font-size: 42px;
+		font-weight: bolder;
+		font-family: 'Poppins';
+		position: relative;
+		width: 170px;
+		color: var(--color);
+		margin: 0;
+		padding: 0;
+	}
+	.spinner {
+		position: absolute;
+		bottom: 16px;
+		left: 20px;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background: white;
+		animation: spin var(--duration) linear infinite;
+	}
+	.spinner::before {
+		content: "";
+		position: absolute;
+		bottom: 6px;
+		left: 6px;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: var(--background-color);
+	}
+	/*.spinner::after {
+		content: "";
+		position: absolute;
+		bottom: 6px;
+		left: 6px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: red;
+	}*/
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>
