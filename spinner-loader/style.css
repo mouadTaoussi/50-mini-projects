@@ -1,11 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
 
+:root {
+	--background-color: #0e5d79;
+	--color: white;
+	--duration: .8s;
+	--loader-color: red;
+}
 body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Poppins', 'helvetica';
 	box-sizing: border-box;
-	background-color: #0e5d79;
-	/*background-color: #dee2e6;*/
+	background-color: var(--background-color);
 	height: 100vh;
+}
+
+section {
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	width: 170px;
+}
+.spinner-loader {
+	/**/
+	position: relative;
+	font-size: 42px;
+	width: 170px;
+	/**/
+	font-weight: bolder;
+	font-family: 'Poppins';
+	color: var(--color);
+	margin: 0;
+	padding: 0;
+}
+/*Outer cercle*/
+.spinner {
+	/**/
+	position: absolute;
+	bottom: 16px;
+	left: 19px;
+	width: 26px;
+	height: 26px;
+	/**/
+	border-radius: 50%;
+	background: var(--loader-color);
+	animation: spin var(--duration) linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Inner cercle*/
+.spinner::before {
+	content: "";
+	/**/
+	width: 18px;
+	height: 18px;
+	/**/
+	border-radius: 50%;
+	background: var(--background-color);
+}
+/* devider */
+.spinner::after {
+	content: "";
+	/**/
+	position: absolute;
+	bottom: 1px;
+	left: 2px;
+	width: 10px;
+	height: 7px;
+	/**/
+	background: var(--background-color);
+	transform: rotate(40deg);
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
