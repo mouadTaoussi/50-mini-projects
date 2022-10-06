@@ -13,7 +13,11 @@
 		<ul class="steps">
 			<li class="step">
 				<div class="data active">1</div>
-				<div class="vertical-line active"></div>
+				<div class="vertical-line"></div>
+			</li>
+			<li class="step">
+				<div class="data">1</div>
+				<div class="vertical-line"></div>
 			</li>
 			<li class="step">
 				<div class="data">1</div>
@@ -59,6 +63,7 @@
 		width: 100%;
 		display: flex;
 		align-items: center;
+		cursor: pointer;
 
 		position: relative;
 	}
@@ -83,6 +88,7 @@
 		background-color: var(--steps-color);
 		position: absolute;
 		z-index: -1;
+		transition: all .4s ease-out;
 	}
 /*	.step:not(:last-child) .data:before {
 		content: "";
@@ -103,3 +109,39 @@
 		border-color: var(--active)!important;
 	}
 </style>
+<script type="text/javascript">
+	const steps = document.querySelectorAll('.step');
+	let current_step = 0;
+	let steps_array = [];
+
+	steps.forEach((step)=>{
+		steps_array.push(step)
+		step.addEventListener('click',(event)=>{
+			current_step = steps_array.indexOf(event.path[1]);
+			activatingStep(current_step);
+			// inActivatingStep(current_step);
+			// console.log(steps);
+			// console.log(event.path[1]);
+		})
+	})
+
+	function activatingStep(current_step){
+		for (var i = 0; i < steps.length; i++) {
+			const current_vertical_line = i-1 < 0 ? 0 : i-1;
+			// Activate all the -previous- steps
+			if (current_step >= i) {
+				/* Cercle */
+				// console.log(event.path[1].children[0])
+				steps[i].children[0].classList.add('active');
+				/* Line */
+				// console.log(event.path[1].children[1])
+				steps[current_vertical_line].children[1].classList.add('active');
+			}
+		}
+	}
+	function inactivatingStep(current_step){
+		for (var i = 0; i < steps.length; i++) {
+			// inActivate all the -next- steps
+		}
+	}
+</script>
