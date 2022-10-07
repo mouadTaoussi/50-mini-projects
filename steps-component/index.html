@@ -31,86 +31,45 @@
 				<div class="data">1</div>
 				<div class="vertical-line"></div>
 			</li>
-			<!-- <li class="step">
-				1
-			</li>
-			<li class="step">
-				1
-			</li>
-			<li class="step">
-				1
-			</li> -->
 		</ul>
+		<!-- <div class="steps-content">
+			<div class="step-content">1</div>
+			<div class="step-content">2</div>
+			<div class="step-content">3</div>
+			<div class="step-content">4</div>
+			<div class="step-content">5</div>
+		</div> -->
+		<div class="steps-navigation">
+			<button><< Previous</button>
+			<button>Next >></button>
+		</div>
 	</article>
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
-<style type="text/css">
-	.steps-wrapper {
-		position: absolute;
-		top: 20%;
-		left: 50%;
-		margin-left: -25%;
-		width: 50%;
-	}
-	.steps {
-		list-style: none;
-		display: flex;
-		justify-content: center;
-	}
-	.step {
-		width: 100%;
-		display: flex;
-		align-items: center;
+<style>
+	.steps-navigation button {
+		padding: 10px 20px;
+		border: 0;
+		outline: none;
 		cursor: pointer;
-
-		position: relative;
+		margin: 5px;
 	}
-	/*cercle*/
-	.step .data {
-		display: inline;
-		width: 25px;
-		height: 25px;
-		background-color: var(--background-color);
-		color: var(--color);
-		border-radius: 50%;
-		border: 2px solid var(--steps-color);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
+	.steps-navigation button:nth-child(1) {
+		background-color: transparent;
+		color: black;
+		border: 1px solid black;
 	}
-	/*vertical bar*/
-	.step:not(:last-child) .vertical-line {
-		width: 100%;
-		height: 3px;
-		background-color: var(--steps-color);
-		position: absolute;
-		z-index: -1;
-		transition: all .4s ease-out;
-	}
-/*	.step:not(:last-child) .data:before {
-		content: "";
-		position: absolute;
-		left: 0;
-		width: 100px;
-		height: 5px;
-		background-color: var(--steps-color);
+	.steps-navigation button:nth-child(2) {
+		background-color: black;
 		color: white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: -1;
-	}*/
-	.active {
-		color: white!important;
-		background-color: var(--active)!important;
-		border-color: var(--active)!important;
+		border: 1px solid black;
 	}
 </style>
 <script type="text/javascript">
 	const steps = document.querySelectorAll('.step');
+	const steps_navigation = document.querySelectorAll('.steps-navigation button');
 	let current_step = 0;
 	let steps_array = [];
 
@@ -118,16 +77,26 @@
 		steps_array.push(step)
 		step.addEventListener('click',(event)=>{
 			current_step = steps_array.indexOf(event.path[1]);
+
 			if (event.path[1].children[0].classList.contains('active')) {
-				console.log('active')
+				// Step forward
 				inActivatingStep(current_step);
 			}else {
+				// Step backward
 				activatingStep(current_step);
 			}
-			// console.log(steps);
-			// console.log(event.path[1]);
 		})
 	})
+	steps_navigation[0].onclick = ()=>{
+		console.log('previous')
+		current_step = current_step =< 0 ? 0 : current_step--;
+		inActivatingStep(current_step);
+	}
+	steps_navigation[1].onclick = ()=>{
+		console.log('next')
+		current_step = current_step > steps.length - 1 ? steps.length - 1 : current_step++;
+		activatingStep(current_step);
+	}
 
 	function activatingStep(current_step){
 		for (var i = 0; i < steps.length; i++) {
@@ -135,26 +104,21 @@
 			// Activate all the -previous- steps
 			if (current_step >= i) {
 				/* Cercle */
-				// console.log(event.path[1].children[0])
 				steps[i].children[0].classList.add('active');
 				/* Line */
-				// console.log(event.path[1].children[1])
 				steps[current_vertical_line].children[1].classList.add('active');
 			}
 		}
 	}
 	function inActivatingStep(current_step){
-		console.log(current_step)
+		// reversed for loop  (...5 - 3 - 2 - 1 - 0)
 		for (var i = steps.length - 1; i > 0; i--) {
-			// const current_vertical_line = i+1 < steps.length? steps.length : i+1;
 			// inActivate all the -next- steps
-			if (current_step <= i) {
+			if (current_step < i) {
 				/* Cercle */
-				// console.log(event.path[1].children[0])
 				steps[i].children[0].classList.remove('active');
 				/* Line */
-				// console.log(event.path[1].children[1])
-				steps[i].children[1].classList.remove('active');
+				steps[i-1].children[1].classList.remove('active');
 			}
 		}
 	}
