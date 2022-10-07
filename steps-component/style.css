@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
 :root {
-	--background-color: 
-#dee2e6;
+	--background-color: #dee2e6;
 	--danger: #b60014;
 	--active: #007bff;
 	--steps-color: #8b98a1;
@@ -76,4 +75,22 @@ body {
 	background-color: var(--active)!important;
 	border-color: var(--active)!important;
 	transition: all .1s ease-out;
+}
+
+.steps-navigation button {
+	padding: 10px 20px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	margin: 5px;
+}
+.steps-navigation button:nth-child(1) {
+	background-color: transparent;
+	color: var(--background-color);
+	border: 1px solid var(--background-color);
+}
+.steps-navigation button:nth-child(2) {
+	background-color: var(--background-color);
+	color: white;
+	border: 1px solid var(--background-color);
 }
