@@ -118,8 +118,12 @@
 		steps_array.push(step)
 		step.addEventListener('click',(event)=>{
 			current_step = steps_array.indexOf(event.path[1]);
-			activatingStep(current_step);
-			// inActivatingStep(current_step);
+			if (event.path[1].children[0].classList.contains('active')) {
+				console.log('active')
+				inActivatingStep(current_step);
+			}else {
+				activatingStep(current_step);
+			}
 			// console.log(steps);
 			// console.log(event.path[1]);
 		})
@@ -139,9 +143,19 @@
 			}
 		}
 	}
-	function inactivatingStep(current_step){
-		for (var i = 0; i < steps.length; i++) {
+	function inActivatingStep(current_step){
+		console.log(current_step)
+		for (var i = steps.length - 1; i > 0; i--) {
+			// const current_vertical_line = i+1 < steps.length? steps.length : i+1;
 			// inActivate all the -next- steps
+			if (current_step <= i) {
+				/* Cercle */
+				// console.log(event.path[1].children[0])
+				steps[i].children[0].classList.remove('active');
+				/* Line */
+				// console.log(event.path[1].children[1])
+				steps[i].children[1].classList.remove('active');
+			}
 		}
 	}
 </script>
