@@ -33,11 +33,21 @@
 			</li>
 		</ul>
 		<!-- <div class="steps-content">
-			<div class="step-content">1</div>
-			<div class="step-content">2</div>
-			<div class="step-content">3</div>
-			<div class="step-content">4</div>
-			<div class="step-content">5</div>
+			<div class="step-content">
+				<h3>Login first</h3>
+			</div>
+			<div class="step-content">
+				<h3>Set up your application</h3>
+			</div>
+			<div class="step-content">
+				<h3>Set up data streams</h3>
+			</div>
+			<div class="step-content">
+				<h3>Linking your app to your website</h3>
+			</div>
+			<div class="step-content">
+				<h3>Activating data collection</h3>
+			</div>
 		</div> -->
 		<div class="steps-navigation">
 			<button><< Previous</button>
@@ -48,78 +58,3 @@
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
-<style>
-	.steps-navigation button {
-		padding: 10px 20px;
-		border: 0;
-		outline: none;
-		cursor: pointer;
-		margin: 5px;
-	}
-	.steps-navigation button:nth-child(1) {
-		background-color: transparent;
-		color: black;
-		border: 1px solid black;
-	}
-	.steps-navigation button:nth-child(2) {
-		background-color: black;
-		color: white;
-		border: 1px solid black;
-	}
-</style>
-<script type="text/javascript">
-	const steps = document.querySelectorAll('.step');
-	const steps_navigation = document.querySelectorAll('.steps-navigation button');
-	let current_step = 0;
-	let steps_array = [];
-
-	steps.forEach((step)=>{
-		steps_array.push(step)
-		step.addEventListener('click',(event)=>{
-			current_step = steps_array.indexOf(event.path[1]);
-
-			if (event.path[1].children[0].classList.contains('active')) {
-				// Step forward
-				inActivatingStep(current_step);
-			}else {
-				// Step backward
-				activatingStep(current_step);
-			}
-		})
-	})
-	steps_navigation[0].onclick = ()=>{
-		current_step = current_step == 0 ? 0 : current_step-1;
-		// current_step = current_step - 1;
-		inActivatingStep(current_step);
-	}
-	steps_navigation[1].onclick = ()=>{
-		current_step = current_step == steps.length - 1 ? steps.length - 1 : current_step+1;
-		// current_step = current_step + 1;
-		activatingStep(current_step);
-	}
-
-	function activatingStep(current_step){
-		for (var i = 0; i < steps.length; i++) {
-			const current_vertical_line = i-1 < 0 ? 0 : i-1;
-			// Activate all the -previous- steps
-			if (current_step >= i) {
-				/* Cercle */
-				steps[i].children[0].classList.add('active');
-				/* Line */
-				steps[current_vertical_line].children[1].classList.add('active');
-			}
-		}
-	}
-	function inActivatingStep(current_step){
-		// reversed for loop  (...5 - 3 - 2 - 1 - 0)
-		for (var i = steps.length - 1; i > 0; i--) {
-			// inActivate all the -next- steps
-			if (current_step < i) {
-				/* Cercle */
-				steps[i].children[0].classList.remove('active');
-				/* Line */
-				steps[i-1].children[1].classList.remove('active');
-			}
-		}
-	}
-</script>

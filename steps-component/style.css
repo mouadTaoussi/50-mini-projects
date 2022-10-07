@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
 :root {
 	--background-color: #dee2e6;
+	--primary: #007bff;
 	--danger: #b60014;
-	--active: #007bff;
 	--steps-color: #8b98a1;
 	--color: #101f22;
 }
@@ -22,17 +22,20 @@ body {
 	width: 50%;
 }
 .steps {
+	/*width: 100%;*/
 	list-style: none;
 	display: flex;
+	padding: 0;
 	justify-content: center;
 }
 .step {
-	width: 100%;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
-
 	position: relative;
+}
+.step:not(:last-child) {
+	width: 100%;
 }
 /*cercle*/
 .step .data {
@@ -72,10 +75,29 @@ body {
 }*/
 .active {
 	color: white!important;
-	background-color: var(--active)!important;
-	border-color: var(--active)!important;
+	background-color: var(--primary)!important;
+	border-color: var(--primary)!important;
 	transition: all .1s ease-out;
 }
+
+.steps-content {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	overflow-x: scroll;
+}
+
+.step-content {
+	width: 100%;
+}
+.step-content h3 {
+	margin: 0;
+}
+
+
+
+
+
 
 .steps-navigation button {
 	padding: 10px 20px;
@@ -84,13 +106,18 @@ body {
 	cursor: pointer;
 	margin: 5px;
 }
+.steps-navigation {
+	display: flex;
+	justify-content: center;
+
+}
 .steps-navigation button:nth-child(1) {
 	background-color: transparent;
-	color: var(--background-color);
-	border: 1px solid var(--background-color);
+	color: var(--primary);
+	border: 1px solid var(--primary);
 }
 .steps-navigation button:nth-child(2) {
-	background-color: var(--background-color);
+	background-color: var(--primary);
 	color: white;
-	border: 1px solid var(--background-color);
+	border: 1px solid var(--primary);
 }
