@@ -10,3 +10,136 @@ body {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+
+.login {
+	width: 30%;
+	height: auto;
+	background-color: white;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -15%;
+	padding: 20px;
+}
+.svg-animation {
+	width: 160px;
+	height: 160px;
+	background-color: white;
+	border: 1px solid rgba(0,0,0,.3);
+	position: absolute;
+	top: -80px;
+	left: 50%;
+	margin-left: -80px;
+	border-radius: 50%; 
+	overflow: hidden;
+}
+.mask {
+	width: 100%;
+	height: 70%;
+	position: absolute;
+	background-color: #212529;
+	position: absolute;
+	left: 0;
+	transition: .2s all ease-out;
+	text-align: center;
+	padding-top: 35%;
+	color: white;
+	/*font-weight: bold;*/
+	font-size: 15px;
+}
+.mask.up {
+	top: -75%;
+}
+.mask.down {
+	top: -10%;
+}
+.login input, .login button {
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px 20px;
+	outline: none;
+	font-family: 'Poppins', 'helvetica';
+}
+.login h3 {
+	margin-top: 80px;
+	text-align: center;
+}
+.login input:placeholder {
+	font-family: 'Poppins', 'helvetica';
+}
+.login button {
+	background-color: #b60014;
+	color: white;
+	border: 0;
+}
+.links {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.links a {
+	color: blue;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+/**/
+#winter_hat {
+	/*transform: translateY(2px);*/
+	animation: winter_hat 3s linear infinite;
+}
+#head {
+	animation: head 3s linear infinite;
+}
+#left_eye {
+	display: block;
+	animation: eye 2s linear infinite;
+}
+#right_eye {
+	display: block;
+	animation: eye 2s linear infinite;
+}
+
+@keyframes winter_hat{
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(5px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+@keyframes head{
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(3px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+@keyframes eye{
+	0% {
+		/*opacity: 1;*/
+		display: none;
+	}
+	50% {
+		/*opacity: 0;*/
+		display: none;
+	}
+	100% {
+		/*opacity: 1;*/
+		display: none;
+	}
+}
+/**/
+@media only screen and (max-width: 800px) {
+	.login {
+		width: 90%;
+		margin-left: -45%;
+	}
+}
