@@ -10,9 +10,12 @@
 <body>
 <section>
 	<article class="login">
-		<div></div>
-		<input type="email" placeholder="Type your email or you @username">
-		<input type="password" placeholder="Type your password">
+		<div class="svg-animation">
+			<div class="mask up"></div>
+		</div>
+		<h3>Hey! Welcome back!</h3>
+		<input class="email" type="email" placeholder="Type your email or you @username">
+		<input class="password" type="password" placeholder="Type your password">
 		<div class="links">
 			<a href="">Forgot your password?</a>
 			<a href="">Have no account?</a>
@@ -25,13 +28,40 @@
 <style type="text/css">
 	.login {
 		width: 30%;
-		height: 300px;
+		height: auto;
 		background-color: white;
 		position: absolute;
-		top: 10%;
+		top: 20%;
 		left: 50%;
 		margin-left: -15%;
 		padding: 20px;
+	}
+	.svg-animation {
+		width: 150px;
+		height: 150px;
+		background-color: white;
+		border: 1px solid rgba(0,0,0,.3);
+		position: absolute;
+		top: -75px;
+		left: 50%;
+		margin-left: -75px;
+		border-radius: 50%; 
+		overflow: hidden;
+	}
+	.mask {
+		width: 100%;
+		height: 70%;
+		position: absolute;
+		background-color: black;
+		position: absolute;
+		left: 0;
+		transition: .2s all ease-out;
+	}
+	.mask.up {
+		top: -75%;
+	}
+	.mask.down {
+		top: 0%;
 	}
 	.login input, .login button {
 		width: 100%;
@@ -39,6 +69,10 @@
 		padding: 10px 20px;
 		outline: none;
 		font-family: 'Poppins', 'helvetica';
+	}
+	.login h3 {
+		margin-top: 80px;
+		text-align: center;
 	}
 	.login input:placeholder {
 		font-family: 'Poppins', 'helvetica';
@@ -57,4 +91,28 @@
 		font-size: 12px;
 		text-decoration: none;
 	}
+
+	@media only screen and (max-width: 800px) {
+		.login {
+			width: 90%;
+			margin-left: -45%;
+		}
+	}
 </style>
+<script type="text/javascript">
+	const password = document.querySelector('.password');
+	// const body = document.querySelector('body');
+	const mask = document.querySelector('.mask');
+	password.onkeypress = ()=>{
+		mask.classList.remove('up')
+		mask.classList.add('down')
+	}
+	password.onkeydown = ()=>{
+		mask.classList.add('up')
+		mask.classList.remove('down')
+	}
+	// body.onclick = ()=>{
+	// 	mask.classList.add('up')
+	// 	mask.classList.remove('down')
+	// }
+</script>
