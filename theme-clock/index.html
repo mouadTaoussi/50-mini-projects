@@ -8,87 +8,21 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<section>
+<div class="theme-dark"></div>
+<section class="clock-container">
+	<center>
+		<button class="theme-button dark" onclick="toggleTheme()">Dark</button>
+	</center>
 	<article class="clock">
 		<div class="needle-minute"></div>
 		<div class="needle-second"></div>
 		<div class="needle-hour"></div>
 		<div class="center"></div>
 	</article>
+	<article class="time">
+		<p>17:12:52</p>
+	</article>
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
-<script type="text/javascript">
-	const needle_hour = document.querySelector('.needle-hour')
-	const needle_minute = document.querySelector('.needle-minute')
-	const needle_second = document.querySelector('.needle-second')
-	
-	window.setInterval(()=>{
-		const hours = (new Date().getHours() % 12);
-		const minutes = (new Date().getMinutes());
-		const second = (new Date().getSeconds());
-		
-		needle_hour.style.transform = `rotate(${scale(12, hours)}deg)`;
-		needle_minute.style.transform = `rotate(${scale(59, minutes)}deg)`;
-		needle_second.style.transform = `rotate(${scale(59, second)}deg)`;
-	},1000);
-
-	function scale(max, current){
-		const value = (360 / max) * current;
-		return value;
-	}
-</script>
-<style type="text/css">
-	.clock {
-		width: 400px;
-		height: 400px;
-		position: absolute;
-		top: 20%;
-		left: 50%;
-		margin-left: -200px;
-
-	}
-	.center {
-		width: 10px;
-		height: 10px; 
-		border-radius: 50%;
-		background-color: red;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -5px;
-		margin-left: -5px;
-	}
-
-	.needle-second , .needle-minute, .needle-hour {
-		width: 4px;
-		height: 150px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin-top: -150px;
-		margin-left: -2px;
-		transform-origin: bottom center;
-	}
-	.needle-hour {
-		height: 100px;
-		margin-top: -100px;
-	}
-
-	.needle-second {
-		background-color: red;
-		/*opacity: 0;*/
-	}
-
-	.needle-minute {
-		background-color: white;
-		/*opacity: 0;*/
-	}
-
-	.needle-hour {
-		background-color: white;
-		/*opacity: 0;*/
-	}
-
-</style>
