@@ -22,14 +22,14 @@ body {
 	padding: 20px;
 }
 .svg-animation {
-	width: 160px;
-	height: 160px;
-	background-color: white;
+	width: 180px;
+	height: 180px;
+	background-color: #dee2e6;
 	border: 1px solid rgba(0,0,0,.3);
 	position: absolute;
-	top: -80px;
+	top: -90px;
 	left: 50%;
-	margin-left: -80px;
+	margin-left: -90px;
 	border-radius: 50%; 
 	overflow: hidden;
 }
@@ -86,17 +86,17 @@ body {
 /**/
 #winter_hat {
 	/*transform: translateY(2px);*/
-	animation: winter_hat 3s linear infinite;
+	animation: winter_hat 2s linear infinite;
 }
 #head {
-	animation: head 3s linear infinite;
+	animation: head 2s linear infinite;
 }
 #left_eye {
-	display: block;
+	/*opacity: 0;*/
 	animation: eye 2s linear infinite;
 }
 #right_eye {
-	display: block;
+	/*opacity: 0;*/
 	animation: eye 2s linear infinite;
 }
 
@@ -124,16 +124,10 @@ body {
 }
 @keyframes eye{
 	0% {
-		/*opacity: 1;*/
-		display: none;
 	}
 	50% {
-		/*opacity: 0;*/
-		display: none;
 	}
 	100% {
-		/*opacity: 1;*/
-		display: none;
 	}
 }
 /**/
