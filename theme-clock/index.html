@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Theme clock</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<section>
+	<article class="clock">
+		<div class="needle-minute"></div>
+		<div class="needle-second"></div>
+		<div class="needle-hour"></div>
+		<div class="center"></div>
+	</article>
+</section>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>
+<script type="text/javascript">
+	const needle_hour = document.querySelector('.needle-hour')
+	const needle_minute = document.querySelector('.needle-minute')
+	const needle_seconde = document.querySelector('.needle-second')
+	
+	window.setInterval(()=>{
+		const hours = (new Date().getHours() % 12);
+		const minutes = (new Date().getMinutes());
+		const second = (new Date().getSeconds());
+		
+		needle_hour.style.transform = `rotate(${hours}deg)`;
+		needle_minute.style.transform = `rotate(${minutes}deg)`;
+		needle_seconde.style.transform = `rotate(${second}deg)`;
+	},1000);
+
+
+
+	function scale(){
+		return
+	}
+</script>
+<style type="text/css">
+	.clock {
+		width: 400px;
+		height: 400px;
+		position: absolute;
+		top: 20%;
+		left: 50%;
+		margin-left: -200px;
+
+	}
+	.center {
+		width: 10px;
+		height: 10px; 
+		border-radius: 50%;
+		background-color: red;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -5px;
+		margin-left: -5px;
+	}
+
+	.needle-second , .needle-minute, .needle-hour {
+		width: 4px;
+		height: 150px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -150px;
+		margin-left: -2px;
+		transform-origin: bottom center;
+	}
+	.needle-hour {
+		height: 130px;
+		margin-top: -130px;
+	}
+
+	.needle-second {
+		transform: rotate(20deg);
+		background-color: red;
+	}
+
+	.needle-minute {
+		transform: rotate(150deg);
+		background-color: white;
+	}
+
+	.needle-hour {
+		transform: rotate(290deg);
+		background-color: white;
+	}
+
+</style>
