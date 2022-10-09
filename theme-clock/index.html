@@ -22,22 +22,21 @@
 <script type="text/javascript">
 	const needle_hour = document.querySelector('.needle-hour')
 	const needle_minute = document.querySelector('.needle-minute')
-	const needle_seconde = document.querySelector('.needle-second')
+	const needle_second = document.querySelector('.needle-second')
 	
 	window.setInterval(()=>{
 		const hours = (new Date().getHours() % 12);
 		const minutes = (new Date().getMinutes());
 		const second = (new Date().getSeconds());
 		
-		needle_hour.style.transform = `rotate(${hours}deg)`;
-		needle_minute.style.transform = `rotate(${minutes}deg)`;
-		needle_seconde.style.transform = `rotate(${second}deg)`;
+		needle_hour.style.transform = `rotate(${scale(12, hours)}deg)`;
+		needle_minute.style.transform = `rotate(${scale(59, minutes)}deg)`;
+		needle_second.style.transform = `rotate(${scale(59, second)}deg)`;
 	},1000);
 
-
-
-	function scale(){
-		return
+	function scale(max, current){
+		const value = (360 / max) * current;
+		return value;
 	}
 </script>
 <style type="text/css">
@@ -73,23 +72,23 @@
 		transform-origin: bottom center;
 	}
 	.needle-hour {
-		height: 130px;
-		margin-top: -130px;
+		height: 100px;
+		margin-top: -100px;
 	}
 
 	.needle-second {
-		transform: rotate(20deg);
 		background-color: red;
+		/*opacity: 0;*/
 	}
 
 	.needle-minute {
-		transform: rotate(150deg);
 		background-color: white;
+		/*opacity: 0;*/
 	}
 
 	.needle-hour {
-		transform: rotate(290deg);
 		background-color: white;
+		/*opacity: 0;*/
 	}
 
 </style>
