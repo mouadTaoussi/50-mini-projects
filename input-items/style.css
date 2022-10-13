@@ -11,3 +11,43 @@ body {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+
+.input-items {
+	width: 100%;
+	min-height: 50px;
+	height: auto;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.input-items-container {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.input-items-item {
+	background-color: #0d6efd;
+	color: white;
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	display: flex;
+	height: 30px;
+}
+.input-items-item p {
+	margin: 1px;
+	cursor: pointer;
+}
+.input-items-input {
+	background-color: transparent;
+	border: 0;
+	height: 100%;
+	outline: none;
+	font-family: 'Poppins','helvetica';
+	padding-left: 5px;
+}
+.input-items-input:placeholder {
+	font-family: 'Poppins','helvetica';
+}
