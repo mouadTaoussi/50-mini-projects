@@ -22,3 +22,13 @@ article {
 article:not(:nth-child(1)) {
 	/*margin: 20px 0;*/
 }
+.text-container {
+	/*padding-top: 30%;*/
+	height: 100vh;
+}
+.text-container h1, .text-container p {
+	text-align: center;
+	color:white;
+	margin:0 auto;
+	width: 60%;
+}
