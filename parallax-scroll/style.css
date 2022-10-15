@@ -18,6 +18,15 @@ article {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+article h1 {
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-size: 50px;
 }
 article:not(:nth-child(1)) {
 	/*margin: 20px 0;*/
