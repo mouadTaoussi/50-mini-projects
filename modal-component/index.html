@@ -9,71 +9,21 @@
 </head>
 <body>
 <section>
-	<button class="button" onclick="toggleModal()">Open modal</button>
+	<button class="button close-btn" onclick="toggleModal()">Open modal</button>
 	<div class="modal-wrapper">
-		<article class="modal hidden">
-			<div class="modal-header"></div>
+		<article class="modal ">
+			<div class="modal-header">
+				<p>Log in to get access</p>
+			</div>
 			<div class="modal-content"></div>
-			<div class="modal-footer"></div>
+			<div class="modal-footer">
+				<button class="close-btn"onclick="toggleModal()">Close</button>
+				<button class="login-btn">Log in</button>
+			</div>
 		</article>
 		<div onclick="toggleModal()" class="modal-overlay hidden"></div>
 	</div>
 </section>
 </body>
-<script type="text/javascript">
-	const modal = document.querySelector('.modal');
-	const modal_overlay = document.querySelector('.modal-overlay');
-
-	function toggleModal() {
-		if (modal.classList.contains('hidden')) {
-			modal.classList.remove('hidden');
-			modal_overlay.classList.remove('hidden');
-		}else {
-			modal.classList.add('hidden');
-			modal_overlay.classList.add('hidden');
-		}
-	}
-</script>
+<script type="text/javascript" src="script.js"></script>
 </html>
-<style type="text/css">
-	.modal {
-		background-color: white;
-		width: 450px;
-		height: 500px;
-		border-radius: 4px;
-		position: absolute;
-		top: 10%;
-		left: 50%;
-		margin-left: -225px;
-		z-index: 999;
-		transition: all .3s ease-out;
-		opacity: 1;
-	}
-	.modal.hidden {
-		top: -500px;
-		opacity: 0;
-	}
-	.modal-header {
-		height: 50px;
-		width: 100%;
-		/*background-color: black;*/
-	}
-	.modal-footer {
-		position: absolute;
-		bottom: 0;
-		height: 50px;
-		width: 100%;
-		/*background-color: black;*/
-	}
-	.modal-overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100vh;
-		background-color: rgba(0,0,0,.5);
-	}
-	.modal-overlay.hidden {
-		display: none;
-	}
-</style>
