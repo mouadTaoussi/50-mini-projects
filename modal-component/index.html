@@ -11,11 +11,14 @@
 <section>
 	<button class="button close-btn" onclick="toggleModal()">Open modal</button>
 	<div class="modal-wrapper">
-		<article class="modal ">
+		<article class="modal hidden">
 			<div class="modal-header">
 				<p>Log in to get access</p>
 			</div>
-			<div class="modal-content"></div>
+			<div class="modal-content">
+				<input type="email" name="email" class="email" placeholder="Type your Email">
+				<input type="password" name="password" class="password" placeholder="Type your Password">
+			</div>
 			<div class="modal-footer">
 				<button class="close-btn"onclick="toggleModal()">Close</button>
 				<button class="login-btn">Log in</button>
