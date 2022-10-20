@@ -8,7 +8,147 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<section></section>
+<section>  
+	<article class="windows-loader">	
+		<div class="dot"></div> 
+		<div class="dot"></div> 
+		<div class="dot"></div> 
+		<div class="dot"></div> 
+	</article>
+</section>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
+<style>
+	section {
+		width: 100px;
+		height: 50px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin : -25px 0 0 -50px;
+	}
+	.windows-loader {
+		display: flex;
+		gap: 10px;
+		position: absolute;
+		/*left: -1000px;*/
+		/*transform: translateX(-1000px)*/
+		transition: all .2s ease-out;
+		/*animation: containermove 3s linear infinite;*/
+	} 
+	.dot {
+		width : 10px;
+		height : 10px;
+		background-color: white;
+		border-radius: 50%; 
+		transform: translateX(-1000px);
+	}
+	.dot:nth-child(1) {
+		animation: dotmoveone 3s linear infinite;
+	}
+	.dot:nth-child(2) {
+		animation: dotmovetwo 3s linear infinite;
+	}
+	.dot:nth-child(3) {
+		animation: dotmovethree 3s linear infinite;
+	}
+	.dot:nth-child(4) {
+		animation: dotmovefour 3s linear infinite;
+	}
+	@keyframes containermove {
+		0% {
+			/*left : -1000px;*/
+			transform: translateX(-1000px)
+		}
+		20% {
+			/*left : 5px;*/
+			transform: translateX(-5px)
+
+		}
+		50% {
+			/*left : 10px;*/
+			transform: translateX(10px)
+		}
+		70% {
+			/*left : 20px;*/
+			transform: translateX(20px)
+
+		}
+		100% {
+			/*left : 1000px;*/
+			transform: translateX(1000px)
+		}
+	}
+	@keyframes dotmovefour {
+		10% {
+			transform: translateX(-1000px);
+		}
+		20% {
+			transform: translateX(0px);
+		}
+		40% {
+			transform: translateX(0px);
+		}
+		60% {
+			transform: translateX(0px);
+		}
+		70% {
+			transform: translateX(1000px);
+		}
+		100% {
+			transform: translateX(1000px);
+		}
+	}
+	@keyframes dotmovethree {
+		10% {
+			transform: translateX(-1000px);
+		}
+		20% {
+			transform: translateX(-1000px);
+		}
+		40% {
+			transform: translateX(-20px);
+		}
+		60% {
+			transform: translateX(-20px);
+		}
+		80% {
+			transform: translateX(-20px);
+		}
+		100% {
+			transform: translateX(1000px);
+		}
+	}
+	@keyframes dotmovetwo {
+		10% {
+			transform: translateX(-1000px);
+		}
+		20% {
+			transform: translateX(-1000px);
+		}
+		40% {
+			transform: translateX(-1000px);
+		}
+		60% {
+			transform: translateX(-40px);
+		}
+		80% {
+			transform: translateX(-40px);
+		}
+		90% {
+			transform: translateX(1000px);
+		}
+		100% {
+			transform: translateX(1000px);
+		}
+	}
+	@keyframes dotmoveone {
+		from {
+
+		}
+		to {
+
+		}
+	}
+</style>
