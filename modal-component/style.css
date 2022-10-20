@@ -11,7 +11,9 @@ body {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
-
+button {
+	cursor: pointer;
+}
 .modal {
 	background-color: white;
 	width: 450px;
@@ -37,7 +39,7 @@ body {
 	margin: 0;
 }
 .modal-content {
-	padding:20px;
+	padding: 20px;
 }
 .email, .password {
 	width: 100%;
@@ -57,9 +59,10 @@ body {
 	padding:  15px 0 15px 20px;
 }
 .login-btn, .close-btn {
-	padding: 5px 20px 5px 20px;
+	padding: 8px 20px 8px 20px;
 	color: white;
 	border: 0;
+	font-family: "Poppins", "helvetica";
 }
 .login-btn {
 	background-color: #0e5d79;
