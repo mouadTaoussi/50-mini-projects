@@ -11,60 +11,12 @@
 <section>
 	<article class="upload">
 		<div>
-			<p class="title">Drag your files</p>
+			<p class="title">Drag your files or click to upload</p>
 			<p class="filename"></p>
 		</div>
-		<input type="file">
+		<input type="file" multiple="multiple">
 	</article>
 </section>
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>
-<style type="text/css">
-	.upload {
-		width: 500px;
-		height: 400px;
-		background-color: rgba(11,39,239,.2);
-		margin: 10% auto;
-		border: 1px dashed rgba(11,39,239);
-		color: rgba(11,39,239);
-		font-weight: bolder;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-
-	}
-	.upload input {
-		width: 100%;
-		height: 100%;
-		background-color: red;
-		position: absolute;
-		opacity: 0;
-		/*display: none;*/
-	}
-	.upload {
-		text-align: center;
-	}
-	.upload.active {
-		background-color: rgba(11,39,239,.3);
-	}
-	p {
-		margin: 0;
-	}
-	
-</style>
-<script type="text/javascript">
-	const input = document.querySelector('.upload input');
-	const upload = document.querySelector('.upload')
-
-	input.onmouseover = ()=>{
-		upload.classList.add('active')
-	}
-	input.onmouseleave = ()=>{
-		upload.classList.remove('active');
-	}
-	input.onchange = (e)=> {
-		upload.children[0].children[1].innerText = input.files[0].name
-	}
-</script>
