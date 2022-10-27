@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 <body>
 <section>
@@ -46,9 +46,26 @@
 		grid-template-columns: repeat(4, 25%);
 	}
 	.projects div {
-		/*background-color: red;*/
+		background-image: url('./screenshots/password-typing-animation.jpeg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		width: 100%;
 		height: 200px;
 		border: 1px solid black;
 	}
 </style>
+<script type="text/javascript">
+	const projectsContainer = document.querySelector('.projects')
+	const projects = [
+		"1",
+		"2",
+	]
+
+	function loadProjects(){
+		for (var i = 0; i < projects.length; i++) {
+			console.log(projects[i]);
+		}
+	}
+	loadProjects();
+</script>
