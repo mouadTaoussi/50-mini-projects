@@ -9,21 +9,9 @@
 </head>
 <body>
 <section>
-	<h1>50 mini projects</h1>
+	<!-- <h1>50 mini projects</h1> -->
 	<article class="projects">
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
+		
 	</article>
 </section>
 </body>
@@ -52,19 +40,68 @@
 		background-size: cover;
 		width: 100%;
 		height: 200px;
-		border: 1px solid black;
+		/*border: 1px solid black;*/
 	}
 </style>
 <script type="text/javascript">
 	const projectsContainer = document.querySelector('.projects')
 	const projects = [
-		"1",
-		"2",
+		"animated-svg",
+		"auto-text-writing",
+		"background-slider",
+		"blurry-loading",
+		"button-ripple-effect",
+		"canvas-animation-landingpage",
+		"canvas-graph",
+		"carousel",
+		"dashboard-layout",
+		"draggable-modal",
+		"drawing-canvas",
+		"flip-loader",
+		"github-profiles",
+		"hidden-search-component",
+		"incrementing-counter",
+		"input-items",
+		"layers-effect-sidebar",
+		"mobile-tab-navigation",
+		"modal-component",
+		"movie-list-search",
+		"notification-component",
+		"parallax-scroll",
+		"password-typing-animation",
+		"password-validation-background",
+		"payment-checkout",
+		"quiz-app",
+		"random-image-feed",
+		"realtime-search",
+		"resizable-element",
+		"resizable-modal",
+		"scroll-animation",
+		"skeleton",
+		"spinner-loader",
+		"split-landingpage",
+		"steps-component",
+		"sticky-element",
+		"task-board",
+		"tennis-loader",
+		"theme-clock",
+		"upload-component",
+		"vertical-slider",
+		"video-landingpage",
+		"weather-app",
+		"win-desktop",
+		"win-loader"
 	]
 
 	function loadProjects(){
 		for (var i = 0; i < projects.length; i++) {
-			console.log(projects[i]);
+			const projectContainer = document.createElement('a');
+			projectContainer.href = `/${projects[i]}`;
+			const projectElement = document.createElement('div');
+			projectElement.style.backgroundImage = `url(./screenshots/${projects[i]}.jpeg)`;
+			projectContainer.appendChild(projectElement)
+			// projectsContainer.innerHTML += projectElement;
+			projectsContainer.appendChild(projectContainer);
 		}
 	}
 	loadProjects();
