@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const cardsContainer = document.querySelector('.cards-container');
 const instructions = document.querySelector('.instructions');
 let cards = document.querySelectorAll('.card');
