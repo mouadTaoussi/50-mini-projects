@@ -1,5 +1,4 @@
 const images = document.querySelectorAll('img, .image-background');
-const body = document.querySelector('body');
 const settings_icon = document.querySelector('.settings-icon');
 const settings = document.querySelector('.settings');
 
