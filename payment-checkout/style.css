@@ -7,7 +7,7 @@ body {
 	box-sizing: border-box;
 	/*background-color: #b60014;*/
 	/*background-color: #007bff;*/
-	background-image: url('./images/background.jpg');
+	background-image: url('./payment-checkout/images/background.jpg'),url('./images/background.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -27,7 +27,7 @@ body {
 	box-shadow:  8px 8px 8px rgba(0,0,0,.2);
 }
 .avatar {
-	background-image: url('./images/mouadTaoussi.jpeg');
+	background-image: url('./payment-checkout/images/mouadTaoussi.jpeg'),url('./images/mouadTaoussi.jpeg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

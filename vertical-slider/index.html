@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./vertical-slider/style.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 <section>
@@ -24,10 +25,14 @@
 		</div>
 	</article>
 	<article class="right-side">
-		<div class="slide slide-image" style="background-image: url('./images/cloudy_mountains.jpg');"></div>
-		<div class="slide slide-image" style="background-image: url('./images/cherry_blossom.webp');"></div>
-		<div class="slide slide-image" style="background-image: url('./images/sea_during_sunset.jpg');"></div>
-		<div class="slide slide-image" style="background-image: url('./images/foggy_forest.jpg');"></div>
+		<div class="slide slide-image" style="background-image: url('./vertical-slider/images/cloudy_mountains.jpg'),url('./images/cloudy_mountains.jpg');"></div>
+
+		<div class="slide slide-image" style="background-image: url('./vertical-slider/images/cherry_blossom.webp'),url('./images/cherry_blossom.webp');"></div>
+
+		<div class="slide slide-image" style="background-image: url('./vertical-slider/images/sea_during_sunset.jpg'),url('./images/cherry_blossom.webp');"></div>
+
+		<div class="slide slide-image" style="background-image: url('./vertical-slider/images/foggy_forest.jpg'),url('./images/cherry_blossom.webp');"></div>
+
 	</article>
 	<div class='button-group'>
 		<button class="up-button">
@@ -44,4 +49,5 @@
 </section>
 </body>
 <script type="text/javascript" src="./vertical-slider/script.js"></script>
+<script type="text/javascript" src="./script.js"></script>
 </html>
