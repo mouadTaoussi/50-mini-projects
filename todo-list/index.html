@@ -12,9 +12,13 @@
 <body>
 <section>
 	<article>
-		<input type="text" placeholder="Type Task" autofocus>
+		<input 
+		type="text" 
+		placeholder="Type Task" 
+		onkeydown="addTask(event)" 
+		autofocus>
 		<div class="tasks">
-			<div class="task" onclick="done()">Building this</div>
+
 		</div>
 	</article>
 </section>
@@ -35,11 +39,50 @@
 		font-family: 'Poppins','helvetica';
 		font-size: 50px;
 		text-align: center;
+		color: grey;
+		font-weight: bold;
 	}
+
 	.tasks {
 		margin-top: 30px;
 		width: 100%;
 		text-align: center;
 		color: grey;
+		font-size: 20px;
+	}
+	.task {
+		cursor: pointer;
 	}
 </style>
+<script type="text/javascript">
+	const tasks = document.querySelector('.tasks')
+	const ls = localStorage;
+
+	function addTask(e){
+		if(e.keyCode == 13) {
+			if (e.path[0].value != "") {
+				tasks.innerHTML += `
+					<div 
+						class="task" 
+						onclick="done(event)"
+						oncontextmenu="remove(event)"
+					>${e.path[0].value}</div>
+				`
+				e.path[0].value = "";
+			}
+		}
+		// add task to localstorage
+		// const todos_ls = JSON.parse(ls.getItem('todos'))
+		// console.log(todos_ls)
+		// ls.setItem('todos',JSON.stringify())
+	}
+	function done(e){
+		e.path[0].style.textDecoration = "line-through";
+		// mention task to be completed to localstorage
+
+	}
+	function remove(e){
+		e.path[0].remove();
+		// remove task to localstorage
+	}
+</script>
