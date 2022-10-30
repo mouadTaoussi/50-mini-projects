@@ -68,13 +68,15 @@
 						oncontextmenu="remove(event)"
 					>${e.path[0].value}</div>
 				`
+				// add task to localstorage
+				// ls.setItem('todos',JSON.stringify({
+				// 	tasks: [{task: e.path[0].value, completed: false}]
+				// }))
+				// const todos_ls = JSON.parse(ls.getItem('todos'))
+				// console.log(todos_ls)
 				e.path[0].value = "";
 			}
 		}
-		// add task to localstorage
-		// const todos_ls = JSON.parse(ls.getItem('todos'))
-		// console.log(todos_ls)
-		// ls.setItem('todos',JSON.stringify())
 	}
 	function done(e){
 		e.path[0].style.textDecoration = "line-through";
