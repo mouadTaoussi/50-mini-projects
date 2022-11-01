@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excel spreadsheet</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./excel-spreadsheet/style.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<section>
+	<header></header>
+	<article></article>
+</section>
+</body>
+<script type="text/javascript" src="./excel-spreadsheet/script.js"></script>
+<script type="text/javascript" src="./script.js"></script>
+</html>
+
+<style type="text/css">
+	header {
+		width: 100%;
+		height: 50px;
+		background-color: #b60014;
+		position: fixed;
+	}
+	article {
+		padding-top: 50px;
+		display: grid;
+		grid-template-columns: repeat(26,100px);
+	}
+	.highlight {
+		border: 1px solid #b60014; 
+		background-color: rgb(182,0,20,.2);
+	}
+</style>
+<script type="text/javascript">
+	const container = document.querySelector('article')
+	let inputs = [];
+	const grid_template_columns_count = 26;
+	let grid_template_columns_count_current = 0;
+	let grid_template_row_current = 0;
+	const alphabets = [
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+	]
+
+	for (var i = 0; i < 1000; i++) {
+		const cellule = document.createElement('input');
+		cellule.draggable = "true"
+
+		if (grid_template_columns_count_current > grid_template_columns_count){
+			grid_template_columns_count_current = 0;
+			grid_template_row_current++;
+		}
+		else {
+
+			cellule.id = alphabets[grid_template_columns_count_current]+grid_template_row_current;
+			grid_template_columns_count_current++;
+		}
+		container.appendChild(cellule)
+		inputs.push(cellule)	
+	}
+
+	inputs.forEach((input)=>{
+		input.onclick= ()=>{
+			//remove selections
+			inputs.forEach((input)=>{
+				input.classList.remove('highlight')
+			})
+		}
+		input.ondrag = (e)=>{
+			// console.log(e)
+		}
+		input.ondragover  =(e)=>  {
+			e.path[0].classList.add("highlight")
+		}
+	}) 
+</script>
