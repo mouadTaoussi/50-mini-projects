@@ -86,7 +86,7 @@
 	const container = document.querySelector('.speadsheet')
 	const y = document.querySelector('.y')
 	let inputs = [];
-	const grid_template_columns_count = 26;
+	const grid_template_columns_count = 25;
 	let grid_template_columns_count_current = 0;
 	let grid_template_row_current = 0;
 	const alphabets = [
@@ -99,21 +99,23 @@
 		const cellule = document.createElement('input');
 		cellule.draggable = "true"
 
-		if (grid_template_columns_count_current == (grid_template_columns_count+1)){
+		if (grid_template_columns_count_current == (grid_template_columns_count)){
+			// Add cellule
+			cellule.id = alphabets[grid_template_columns_count_current]+grid_template_row_current;
+			// cellule.placeholder = grid_template_columns_count_current
+			cellule.placeholder = alphabets[grid_template_columns_count_current]+grid_template_row_current;
+			
 			// Set columns count to 0 .x
 			grid_template_columns_count_current = 0;
-			// Add cellule
-			// cellule.id = alphabets[grid_template_columns_count_current]+grid_template_row_current;
-			cellule.placeholder = grid_template_columns_count_current
-			// cellule.placeholder = alphabets[grid_template_columns_count_current];
 			// Increase row count .y
 			grid_template_row_current++;
 		}
 		else {
 
-			// cellule.id = alphabets[grid_template_columns_count_current]+grid_template_row_current;
-			cellule.placeholder = grid_template_columns_count_current
-			// cellule.placeholder = alphabets[grid_template_columns_count_current];
+			cellule.id = alphabets[grid_template_columns_count_current]+grid_template_row_current;
+			// cellule.placeholder = grid_template_columns_count_current
+			cellule.placeholder = alphabets[grid_template_columns_count_current]+grid_template_row_current;
+			
 			// Increase columns count to 0 .x
 			grid_template_columns_count_current++;
 		}
