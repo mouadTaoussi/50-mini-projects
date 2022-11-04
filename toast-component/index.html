@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Toast Component</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./toast-component/style.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<section>
+	<button onclick="addToast(event)">Show toast</button><
+	<div class="toasts-container"></div>
+</section>
+</body>
+<script type="text/javascript" src="./toast-component/script.js"></script>
+<script type="text/javascript" src="./script.js"></script>
+</html>
+
+<style type="text/css">
+	.toasts-container {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+	}
+	.toast-component {
+		width: 300px;
+		border-radius: 3px;
+		background-color: white;
+		font-size: 15px;
+		margin-top: 10px;
+	}
+	header {
+		background-color: rgba(0,0,0,.1);
+		padding: 10px;
+		border-bottom: 1px solid rgba(0,0,0,.2);
+	}
+	.time {
+		font-size: 12px;
+	}
+	.body {
+		padding: 10px;
+		font-size: 13px;
+	}
+</style>
+<script type="text/javascript">
+	const toastsContainer = document.querySelector('.toasts-container');
+
+	function addToast(e){
+		const toast = `
+			<article class="toast-component">
+				<header>
+					Mouad just messaged you <i class="time">(5 sec ago)</i>
+				</header>
+				<div class="body">
+					Hello Motherfucker, I just received your god damn tools couple minutes ago and it seems like they doesn't work properly beacause of your shitty hands!
+				</div>
+			</article>
+		`
+		toastsContainer.innerHTML += toast;
+	}
+
+</script>
