@@ -46,25 +46,37 @@
 </style>
 <script type="text/javascript">
 	let toastsContainer = document.querySelector('.toasts-container');
-
+	let toasts = []
 	function addToast(e){
+		const r =Math.random();
 		const toast = `
 			<article class="toast-component">
 				<header>
 					Mouad just messaged you <i class="time">(5 sec ago)</i>
 				</header>
 				<div class="body">
-					Hello Motherfucker, I just received your god damn tools couple minutes ago and it seems like they doesn't work properly beacause of your shitty hands!
+					${r}
 				</div>
 			</article>
 		`
 		toastsContainer.innerHTML += toast;
 		toastsContainer = document.querySelector('.toasts-container');
+		toasts.push({remaining: 5000})
 	}
 
 	setInterval(()=>{
-		// Remove the first toast
+		for (var i = 0; i < toastsContainer.children.length; i++) {
+			if (toasts[i]) {
+				if (toasts[i].remaining <= 0) {
+					// Remove the first toast
+					toastsContainer.children[i].remove()
+					toasts.splice(i,1);
+				}else {
+					toasts[i].remaining -= 1000;
+				}
+			}
+		}
 
-	},2000)
+	},1000)
 
 </script>
