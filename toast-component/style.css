@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&family=Poppins:wght@400;500&display=swap');
 
 :root {
-	--background-color: #0e5d79;
+	--background-color: #b60014;
 	--color: white;
 	--duration: .8s;
 	--loader-color: red;
@@ -13,4 +13,56 @@ body {
 	box-sizing: border-box;
 	background-color: var(--background-color);
 	height: 100vh;
+}
+
+button {
+	border: 0;
+	background-color: #dc3545;
+	color: white;
+	/*padding: 8px 16px 8px 16px;*/
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -15px;
+	margin-left: -50px;
+}
+.toasts-container {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	/*max-height: 100vh;*/
+	/*overflow-y: scroll;*/
+}
+.toast-component {
+	width: 350px;
+	border-radius: 3px;
+	background-color: white;
+	font-size: 15px;
+	margin-top: 10px;
+}
+header {
+	background-color: rgba(0,0,0,.1);
+	padding: 10px;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+}
+header p {
+	margin: 0;
+	padding: 0;
+}
+header .icon {
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: red;
+	border-radius: 5px;
+	color: white;
+	margin-right: 5px;
+}
+.time {
+	font-size: 12px;
+}
+.body {
+	padding: 10px;
+	font-size: 13px;
 }

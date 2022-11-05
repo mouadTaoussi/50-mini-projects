@@ -10,73 +10,10 @@
 </head>
 <body>
 <section>
-	<button onclick="addToast(event)">Show toast</button><
+	<button onclick="addToast(event)">Show toast</button>
 	<div class="toasts-container"></div>
 </section>
 </body>
 <script type="text/javascript" src="./toast-component/script.js"></script>
 <script type="text/javascript" src="./script.js"></script>
 </html>
-
-<style type="text/css">
-	.toasts-container {
-		position: absolute;
-		bottom: 10px;
-		left: 10px;
-	}
-	.toast-component {
-		width: 300px;
-		border-radius: 3px;
-		background-color: white;
-		font-size: 15px;
-		margin-top: 10px;
-	}
-	header {
-		background-color: rgba(0,0,0,.1);
-		padding: 10px;
-		border-bottom: 1px solid rgba(0,0,0,.2);
-	}
-	.time {
-		font-size: 12px;
-	}
-	.body {
-		padding: 10px;
-		font-size: 13px;
-	}
-</style>
-<script type="text/javascript">
-	let toastsContainer = document.querySelector('.toasts-container');
-	let toasts = []
-	function addToast(e){
-		const r =Math.random();
-		const toast = `
-			<article class="toast-component">
-				<header>
-					Mouad just messaged you <i class="time">(5 sec ago)</i>
-				</header>
-				<div class="body">
-					${r}
-				</div>
-			</article>
-		`
-		toastsContainer.innerHTML += toast;
-		toastsContainer = document.querySelector('.toasts-container');
-		toasts.push({remaining: 5000})
-	}
-
-	setInterval(()=>{
-		for (var i = 0; i < toastsContainer.children.length; i++) {
-			if (toasts[i]) {
-				if (toasts[i].remaining <= 0) {
-					// Remove the first toast
-					toastsContainer.children[i].remove()
-					toasts.splice(i,1);
-				}else {
-					toasts[i].remaining -= 1000;
-				}
-			}
-		}
-
-	},1000)
-
-</script>
