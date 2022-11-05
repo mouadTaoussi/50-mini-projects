@@ -49,6 +49,7 @@ Install and run `live-server` command in the root directory to see them live exc
 |Task Board|The next Trello|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Tennis Loader|A ball bouncing loader|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Theme Clock|A clock with light and dark mode|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Toast Component|A component for messaging notifications|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Todo List|Modern Todo List in terms of UI|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Upload Component|Modern Upload component|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Vertical Slider|To see nature|[live demo](https://50-mini-projects-xi.vercel.app/)|
