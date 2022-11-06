@@ -2,7 +2,6 @@ let toastsContainer = document.querySelector('.toasts-container');
 let toasts = []
 
 function addToast(e){
-	const r =Math.random();
 	const toast = `
 		<article class="toast-component">
 			<header>
