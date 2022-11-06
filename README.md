@@ -27,6 +27,7 @@ Install and run `live-server` command in the root directory to see them live exc
 |Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Job posting|Job listing board|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Mobile Tab Navigation|Mobile version of navigation|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Modal Component|Modal well animated|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Movie List Search|Movie search app|[live demo](https://50-mini-projects-xi.vercel.app/)|
