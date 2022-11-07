@@ -1,0 +1,12 @@
+<svg width="307" height="309" viewBox="0 0 307 309" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="cube-container">
+<g id="cube">
+<path id="top" d="M94 120.5L153.5 86.5L213 121L153.5 155L94 120.5Z" fill="white" fill-opacity="0.14" stroke="white"/>
+<path id="base" d="M93.5 190L153.5 155.5L213 190L153.5 224L93.5 190Z" fill="white" fill-opacity="0.14" stroke="white"/>
+<path id="right-back" d="M153.5 155L154 86L213.5 120.5V189.5L153.5 155Z" fill="white" fill-opacity="0.14" stroke="white"/>
+<path id="left-back" d="M93 189.5L93.5 120L153 86V155.5L93 189.5Z" fill="white" fill-opacity="0.14" stroke="white"/>
+<path id="left-front" d="M153.5 223.5V155.5L213.5 121V189.5L153.5 223.5Z" fill="white" fill-opacity="0.14" stroke="white"/>
+<path id="right-front" d="M153 155L93.5 120.5V190L153 223.5V155Z" fill="white" fill-opacity="0.14" stroke="white"/>
+</g>
+</g>
+</svg>
