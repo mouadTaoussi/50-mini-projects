@@ -10,9 +10,26 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
+	overflow: hidden;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+/*.wallpaper {
+	background-image: url('./Images/wallpaper.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+
+	z-index: -1;
+}*/
+section  {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 100%;
 }
 
 header {
@@ -28,7 +45,10 @@ header div {
 	display: flex;
 	align-items: center;
 }
-header ul {
+header div .list-item, header div svg {
+	margin-right: 15px;
+}
+/*header ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -37,11 +57,7 @@ header ul li {
 	display: inline;
 	margin: 0 5px;
 	font-size: 15px;
-}
-/* Icon */
-header ul li svg {
-	padding-top: 5px;
-}
+}*/
 /* Finder */
 header ul li:nth-child(2) {
 	font-weight: bolder;
