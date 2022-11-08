@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Source+Code+Pro:wght@300;500&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	/*font-family: 'Silkscreen', "helvetica";*/
+	font-family: 'Source Code Pro', monospace;
+	box-sizing: border-box;
+	background-color: #b60014;
+}
