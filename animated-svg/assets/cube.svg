@@ -1,0 +1,13 @@
+<svg width="301" height="301" viewBox="0 0 301 301" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="cube">
+<rect id="cube-container" width="301" height="301" fill="black"/>
+<g id="cube_2">
+<path id="top" d="M150.5 149.422L90.9985 115L150.5 80.5776L210.002 115L150.5 149.422Z" fill="white" fill-opacity="0.12" stroke="white"/>
+<path id="base" d="M150.5 219.422L90.9985 185L150.5 150.578L210.002 185L150.5 219.422Z" fill="white" fill-opacity="0.12" stroke="white"/>
+<path id="right-back" d="M150.5 149.712V80.8669L210 115.288V184.133L150.5 149.712Z" fill="white" fill-opacity="0.12" stroke="white"/>
+<path id="left-front" d="M90.5 184.712V115.867L150 150.288V219.133L90.5 184.712Z" fill="white" fill-opacity="0.12" stroke="white"/>
+<path id="right-front" d="M150.5 219.133V150.288L210 115.867V184.712L150.5 219.133Z" fill="white" fill-opacity="0.12" stroke="white"/>
+<path id="left-back" d="M90.5 184.133V115.288L150 80.8669V149.712L90.5 184.133Z" fill="white" fill-opacity="0.12" stroke="white"/>
+</g>
+</g>
+</svg>
