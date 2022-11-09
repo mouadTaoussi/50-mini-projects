@@ -12,16 +12,16 @@
 <section>
 	<article class="testimonials-slider">
 		<div class="testimonial">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
 		</div>
 		<div class="testimonial">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
 		</div>
 		<div class="testimonial">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
 		</div>
 		<div class="testimonial">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
 		</div>
 	</article>
 </section>
@@ -30,12 +30,18 @@
 <script type="text/javascript" src="./script.js"></script>
 </html>
 <style type="text/css">
+	section {
+		overflow-x: hidden;
+		width: 100%;
+	}
 	.testimonials-slider {
+		/*transform: translateY(20%);*/
 		padding-top: 20%;
 		display: grid;
 		grid-template-columns: repeat(4,100%);
-		overflow-x: scroll;
 		height: 100vh;
+		transition: all .4s ease-out;
+		/*transform: translateX(-100%);*/
 	}
 	.testimonial {
 		width: 500px;
@@ -46,3 +52,17 @@
 		color: white;
 	}
 </style>
+<script type="text/javascript">
+	const testimonialsContainer = document.querySelector('.testimonials-slider');
+	let current = 0;
+
+
+	window.setInterval(()=>{
+		if (current != -300) {
+			current = current - 100;
+		}else {
+			current = 0;
+		}
+		testimonialsContainer.style.transform = `translateX(${current}%)`
+	},5000)
+</script>
