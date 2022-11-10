@@ -12,16 +12,32 @@
 <section>
 	<article class="testimonials-slider">
 		<div class="testimonial">
-			1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			<p class="text">
+				1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			</p>
+			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+			<p class="company">Alphabet</p>
 		</div>
 		<div class="testimonial">
-			2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			<p class="text">
+				2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			</p>
+			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+			<p class="company">Alphabet</p>
 		</div>
 		<div class="testimonial">
-			3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			<p class="text">
+				3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			</p>
+			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+			<p class="company">Alphabet</p>
 		</div>
 		<div class="testimonial">
-			4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			<p class="text">
+				4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+			</p>
+			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+			<p class="company">Alphabet</p>
 		</div>
 	</article>
 </section>
@@ -40,7 +56,7 @@
 		display: grid;
 		grid-template-columns: repeat(4,100%);
 		height: 100vh;
-		transition: all .4s ease-out;
+		transition: all .6s ease-out;
 		/*transform: translateX(-100%);*/
 	}
 	.testimonial {
@@ -48,8 +64,12 @@
 		height: 200px;
 		margin: 0 auto;
 		padding: 20px;
-		background-color: #dc3545;
+		background-color: #007bff;
+		text-align: center;
 		color: white;
+	}
+	.testimonial .text {
+		font-family: 'Poppins','helvetica';
 	}
 </style>
 <script type="text/javascript">
@@ -64,5 +84,5 @@
 			current = 0;
 		}
 		testimonialsContainer.style.transform = `translateX(${current}%)`
-	},5000)
+	},7000)
 </script>
