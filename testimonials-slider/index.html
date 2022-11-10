@@ -12,32 +12,40 @@
 <section>
 	<article class="testimonials-slider">
 		<div class="testimonial">
-			<p class="text">
-				1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-			</p>
-			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
-			<p class="company">Alphabet</p>
+			<div class="testimonial-content">
+				<p class="text">
+					1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+				</p>
+				<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+				<p class="company">Alphabet</p>
+			</div>
 		</div>
 		<div class="testimonial">
-			<p class="text">
-				2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-			</p>
-			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
-			<p class="company">Alphabet</p>
+			<div class="testimonial-content">
+				<p class="text">
+					2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+				</p>
+				<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+				<p class="company">Alphabet</p>
+			</div>
 		</div>
 		<div class="testimonial">
-			<p class="text">
-				3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-			</p>
-			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
-			<p class="company">Alphabet</p>
+			<div class="testimonial-content">
+				<p class="text">
+					3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+				</p>
+				<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+				<p class="company">Alphabet</p>
+			</div>
 		</div>
 		<div class="testimonial">
-			<p class="text">
-				4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-			</p>
-			<p class="name-position">Mouad Taoussi, Sotware enginner</p>
-			<p class="company">Alphabet</p>
+			<div class="testimonial-content">
+				<p class="text">
+					4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+				</p>
+				<p class="name-position">Mouad Taoussi, Sotware enginner</p>
+				<p class="company">Alphabet</p>
+			</div>
 		</div>
 	</article>
 </section>
@@ -51,15 +59,16 @@
 		width: 100%;
 	}
 	.testimonials-slider {
-		/*transform: translateY(20%);*/
-		padding-top: 20%;
+		margin-top: 15%;
 		display: grid;
 		grid-template-columns: repeat(4,100%);
-		height: 100vh;
+		/*height: 100vh;*/
 		transition: all .6s ease-out;
 		/*transform: translateX(-100%);*/
 	}
 	.testimonial {
+		display: flex;
+		align-items: center;
 		width: 500px;
 		height: 200px;
 		margin: 0 auto;
@@ -71,6 +80,7 @@
 	.testimonial .text {
 		font-family: 'Poppins','helvetica';
 	}
+	
 </style>
 <script type="text/javascript">
 	const testimonialsContainer = document.querySelector('.testimonials-slider');
