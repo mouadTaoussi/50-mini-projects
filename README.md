@@ -25,7 +25,6 @@ Install and run `live-server` command in the root directory to see them live exc
 |Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Incrementing Counter|Number Incrementing effect|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Job posting|Job listing board|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Mobile Tab Navigation|Mobile version of navigation|[live demo](https://50-mini-projects-xi.vercel.app/)|
