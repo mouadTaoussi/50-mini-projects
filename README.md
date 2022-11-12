@@ -45,16 +45,16 @@ Install and run `live-server` command in the root directory to see them live exc
 |Spinner Loader|Spinner loader|[live demo](https://50-mini-projects-xi.vercel.app/spinner-loader)|
 |Split Landing Page|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/split-landingpage)|
 |Steps Component|Steps component to devide the process of entering data|[live demo](https://50-mini-projects-xi.vercel.app/steps-component)|
-|Sticky Element|Element stick to top when scroll|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Task Board|The next Trello|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Tennis Loader|A ball bouncing loader|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Testimonials Slider|Slides of testimonials|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Theme Clock|A clock with light and dark mode|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Toast Component|A component for messaging notifications|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Todo List|Modern Todo List in terms of UI|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Upload Component|Modern Upload component|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Vertical Slider|To see nature|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Video Landing Page|Footages of videos as background of the showcase|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Wheather App|a beautifull weather app|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Win Desktop|Windows 11 Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Windows Loader|Windows 10 offical loader cloned|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Sticky Element|Element stick to top when scroll|[live demo](https://50-mini-projects-xi.vercel.app/sticky-element)|
+|Task Board|The next Trello|[live demo](https://50-mini-projects-xi.vercel.app/task-board)|
+|Tennis Loader|A ball bouncing loader|[live demo](https://50-mini-projects-xi.vercel.app/tennis-loader)|
+|Testimonials Slider|Slides of testimonials|[live demo](https://50-mini-projects-xi.vercel.app/-testimonials-slider)|
+|Theme Clock|A clock with light and dark mode|[live demo](https://50-mini-projects-xi.vercel.app/theme-clock)|
+|Toast Component|A component for messaging notifications|[live demo](https://50-mini-projects-xi.vercel.app/toast-component)|
+|Todo List|Modern Todo List in terms of UI|[live demo](https://50-mini-projects-xi.vercel.app/todo-list)|
+|Upload Component|Modern Upload component|[live demo](https://50-mini-projects-xi.vercel.app/upload-component)|
+|Vertical Slider|To see nature|[live demo](https://50-mini-projects-xi.vercel.app/vertical-slider)|
+|Video Landing Page|Footages of videos as background of the showcase|[live demo](https://50-mini-projects-xi.vercel.app/video-landingpage)|
+|Weather App|a beautifull weather app|[live demo](https://50-mini-projects-xi.vercel.app/weather-app)|
+|Win Desktop|Windows 11 Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/win-desktop)|
+|Windows Loader|Windows 10 offical loader cloned|[live demo](https://50-mini-projects-xi.vercel.app/windows-loader)|
