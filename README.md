@@ -24,7 +24,7 @@ Install and run `live-server` command in the root directory to see them live exc
 |Github Profiles|Realtime search of github profiles|[live demo](https://50-mini-projects-xi.vercel.app/github-profiles)|
 |Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/hidden-search-component)|
 |Incrementing Counter|Number Incrementing effect|[live demo](https://50-mini-projects-xi.vercel.app/incrementing-counter)|
-|Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/input-items)|
 |Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/layers-effect-sidebar)|
 |MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/macos-desktop)|
 |Mobile Tab Navigation|Mobile version of navigation|[live demo](https://50-mini-projects-xi.vercel.app/mobile-tab-navigation)|
@@ -48,7 +48,7 @@ Install and run `live-server` command in the root directory to see them live exc
 |Sticky Element|Element stick to top when scroll|[live demo](https://50-mini-projects-xi.vercel.app/sticky-element)|
 |Task Board|The next Trello|[live demo](https://50-mini-projects-xi.vercel.app/task-board)|
 |Tennis Loader|A ball bouncing loader|[live demo](https://50-mini-projects-xi.vercel.app/tennis-loader)|
-|Testimonials Slider|Slides of testimonials|[live demo](https://50-mini-projects-xi.vercel.app/-testimonials-slider)|
+|Testimonials Slider|Slides of testimonials|[live demo](https://50-mini-projects-xi.vercel.app/testimonials-slider)|
 |Theme Clock|A clock with light and dark mode|[live demo](https://50-mini-projects-xi.vercel.app/theme-clock)|
 |Toast Component|A component for messaging notifications|[live demo](https://50-mini-projects-xi.vercel.app/toast-component)|
 |Todo List|Modern Todo List in terms of UI|[live demo](https://50-mini-projects-xi.vercel.app/todo-list)|
