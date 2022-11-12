@@ -10,20 +10,20 @@ Install and run `live-server` command in the root directory to see them live exc
 # Projects
 |Project name | Description  | Demo |
 --- | --- | ---|
-|Animated svg|Simple svg animation with use of keyframes|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Auto text writing|Text writing animation|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Background Slider|Gallery of Images of nature|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Blurry Loading|A Blurry animation while image loading|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Button ripple effect|A Materiel design effect|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Canvas Graph|Historical Graph without libraries|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Carousel|Slides of Images|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Dashboard Layout|Dashboard of tables & Graphs|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Draggable Modal|Modal that moves|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Drawing Canvas|A Canvas to draw lines|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Flip Loader|A rectangle that flips|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Github Profiles|Realtime search of github profiles|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Incrementing Counter|Number Incrementing effect|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Animated svg|Simple svg animation with use of keyframes|[live demo](https://50-mini-projects-xi.vercel.app/animated-svg)|
+|Auto text writing|Text writing animation|[live demo](https://50-mini-projects-xi.vercel.app/auto-text-writing)|
+|Background Slider|Gallery of Images of nature|[live demo](https://50-mini-projects-xi.vercel.app/background-slider)|
+|Blurry Loading|A Blurry animation while image loading|[live demo](https://50-mini-projects-xi.vercel.app/blurry-loading)|
+|Button ripple effect|A Materiel design effect|[live demo](https://50-mini-projects-xi.vercel.app/button-ripple-effect)|
+|Canvas Graph|Historical Graph without libraries|[live demo](https://50-mini-projects-xi.vercel.app/canvas-graph)|
+|Carousel|Slides of Images|[live demo](https://50-mini-projects-xi.vercel.app/carousel)|
+|Dashboard Layout|Dashboard of tables & Graphs|[live demo](https://50-mini-projects-xi.vercel.app/dashboard-layout)|
+|Draggable Modal|Modal that moves|[live demo](https://50-mini-projects-xi.vercel.app/draggable-modal)|
+|Drawing Canvas|A Canvas to draw lines|[live demo](https://50-mini-projects-xi.vercel.app/drawing-canvas)|
+|Flip Loader|A rectangle that flips|[live demo](https://50-mini-projects-xi.vercel.app/flip-loader)|
+|Github Profiles|Realtime search of github profiles|[live demo](https://50-mini-projects-xi.vercel.app/github-profiles)|
+|Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/hidden-seach-component)|
+|Incrementing Counter|Number Incrementing effect|[live demo](https://50-mini-projects-xi.vercel.app/incrementing-counter)|
 |Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/)|
