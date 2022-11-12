@@ -22,22 +22,22 @@ Install and run `live-server` command in the root directory to see them live exc
 |Drawing Canvas|A Canvas to draw lines|[live demo](https://50-mini-projects-xi.vercel.app/drawing-canvas)|
 |Flip Loader|A rectangle that flips|[live demo](https://50-mini-projects-xi.vercel.app/flip-loader)|
 |Github Profiles|Realtime search of github profiles|[live demo](https://50-mini-projects-xi.vercel.app/github-profiles)|
-|Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/hidden-seach-component)|
+|Hidden Search Component|It shows when hove over search section|[live demo](https://50-mini-projects-xi.vercel.app/hidden-search-component)|
 |Incrementing Counter|Number Incrementing effect|[live demo](https://50-mini-projects-xi.vercel.app/incrementing-counter)|
 |Input Items|Input Items component|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Mobile Tab Navigation|Mobile version of navigation|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Modal Component|Modal well animated|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Movie List Search|Movie search app|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Notification Component|Notification with timeout progress bar|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Prallax Scroll|Prallax scroll effect of images|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Password Typing Animation|Animation that reacts to password typing cas|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Password Validation Background|Background no longer appear as long as the password is weak|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Payment Checkout|Payment Checkout with validation|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Quiz App|Test your programatical skills now|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Random Image Feed|See some Images from pexels|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Realtime Search|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Layers Effect Sidebar|Colored Layes animation when toggle sidebar|[live demo](https://50-mini-projects-xi.vercel.app/layers-effect-sidebar)|
+|MacOS Desktop|Mac OS Desktop clone|[live demo](https://50-mini-projects-xi.vercel.app/macos-desktop)|
+|Mobile Tab Navigation|Mobile version of navigation|[live demo](https://50-mini-projects-xi.vercel.app/mobile-tab-navigation)|
+|Modal Component|Modal well animated|[live demo](https://50-mini-projects-xi.vercel.app/modal-component)|
+|Movie List Search|Movie search app|[live demo](https://50-mini-projects-xi.vercel.app/movie-list-search)|
+|Notification Component|Notification with timeout progress bar|[live demo](https://50-mini-projects-xi.vercel.app/notification-component)|
+|Parallax Scroll|Parallax scroll effect of images|[live demo](https://50-mini-projects-xi.vercel.app/parallax-scroll)|
+|Password Typing Animation|Animation that reacts to password typing cas|[live demo](https://50-mini-projects-xi.vercel.app/password-typing-animation)|
+|Password Validation Background|Background no longer appear as long as the password is weak|[live demo](https://50-mini-projects-xi.vercel.app/password-validation-background)|
+|Payment Checkout|Payment Checkout with validation|[live demo](https://50-mini-projects-xi.vercel.app/payment-checkout)|
+|Quiz App|Test your programatical skills now|[live demo](https://50-mini-projects-xi.vercel.app/quiz-app)|
+|Random Image Feed|See some Images from pexels|[live demo](https://50-mini-projects-xi.vercel.app/random-image-feed)|
+|Realtime Search|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/realtime-search)|
 |Resizable Element|Resize an element|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Resizable Modal|Resize a Modal|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Scroll Animation|Animation while scrolling|[live demo](https://50-mini-projects-xi.vercel.app/)|
