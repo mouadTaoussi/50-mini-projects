@@ -38,13 +38,13 @@ Install and run `live-server` command in the root directory to see them live exc
 |Quiz App|Test your programatical skills now|[live demo](https://50-mini-projects-xi.vercel.app/quiz-app)|
 |Random Image Feed|See some Images from pexels|[live demo](https://50-mini-projects-xi.vercel.app/random-image-feed)|
 |Realtime Search|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/realtime-search)|
-|Resizable Element|Resize an element|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Resizable Modal|Resize a Modal|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Scroll Animation|Animation while scrolling|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Skeleton|Blocks of animated elements to fill data when loading|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Spinner Loader|Spinner loader|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Split Landing Page|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/)|
-|Steps Component|Steps component to devide the process of entering data|[live demo](https://50-mini-projects-xi.vercel.app/)|
+|Resizable Element|Resize an element|[live demo](https://50-mini-projects-xi.vercel.app/resizable-element)|
+|Resizable Modal|Resize a Modal|[live demo](https://50-mini-projects-xi.vercel.app/resizable-modal)|
+|Scroll Animation|Animation while scrolling|[live demo](https://50-mini-projects-xi.vercel.app/scroll-animation)|
+|Skeleton|Blocks of animated elements to fill data when loading|[live demo](https://50-mini-projects-xi.vercel.app/skeleton)|
+|Spinner Loader|Spinner loader|[live demo](https://50-mini-projects-xi.vercel.app/spinner-loader)|
+|Split Landing Page|A Realtime search for users|[live demo](https://50-mini-projects-xi.vercel.app/split-landingpage)|
+|Steps Component|Steps component to devide the process of entering data|[live demo](https://50-mini-projects-xi.vercel.app/steps-component)|
 |Sticky Element|Element stick to top when scroll|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Task Board|The next Trello|[live demo](https://50-mini-projects-xi.vercel.app/)|
 |Tennis Loader|A ball bouncing loader|[live demo](https://50-mini-projects-xi.vercel.app/)|
