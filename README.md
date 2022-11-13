@@ -9,7 +9,7 @@ Install and run `live-server` command in the root directory to see them live exc
 
 # Projects
 
-|Count |Project name | Description  | Demo |
+|#|Project name | Description  | Demo |
 --- | --- | --- | ---|
 |1|Animated svg|Simple svg animation with use of keyframes|[live demo](https://50-mini-projects-xi.vercel.app/animated-svg)|
 |2|Auto text writing|Text writing animation|[live demo](https://50-mini-projects-xi.vercel.app/auto-text-writing)|
