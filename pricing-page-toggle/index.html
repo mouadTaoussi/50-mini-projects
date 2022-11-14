@@ -169,9 +169,9 @@
 <script type="text/javascript">
 	const container = document.querySelector('.container');
 	const pricesSwitcher = document.querySelector('#prices-switch');
-	const starter = document.querySelector('.price-starter');
-	const pro = document.querySelector('.price-pro');
-	const enterprise = document.querySelector('.price-enterprise');
+	// const starter = document.querySelector('.price-starter');
+	// const pro = document.querySelector('.price-pro');
+	// const enterprise = document.querySelector('.price-enterprise');
 
 	let pricingPlan = [
 		{
@@ -222,7 +222,6 @@
 	window.onload = ()=>{
 		for (var i = 0; i < pricingPlan.length; i++) {
 			let features;
-
 			for (var io = 0; io < pricingPlan[i].features.length; io++) {
 				features += `
 				<li>
@@ -260,21 +259,21 @@
 
 
 
-	// pricesSwitcher.onchange = (e)=>{
-	// 	// if true then set price to yearly plan
-	// 	if (e.path[0].checked) {
-	// 		starter.innerHTML = `<strong class="sum">150£</strong>/month`
-	// 		pro.innerHTML = `<strong class="sum">150£</strong>/month`
-	// 		enterprise.innerHTML = `<strong class="sum">150£</strong>/month`
-	// 	}else {
-	// 		starter.innerHTML = `<strong class="sum">20£</strong>/month`
-	// 		pro.innerHTML = `<strong class="sum">20£</strong>/month`
-	// 		enterprise.innerHTML = `<strong class="sum">20£</strong>/month`
-	// 	}
-	// }
-	// function calcPrice(price, tranche, discounts) {
+	pricesSwitcher.onchange = (e)=>{
+		// if true then set price to yearly plan
+		if (e.path[0].checked) {
+			// starter.innerHTML = `<strong class="sum">150£</strong>/month`
+			// pro.innerHTML = `<strong class="sum">150£</strong>/month`
+			// enterprise.innerHTML = `<strong class="sum">150£</strong>/month`
+		}else {
+			// starter.innerHTML = `<strong class="sum">20£</strong>/month`
+			// pro.innerHTML = `<strong class="sum">20£</strong>/month`
+			// enterprise.innerHTML = `<strong class="sum">20£</strong>/month`
+		}
+	}
+	function calcPrice(price, tranche, discounts) {
 
-	// }
+	}
 	// updatePrices(event)
 	// function updatePrices(e) {
 	// 	console.log(e.path[0].checked)
