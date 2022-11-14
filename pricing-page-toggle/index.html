@@ -10,9 +10,273 @@
 </head>
 <body>
 <section>
-	<article></article>
+	<h1 class="title">Choose the best plan for your business</h1>
+		<div class="toggle-container">
+			<p>Monthly</p>
+			<input type="checkbox" id="prices-switch" class="checkbox" />
+		    <label for="prices-switch" class="toggle"></label>
+		    <p>Yearly</p>
+		</div>
+             
+ 
+<!-- <p>OFF    ON</p> -->
+	<article class="container">
+		
+	</article>
 </section>
 </body>
 <script type="text/javascript" src="./pricing-page-toggle/script.js"></script>
 <script type="text/javascript" src="./script.js"></script>
 </html>
+<style type="text/css">
+	section {
+		padding-top: 20px;
+	}
+	.title {
+		text-align: center;
+		font-size: 40px;
+		color: rgba(0,0,0,.8), #001B69;
+		margin-bottom: 0;
+	}
+	.toggle-container {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: center;
+	}
+	.toggle-container p {
+		cursor: pointer;
+		color: rgba(0,0,0,.8);
+		font-family:  'Poppins', 'helvetica';
+	}
+    /* toggle in label designing */
+    .toggle {
+        position : relative ;
+        display : inline-block;
+        width : 30px;
+        height : 15px;
+        border-radius: 30px;
+        border: 2px solid grey;
+        cursor: pointer;
+    }
+           
+    /* After slide changes */
+    .toggle:after {
+        content: '';
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: grey;
+        top: 1.5px;
+        left: 1px;
+        transition:  all 0.5s;
+    }
+           
+    /* Toggle text */
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+           
+    /* Checkbox checked effect */
+    .checkbox:checked + .toggle::after {
+        left : 15px;
+        background-color: #1633ff;
+    }
+
+    /* Checkbox checked toggle label bg color */
+    .checkbox:checked + .toggle {
+        border-color: #1633ff;
+    }
+           
+    /* Checkbox vanished */
+    .checkbox {
+        display : none;
+    }
+
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		width: 70%;
+		margin: 0 auto;
+	}
+	.card {
+		background-color: white;
+		height: 500px;
+		width: 100%;
+		box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+		position: relative;
+	}
+	.card-header {
+		width: 100%;
+		height: 70px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #1633ff;
+		color: white;
+		font-size: 20px;
+		font-weight: bolder;
+	}
+	.card-content {
+
+	}
+	.card-content .price {
+		text-align: center;
+		color: rgba(0,0,0,.8);
+	}
+	.card-content .price .sum {
+		font-size: 50px;
+	}
+	.card-content .features ul {
+		list-style: none;
+	}
+	.card-content .features ul li {
+		margin-top: 5px;
+	}
+	.card-content .features ul li .bi {
+		fill: green;
+	}
+	.card-footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 70px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
+	.card-footer button {
+		font-family: 'Poppins','helvetica';
+ 		height: 30px;
+ 		width: 100px;
+ 		color: white;
+ 		border: 0;
+ 		cursor: pointer;
+	}
+	.card-footer button:nth-child(1) {
+		background-color: #1633ff;
+	}
+	.card-footer button:nth-child(2) {
+		color: #1633ff;
+		background-color: transparent;
+	}
+</style>
+<script type="text/javascript">
+	const container = document.querySelector('.container');
+	const pricesSwitcher = document.querySelector('#prices-switch');
+	const starter = document.querySelector('.price-starter');
+	const pro = document.querySelector('.price-pro');
+	const enterprise = document.querySelector('.price-enterprise');
+
+	let pricingPlan = [
+		{
+			name: "Starter",
+			price : 20,
+			type: 'month',
+			currency: "£",
+			features: [
+				"20GB Storage",
+				"10 Databases",
+				"10 Realtime connections",
+				"24/24 Support",
+			]
+		},
+		{
+			name: "Pro",
+			price : 55,
+			type: 'month',
+			currency: "£",
+			features: [
+				"100GB Storage",
+				"50 Databases",
+				"30 Realtime connections",
+				"Weekly Security checks",
+				"24/24 Support",
+			]
+		},
+		{
+			name: "Enterprise",
+			price : 95,
+			type: 'month',
+			currency: "£",
+			features: [
+				"500GB Storage",
+				"100 Databases",
+				"100 Realtime connections",
+				"Daily Security checks",
+				"Performance reports",
+				"24/24 Support",
+			]
+		}
+	]
+
+
+
+
+
+	window.onload = ()=>{
+		for (var i = 0; i < pricingPlan.length; i++) {
+			let features;
+
+			for (var io = 0; io < pricingPlan[i].features.length; io++) {
+				features += `
+				<li>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+					</svg>
+				${pricingPlan[i].features[io]}</li>
+				`
+			}
+
+			container.innerHTML += `
+				<article class="card">
+					<div class="card-header">${pricingPlan[i].name}</div>
+					<div class="card-content">
+						<h1 class="price price-starter">
+							<strong class="sum">
+							${pricingPlan[i].price + pricingPlan[i].currency}</strong>/${pricingPlan[i].type}
+						</h1>
+						<div class="features">
+							<ul>
+								${features}
+							</ul>
+						</div>
+					</div>
+					<div class="card-footer">
+						<button>Buy it</button>
+						<button>Try it</button>
+					</div>
+				</article>
+			`
+		}
+	}
+
+
+
+
+
+	// pricesSwitcher.onchange = (e)=>{
+	// 	// if true then set price to yearly plan
+	// 	if (e.path[0].checked) {
+	// 		starter.innerHTML = `<strong class="sum">150£</strong>/month`
+	// 		pro.innerHTML = `<strong class="sum">150£</strong>/month`
+	// 		enterprise.innerHTML = `<strong class="sum">150£</strong>/month`
+	// 	}else {
+	// 		starter.innerHTML = `<strong class="sum">20£</strong>/month`
+	// 		pro.innerHTML = `<strong class="sum">20£</strong>/month`
+	// 		enterprise.innerHTML = `<strong class="sum">20£</strong>/month`
+	// 	}
+	// }
+	// function calcPrice(price, tranche, discounts) {
+
+	// }
+	// updatePrices(event)
+	// function updatePrices(e) {
+	// 	console.log(e.path[0].checked)
+	// }
+</script>
