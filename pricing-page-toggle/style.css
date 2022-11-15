@@ -112,6 +112,12 @@ p {
 .card-content .price .sum {
 	font-size: 50px;
 }
+.card-content .discounts {
+	color: green;
+	font-size: 13px;
+	text-align: center;
+	font-family: 'Poppins','helvetica';
+}
 .card-content .features ul {
 	list-style: none;
 }

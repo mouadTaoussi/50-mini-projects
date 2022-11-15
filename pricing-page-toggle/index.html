@@ -86,6 +86,7 @@
 		for (var i = 0; i < pricingPlan.length; i++) {
 			let features;
 			for (var io = 0; io < pricingPlan[i].features.length; io++) {
+				// if (pricingPlan[i].features[io] !== undefined) {
 				features += `
 				<li>
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -93,6 +94,9 @@
 					</svg>
 				${pricingPlan[i].features[io]}</li>
 				`
+				// }else {
+				// 	continue;
+				// }
 			}
 
 			container.innerHTML += `
@@ -103,6 +107,7 @@
 							<strong class="sum">
 							${pricingPlan[i].price_discount + pricingPlan[i].currency}</strong>/${pricingPlan[i].type}
 						</h1>
+						<p class="discounts">Get 10% Disount when paying yearly!</p>
 						<div class="features">
 							<ul>
 								${features}
@@ -124,9 +129,9 @@
 		// if true then set price to yearly plan
 		if (e.path[0].checked) {
 			for (var i = 0; i < pricingPlan.length; i++) {
-				
-				pricingPlan[i].price = calcPrice(pricingPlan[i].price, 'year', 0);
-				pricingPlan[i].price_discount = calcPrice(pricingPlan[i].price, 'year', 10);
+				const price = pricingPlan[i].price;
+				pricingPlan[i].price = calcPrice(price, 'year');
+				pricingPlan[i].price_discount = calcPrice(price, 'year', 10 /* 10% Discount */);
 
 				pricingPlan[i].type = "year";
 			}
@@ -134,9 +139,9 @@
 			loadData();
 		}else {
 			for (var i = 0; i < pricingPlan.length; i++) {
-				
-				pricingPlan[i].price = calcPrice(pricingPlan[i].price, 'month', 0);
-				pricingPlan[i].price_discount = calcPrice(pricingPlan[i].price, 'month', 0);
+				const price = pricingPlan[i].price;
+				pricingPlan[i].price = calcPrice(price, 'month');
+				pricingPlan[i].price_discount = calcPrice(price, 'month');
 
 				pricingPlan[i].type = "month";
 			}
@@ -145,7 +150,7 @@
 		}
 	}
 	// Price calculator
-	function calcPrice(price, type, discounts) {
+	function calcPrice(price, type, yearly_discounts = 0) {
 		let price_rough;
 		let price_net;
 
@@ -156,8 +161,8 @@
 			price_rough = price / 12;
 		}
 
-		// Calculate discounts if not calculated or exits
-		price_net = price_rough - ((price_rough * discounts) / 100);
+		// Calculate discounts if exits
+		price_net = price_rough - ((price_rough * yearly_discounts) / 100);
 
 		return Math.ceil(price_net);
 		// return price_rough;
