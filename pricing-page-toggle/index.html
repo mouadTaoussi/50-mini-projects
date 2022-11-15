@@ -38,7 +38,7 @@
 		{
 			name: "Starter",
 			price : 20,
-			cutback: 20,
+			price_discount: 20,
 			type: 'month',
 			currency: "£",
 			features: [
@@ -48,33 +48,35 @@
 				"24/24 Support",
 			]
 		},
-		// {
-		// 	name: "Pro",
-		// 	price : 55,
-		// 	type: 'month',
-		// 	currency: "£",
-		// 	features: [
-		// 		"100GB Storage",
-		// 		"50 Databases",
-		// 		"30 Realtime connections",
-		// 		"Weekly Security checks",
-		// 		"24/24 Support",
-		// 	]
-		// },
-		// {
-		// 	name: "Enterprise",
-		// 	price : 95,
-		// 	type: 'month',
-		// 	currency: "£",
-		// 	features: [
-		// 		"500GB Storage",
-		// 		"100 Databases",
-		// 		"100 Realtime connections",
-		// 		"Daily Security checks",
-		// 		"Performance reports",
-		// 		"24/24 Support",
-		// 	]
-		// }
+		{
+			name: "Pro",
+			price : 55,
+			price_discount: 55,
+			type: 'month',
+			currency: "£",
+			features: [
+				"100GB Storage",
+				"50 Databases",
+				"30 Realtime connections",
+				"Weekly Security checks",
+				"24/24 Support",
+			]
+		},
+		{
+			name: "Enterprise",
+			price : 95,
+			price_discount: 95,
+			type: 'month',
+			currency: "£",
+			features: [
+				"500GB Storage",
+				"100 Databases",
+				"100 Realtime connections",
+				"Daily Security checks",
+				"Performance reports",
+				"24/24 Support",
+			]
+		}
 	]
 
 	// Load Data
@@ -99,7 +101,7 @@
 					<div class="card-content">
 						<h1 class="price price-starter">
 							<strong class="sum">
-							${pricingPlan[i].price + pricingPlan[i].currency}</strong>/${pricingPlan[i].type}
+							${pricingPlan[i].price_discount + pricingPlan[i].currency}</strong>/${pricingPlan[i].type}
 						</h1>
 						<div class="features">
 							<ul>
@@ -123,7 +125,9 @@
 		if (e.path[0].checked) {
 			for (var i = 0; i < pricingPlan.length; i++) {
 				
-				pricingPlan[i].price = calcPrice(/*i,*/ pricingPlan[i].price, pricingPlan[i].price_discount, 'year', 20);
+				pricingPlan[i].price = calcPrice(pricingPlan[i].price, 'year', 0);
+				pricingPlan[i].price_discount = calcPrice(pricingPlan[i].price, 'year', 10);
+
 				pricingPlan[i].type = "year";
 			}
 			// Update the DOM
@@ -131,7 +135,9 @@
 		}else {
 			for (var i = 0; i < pricingPlan.length; i++) {
 				
-				pricingPlan[i].price = calcPrice(/*i,*/ pricingPlan[i].price, pricingPlan[i].price_discount, 'month', 0);
+				pricingPlan[i].price = calcPrice(pricingPlan[i].price, 'month', 0);
+				pricingPlan[i].price_discount = calcPrice(pricingPlan[i].price, 'month', 0);
+
 				pricingPlan[i].type = "month";
 			}
 			// Update the DOM
@@ -139,19 +145,21 @@
 		}
 	}
 	// Price calculator
-	function calcPrice(index, price, price_discount, type, discounts) {
+	function calcPrice(price, type, discounts) {
 		let price_rough;
 		let price_net;
+
 		if (type == 'year') {
 			price_rough = price * 12;
 
 		}else if (type == 'month') {
 			price_rough = price / 12;
 		}
-		// if (price_discount == price) {
-		// 	price_net = price_rough - ((price_rough * discounts) / 100);
-		// } 
-		return price_net;
+
+		// Calculate discounts if not calculated or exits
+		price_net = price_rough - ((price_rough * discounts) / 100);
+
+		return Math.ceil(price_net);
 		// return price_rough;
 	}
 	// updatePrices(event)
