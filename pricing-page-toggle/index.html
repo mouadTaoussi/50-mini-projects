@@ -34,11 +34,11 @@
 	// const starter = document.querySelector('.price-starter');
 	// const pro = document.querySelector('.price-pro');
 	// const enterprise = document.querySelector('.price-enterprise');
-
 	let pricingPlan = [
 		{
 			name: "Starter",
 			price : 20,
+			cutback: 20,
 			type: 'month',
 			currency: "£",
 			features: [
@@ -48,40 +48,39 @@
 				"24/24 Support",
 			]
 		},
-		{
-			name: "Pro",
-			price : 55,
-			type: 'month',
-			currency: "£",
-			features: [
-				"100GB Storage",
-				"50 Databases",
-				"30 Realtime connections",
-				"Weekly Security checks",
-				"24/24 Support",
-			]
-		},
-		{
-			name: "Enterprise",
-			price : 95,
-			type: 'month',
-			currency: "£",
-			features: [
-				"500GB Storage",
-				"100 Databases",
-				"100 Realtime connections",
-				"Daily Security checks",
-				"Performance reports",
-				"24/24 Support",
-			]
-		}
+		// {
+		// 	name: "Pro",
+		// 	price : 55,
+		// 	type: 'month',
+		// 	currency: "£",
+		// 	features: [
+		// 		"100GB Storage",
+		// 		"50 Databases",
+		// 		"30 Realtime connections",
+		// 		"Weekly Security checks",
+		// 		"24/24 Support",
+		// 	]
+		// },
+		// {
+		// 	name: "Enterprise",
+		// 	price : 95,
+		// 	type: 'month',
+		// 	currency: "£",
+		// 	features: [
+		// 		"500GB Storage",
+		// 		"100 Databases",
+		// 		"100 Realtime connections",
+		// 		"Daily Security checks",
+		// 		"Performance reports",
+		// 		"24/24 Support",
+		// 	]
+		// }
 	]
 
-
-
-
-
-	window.onload = ()=>{
+	// Load Data
+	window.onload = loadData();
+	function loadData(){
+		container.innerHTML = "";
 		for (var i = 0; i < pricingPlan.length; i++) {
 			let features;
 			for (var io = 0; io < pricingPlan[i].features.length; io++) {
@@ -118,23 +117,42 @@
 	}
 
 
-
-
-
+	// Price toggle
 	pricesSwitcher.onchange = (e)=>{
 		// if true then set price to yearly plan
 		if (e.path[0].checked) {
-			// starter.innerHTML = `<strong class="sum">150£</strong>/month`
-			// pro.innerHTML = `<strong class="sum">150£</strong>/month`
-			// enterprise.innerHTML = `<strong class="sum">150£</strong>/month`
+			for (var i = 0; i < pricingPlan.length; i++) {
+				
+				pricingPlan[i].price = calcPrice(/*i,*/ pricingPlan[i].price, pricingPlan[i].price_discount, 'year', 20);
+				pricingPlan[i].type = "year";
+			}
+			// Update the DOM
+			loadData();
 		}else {
-			// starter.innerHTML = `<strong class="sum">20£</strong>/month`
-			// pro.innerHTML = `<strong class="sum">20£</strong>/month`
-			// enterprise.innerHTML = `<strong class="sum">20£</strong>/month`
+			for (var i = 0; i < pricingPlan.length; i++) {
+				
+				pricingPlan[i].price = calcPrice(/*i,*/ pricingPlan[i].price, pricingPlan[i].price_discount, 'month', 0);
+				pricingPlan[i].type = "month";
+			}
+			// Update the DOM
+			loadData();
 		}
 	}
-	function calcPrice(price, tranche, discounts) {
+	// Price calculator
+	function calcPrice(index, price, price_discount, type, discounts) {
+		let price_rough;
+		let price_net;
+		if (type == 'year') {
+			price_rough = price * 12;
 
+		}else if (type == 'month') {
+			price_rough = price / 12;
+		}
+		// if (price_discount == price) {
+		// 	price_net = price_rough - ((price_rough * discounts) / 100);
+		// } 
+		return price_net;
+		// return price_rough;
 	}
 	// updatePrices(event)
 	// function updatePrices(e) {
