@@ -84,9 +84,9 @@
 	function loadData(){
 		container.innerHTML = "";
 		for (var i = 0; i < pricingPlan.length; i++) {
-			let features;
+			let features = "";
+			
 			for (var io = 0; io < pricingPlan[i].features.length; io++) {
-				// if (pricingPlan[i].features[io] !== undefined) {
 				features += `
 				<li>
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -94,9 +94,6 @@
 					</svg>
 				${pricingPlan[i].features[io]}</li>
 				`
-				// }else {
-				// 	continue;
-				// }
 			}
 
 			container.innerHTML += `
