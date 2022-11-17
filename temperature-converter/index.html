@@ -10,9 +10,58 @@
 </head>
 <body>
 <section>
-	<article></article>
+	<article class="container">
+		<div class="inputs-container">
+			<input type="text" class="input" placeholder="Type the degree">
+			<select class="select">
+				<option>C</option>
+				<option>F</option>
+			</select>
+		</div>
+		<div class="result">50</div>
+	</article>
 </section>
 </body>
 <script type="text/javascript" src="./temperature-converter/script.js"></script>
 <script type="text/javascript" src="./script.js"></script>
 </html>
+<style type="text/css">
+	section {
+
+	}
+	article {
+		width: 70%;
+		margin: 0 auto;
+	}
+	.inputs-container {
+		display: flex;
+	}
+	.input {
+		width: 90%;
+		height: 60px;
+		font-size: 30px;
+		font-family: 'Poppins', 'helvetica';
+		background-color: transparent;
+		color: white;
+		border: 1px solid grey;
+		outline: none;
+		padding-left: 20px;
+	}
+	.select {
+		width: 10%;
+		height: 60px;
+		font-size: 30px;
+		font-family: 'Poppins', 'helvetica';
+		background-color: transparent;
+		color: white;
+		border: 1px solid grey;
+		outline: none;
+		padding-left: 20px;
+	}
+	.result {
+		font-size: 80px;
+		color: white;
+		font-weight: bolder;
+		text-align: center;
+	}
+</style>
