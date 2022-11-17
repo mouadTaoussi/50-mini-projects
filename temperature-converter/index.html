@@ -12,8 +12,8 @@
 <section>
 	<article class="container">
 		<div class="inputs-container">
-			<input type="text" class="input" placeholder="Type the degree, and choose the unit to be converted">
-			<select class="select">
+			<input type="text" class="degree-input" placeholder="Type the degree, and choose the unit to be converted">
+			<select class="unit-select">
 				<option>C</option>
 				<option>F</option>
 			</select>
@@ -36,7 +36,7 @@
 	.inputs-container {
 		display: flex;
 	}
-	.input {
+	.degree-input {
 		width: 90%;
 		height: 60px;
 		font-size: 30px;
@@ -47,7 +47,7 @@
 		outline: none;
 		padding-left: 20px;
 	}
-	.select {
+	.unit-select {
 		width: 10%;
 		height: 60px;
 		font-size: 30px;
@@ -67,5 +67,14 @@
 	}
 </style>
 <script type="text/javascript">
-	
+	const unit = document.querySelector('select');
+	unit.onchange = () => {
+		console.log('j')
+		if (){
+			// Convert to C
+		}
+		else if () {
+			// Convert to F
+		}
+	}
 </script>
