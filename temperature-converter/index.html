@@ -12,19 +12,38 @@
 <section>
 	<article class="container">
 		<div class="inputs-container">
-			<input 
-			type="text" 
-			class="degree-input" 
-			placeholder="Type the degree, and choose the unit to be converted"
-			oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-			maxlength="5" 
-			>
-			<select class="unit-select">
-				<option>C</option>
-				<option>F</option>
-			</select>
+			<div class="input">
+				<input 
+				type="text" 
+				class="degree-input" 
+				placeholder="Type the degree"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+				maxlength="5" 
+				autofocus 
+				>
+				<select class="unit-select">
+					<option>Celsius</option>
+					<option>Fahrenheit</option>
+					<option>Kelvin</option>
+					<option>Renkine</option>
+				</select>
+			</div>
+			<div class="output">
+				<input 
+				type="text" 
+				class="degree-output" 
+				placeholder="Result"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+				maxlength="5" 
+				>
+				<select class="unit-select-output">
+					<option>Celsius</option>
+					<option>Fahrenheit</option>
+					<option>Kelvin</option>
+					<option>Renkine</option>
+				</select>
+			</div>
 		</div>
-		<div class="result">50</div>
 	</article>
 </section>
 </body>
@@ -41,10 +60,14 @@
 	}
 	.inputs-container {
 		display: flex;
+		gap: 10px;
 	}
-	.degree-input {
-		width: 90%;
-		height: 60px;
+	.input , .output {
+		width: 50%;
+	}
+	.degree-input, .degree-output {
+		width: 100%;
+		height: 100px;
 		font-size: 30px;
 		font-family: 'Poppins', 'helvetica';
 		background-color: rgba(0,0,0,.5);
@@ -54,8 +77,8 @@
 		outline: none;
 		padding-left: 20px;
 	}
-	.unit-select {
-		width: 10%;
+	.unit-select, .unit-select-output {
+		width: 100%;
 		height: 60px;
 		font-size: 30px;
 		font-family: 'Poppins', 'helvetica';
@@ -69,13 +92,13 @@
 	/*.unit-select::placeholder, .degree-input::placeholder {
 		color: white;
 	}*/
-	.result {
+	/*.result {
 		margin-top: 50px;
 		font-size: 80px;
 		color: white;
 		font-weight: bolder;
 		text-align: center;
-	}
+	}*/
 </style>
 <script type="text/javascript">
 	const unitSelect = document.querySelector('.unit-select');
@@ -84,14 +107,14 @@
 		const unit = e.path[0].value;
 		const degree = e.path[1].children[0].value;
 		
-		if (unit == "C" &&  degree != ''){
+		if (unit == "C" &&  degree != '') {
 			// Convert to C
-			const celcuis = (degree - 32) * (5/9)
+			const celcuis = (degree - 32) * 0.55
 			console.log(celcuis) 
 		}
 		else if (unit == "F" &&  degree != '') {
 			// Convert to F
-			const fahrenheit = degree * (95+32)
+			const fahrenheit = degree * 127
 			console.log(fahrenheit) 
 		}
 	}
