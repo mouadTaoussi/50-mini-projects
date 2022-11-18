@@ -12,7 +12,13 @@
 <section>
 	<article class="container">
 		<div class="inputs-container">
-			<input type="text" class="degree-input" placeholder="Type the degree, and choose the unit to be converted">
+			<input 
+			type="text" 
+			class="degree-input" 
+			placeholder="Type the degree, and choose the unit to be converted"
+			oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+			maxlength="5" 
+			>
 			<select class="unit-select">
 				<option>C</option>
 				<option>F</option>
@@ -41,9 +47,10 @@
 		height: 60px;
 		font-size: 30px;
 		font-family: 'Poppins', 'helvetica';
-		/*background-color: transparent;*/
-		/*color: white;*/
-		border: 1px solid grey;
+		background-color: rgba(0,0,0,.5);
+		color: white;
+		/*border: 1px solid grey;*/
+		border: 0;
 		outline: none;
 		padding-left: 20px;
 	}
@@ -52,12 +59,16 @@
 		height: 60px;
 		font-size: 30px;
 		font-family: 'Poppins', 'helvetica';
-		/*background-color: transparent;*/
-		/*color: white;*/
-		border: 1px solid grey;
+		background-color: rgba(0,0,0,.5);
+		color: white;
+		/*border: 1px solid grey;*/
+		border: 0;
 		outline: none;
-		padding-left: 20px;
+		padding: 0 20px;
 	}
+	/*.unit-select::placeholder, .degree-input::placeholder {
+		color: white;
+	}*/
 	.result {
 		margin-top: 50px;
 		font-size: 80px;
@@ -67,14 +78,21 @@
 	}
 </style>
 <script type="text/javascript">
-	const unit = document.querySelector('select');
-	unit.onchange = () => {
-		console.log('j')
-		if (){
+	const unitSelect = document.querySelector('.unit-select');
+
+	unitSelect.onchange = (e) => {
+		const unit = e.path[0].value;
+		const degree = e.path[1].children[0].value;
+		
+		if (unit == "C" &&  degree != ''){
 			// Convert to C
+			const celcuis = (degree - 32) * (5/9)
+			console.log(celcuis) 
 		}
-		else if () {
+		else if (unit == "F" &&  degree != '') {
 			// Convert to F
+			const fahrenheit = degree * (95+32)
+			console.log(fahrenheit) 
 		}
 	}
 </script>
