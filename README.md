@@ -1,9 +1,9 @@
-# Mini front-end web developement projects
+# front-end web developement projects
 
 Small front-end projects, built without use of such **frameworks or libraries**, for learning purposes</br>
 ➕ <strong>Feel free to add new projects in order to reach to 100!</strong></br>
 ➕ <strong>Feel free to modify current ones!</strong>
-
+➕ Those projects are the best first step for beginner to intermediate front-end devs
 Install and run `live-server` command in the root directory to see them live except ones with their back-end,
 
 
