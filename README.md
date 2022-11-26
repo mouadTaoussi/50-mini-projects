@@ -1,6 +1,6 @@
 # Mini front-end web developement projects
 
-Small front-end projects, built without use of such frameworks or libraries, for learning purposes</br>
+Small front-end projects, built without use of such **frameworks or libraries**, for learning purposes</br>
 ➕ <strong>Feel free to add new projects in order to reach to 100!</strong></br>
 ➕ <strong>Feel free to modify current ones!</strong>
 
