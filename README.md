@@ -6,7 +6,7 @@ Small front-end projects, built without use of such **frameworks or libraries**,
 ➕ <strong>Those projects are the best first step for beginner to intermediate front-end devs</strong></br>
 
 
-Clone the project and run `live-server` command in the root directory to see them live.
+Clone the project and install **live-server**, then run `live-server` command in the root directory to see them live.
 
 
 # Projects
