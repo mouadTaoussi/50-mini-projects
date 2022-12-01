@@ -1,4 +1,4 @@
-# front-end web developement projects
+# Front-end web developement projects
 
 Small front-end projects, built without use of such **frameworks or libraries**, for learning purposes</br>
 ➕ <strong>Feel free to add new projects in order to reach to 100!</strong></br>
