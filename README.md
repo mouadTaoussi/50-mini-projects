@@ -2,7 +2,7 @@
 
 Small front-end projects, built without use of such **frameworks or libraries**, for learning purposes</br>
 ➕ <strong>Feel free to add new projects in order to reach to 100!</strong></br>
-➕ <strong>Feel free to modify current ones!</strong></br>
+➕ <strong>Feel free to modify the current ones!</strong></br>
 ➕ <strong>Those projects are the best first step for beginner to intermediate front-end devs</strong></br>
 
 
