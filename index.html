@@ -101,7 +101,7 @@
 	function loadProjects(){
 		for (var i = 0; i < projects.length; i++) {
 			const projectContainer = document.createElement('a');
-			projectContainer.href = `/50-mini-projects/${projects[i]}`;
+			projectContainer.href = `/${projects[i]}`;
 			const projectElement = document.createElement('div');
 			projectElement.style.backgroundImage = `url(./screenshots/${projects[i]}.jpeg)`;
 			projectContainer.appendChild(projectElement)
