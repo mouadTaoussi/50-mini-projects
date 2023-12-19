@@ -79,8 +79,9 @@ function toggleSideBar(){
 }
 function toggleDropdown(e){
 	e.preventDefault();
-	const dropdown = e.path[1].children[1];
-	const dropdown_overlay = e.path[1].children[2];
+	// const dropdown = e.path[1].children[1];
+	console.log(e)
+	// const dropdown_overlay = e.path[1].children[2];
 
 	if (dropdown.classList.contains('show')) {
 			dropdown.classList.remove('show');

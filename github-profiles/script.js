@@ -10,7 +10,9 @@ async function getData(name){
 
 async function loadData(e){
 	if (e.keyCode == 13) {
-		const gettingData = await getData(e.path[0].value);
+		// const input = e.path[0].value; // path element is depercated
+		const input = e.srcElement.value
+		const gettingData = await getData(input);
 		const data = gettingData.data.data;
 		const public_repos = gettingData.repos.data;
 
