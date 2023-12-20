@@ -40,7 +40,9 @@ loadData()
 
 async function search(e) {
 	if (e.keyCode == 13) {
-		const data = await getData(e.path[0].value)
+		// const input = e.path[0].value; // path element is depercated
+		const input = e.srcElement.value
+		const data = await getData(input) 
 
 		container.innerHTML = ''
 		for (var i = 0; i < data.length; i++) {
@@ -65,10 +67,13 @@ async function search(e) {
 function fireEvents() {
 	movies.forEach((movie)=>{
 		movie.onmouseover = (e)=>{
-			e.path[0].children[2].style.bottom = "0";
+			// e.path[0].children[2].style.bottom = "0"; // path element is depercated
+			e.target.children[2].style.bottom = "0";
 		}
 		movie.onmouseleave = (e)=>{
-			e.path[0].children[2].style.bottom = "-400px";
+			// e.path[0].children[2].style.bottom = "-400px"; // path element is depercated
+			e.target.children[2].style.bottom = "-400px";
+
 		}
 	})
 }
