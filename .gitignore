@@ -5,7 +5,7 @@ jobposting/node_modules
 # https://50-mini-projects-xi.vercel.app/dashboard-layout
 # https://50-mini-projects-xi.vercel.app/github-profiles fixed
 # https://50-mini-projects-xi.vercel.app/input-items 90% fixed
-# https://50-mini-projects-xi.vercel.app/movie-list-search
+# https://50-mini-projects-xi.vercel.app/movie-list-search fixed
 # https://50-mini-projects-xi.vercel.app/macos-desktop
 # https://50-mini-projects-xi.vercel.app/payment-checkout // works on developement mode
 # https://50-mini-projects-xi.vercel.app/pricing-page-toggle
@@ -13,3 +13,6 @@ jobposting/node_modules
 # https://50-mini-projects-xi.vercel.app/task-board
 # https://50-mini-projects-xi.vercel.app/temperature-converter
 # https://50-mini-projects-xi.vercel.app/todo-list
+
+# // const input = e.path[0].value; // path element is depercated
+# const input = e.srcElement.value
