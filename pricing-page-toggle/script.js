@@ -90,7 +90,8 @@ function loadData(){
 // Price toggle
 pricesSwitcher.onchange = (e)=>{
 	// if true then set price to yearly plan
-	if (e.path[0].checked) {
+	console.log(e.target)
+	if (e.target.checked) {
 		for (var i = 0; i < pricingPlan.length; i++) {
 			const price = pricingPlan[i].price;
 			pricingPlan[i].price = calcPrice(price, 'year');
