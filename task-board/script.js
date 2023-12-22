@@ -11,7 +11,7 @@ window.onload = ()=>{
 	const bg = localStorage.getItem('background');
 
 	// body.style.backgroundColor = bg;
-	body.style.backgroundColor = bg || 'black';
+	body.style.backgroundColor = bg || '#212529';
 	body.style.backgroundImage = `url(${bg})`;
 
 	for (var i = 0; i < board.cards.length; i++) {
