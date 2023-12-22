@@ -4,29 +4,33 @@ const settings = document.querySelector('.settings');
 
 for (var i = 0; i < images.length; i++) {
 	images[i].onclick = (e)=>{
-		if (e.path[0].src) {
+		if (e.target.src) {
 			body.style.backgroundColor = "";
-			body.style.backgroundImage = `url(${e.path[0].src})`;
+			body.style.backgroundImage = `url(${e.target.src})`;
 
 			// Save to @localstorage
-			localStorage.setItem('background', e.path[0].src);
+			localStorage.setItem('background', e.target.src);
 		}
 		else {
 			body.style.backgroundImage = "";
-			body.style.backgroundColor = e.path[0].style.backgroundColor;
+			body.style.backgroundColor = e.target.style.backgroundColor;
 
 			// Save to @localstorage
-			localStorage.setItem('background', e.path[0].style.backgroundColor);
+			localStorage.setItem('background', e.target.style.backgroundColor);
 		}
 		images.forEach((image)=>{
 			image.classList.remove('active');
 		})
-		e.path[0].classList.add('active');
+		e.target.classList.add('active');
+		toggleDisplay()
 	}
 }
 
 // Toggle display
-settings_icon.onclick = ()=>{
+settings_icon.onclick = toggleDisplay
+
+
+function toggleDisplay(){
 	if ( settings.style.top == "0px" ) {
 		settings.style.top = "-100px";
 		return;

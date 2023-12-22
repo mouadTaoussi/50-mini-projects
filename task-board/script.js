@@ -10,7 +10,8 @@ window.onload = ()=>{
 	const board = JSON.parse(localStorage.getItem('board'));
 	const bg = localStorage.getItem('background');
 
-	body.style.backgroundColor = bg;
+	// body.style.backgroundColor = bg;
+	body.style.backgroundColor = bg || 'black';
 	body.style.backgroundImage = `url(${bg})`;
 
 	for (var i = 0; i < board.cards.length; i++) {
@@ -58,7 +59,8 @@ function addCard(e) {
 		// delete instructions
 		instructions.style.display = "none";
 		
-		const title = e.path[0].value || 'Untitled';
+		// const title = e.path[0].value || 'Untitled'; // path element is depercated
+		const title = e.target.value || 'Untitled';
 		cardsContainer.innerHTML += 
 		`
 			<article class="card">
@@ -74,7 +76,8 @@ function addCard(e) {
 				</div>
 			</article>
 		`;
-		e.path[0].value = '';
+		// e.path[0].value = '';
+		e.target.value = '';
 
 		// Update NodeLists and then refire drag & drop to work with updated NodeList 
 		cards = document.querySelectorAll('.card');
@@ -95,9 +98,12 @@ function addCard(e) {
 	}
 }
 function deleteCard(e) {
-	const title = e.path[2].children[0].children[0].innerText;
+	// const title = e.path[2].children[0].children[0].innerText; // path element is depercated
+	const title = e.target.parentElement.children[0].innerText
 
-	e.path[2].remove();
+	// e.path[2].remove();
+	e.target.parentElement.parentElement.remove()
+
 	// Update NodeLists
 	cards = document.querySelectorAll('.card');
 
@@ -111,9 +117,12 @@ function deleteCard(e) {
 }
 function addTask(e){
 	if (e.keyCode == 13) {
-		const current_tasks = e.path[2].children[2]
-		const text = e.path[0].value;
-		const cardTitle = e.path[2].children[0].children[0].innerText
+		// const current_tasks = e.path[2].children[2] // path element is depercated
+		// const text = e.path[0].value; // path element is depercated
+		// const cardTitle = e.path[2].children[0].children[0].innerText // path element is depercated
+		const current_tasks = e.target.parentElement.parentElement.children[2]
+		const text = e.target.value
+		const cardTitle = e.target.parentElement.parentElement.children[0].children[0].innerText
 
 		if (text == '') return
 
@@ -122,7 +131,10 @@ function addTask(e){
 			<div class="task" draggable="true" oncontextmenu="deleteTask(event)">${text}</div>
 		`
 		current_tasks.innerHTML += task;
-		e.path[0].value = "";
+
+		// e.path[0].value = "";
+		e.target.value = "";
+
 		// Update NodeLists and then refire drag & drop to work with updated NodeList 
 		tasks = document.querySelectorAll('.task');
 		fireDragDropFunctionality()
@@ -141,11 +153,13 @@ function addTask(e){
 	}
 }
 function deleteTask(e) {
-	const cardTitle = e.path[2].children[0].children[0].innerText;
-	const taskText = e.path[0].innerText;
+	// const cardTitle = e.path[2].children[0].children[0].innerText; // path element is depercated
+	// const taskText = e.path[0].innerText;
+	const cardTitle = e.target.parentElement.parentElement.children[0].children[0].innerText;
+	const taskText = e.target.innerText;
 
 	e.preventDefault();
-	e.path[0].remove();
+	e.target.remove();
 
 	// Update Node Lists and then refire drag & drop to work with updated NodeList 
 	tasks = document.querySelectorAll('.task');
@@ -184,7 +198,8 @@ function fireDragDropFunctionality (){
 
 		};
 		cards[i].ondrop = (e)=>{
-			const dropOver = e.path[0];
+			// const dropOver = e.path[0];
+			const dropOver = e.target;
 
 			const cardTitle = dropOver.children[0].children[0].innerText;
 			// Add the task into the target card
@@ -206,9 +221,12 @@ function fireDragDropFunctionality (){
 
 	for (var i = 0; i < tasks.length; i++) { 
 		tasks[i].ondragstart = (e)=>{
-			fromCard = e.path[2].children[0].children[0].innerText;
+			// fromCard = e.path[2].children[0].children[0].innerText; // path element is depercated
+			fromCard = e.target.parentElement.parentElement.children[0].children[0].innerText
+
 			// Assign to the current task is dragging
-			taskDragging = e.path[0];
+			// taskDragging = e.path[0];
+			taskDragging = e.target;
 
 			// Delete task from the origin card in @localstorage
 			const board = JSON.parse(localStorage.getItem('board'));
@@ -217,7 +235,7 @@ function fireDragDropFunctionality (){
 				// Delete the task from the origin card
 				if (board.cards[i][fromCard]) {
 					const tasks_without_dragged = board.cards[i][fromCard].filter((task)=>{
-						return task !== e.path[0].innerText;
+						return task !== e.target.innerText;
 					})
 					// Assign the new array that exluded the deleted task
 					board.cards[i][fromCard] = tasks_without_dragged;

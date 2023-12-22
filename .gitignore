@@ -10,9 +10,9 @@ jobposting/node_modules
 # https://50-mini-projects-xi.vercel.app/payment-checkout // works on developement mode 
 # https://50-mini-projects-xi.vercel.app/pricing-page-toggle // fixed
 # https://50-mini-projects-xi.vercel.app/realtime-search // fixed
-# https://50-mini-projects-xi.vercel.app/task-board
+# https://50-mini-projects-xi.vercel.app/task-board // fixed
 # https://50-mini-projects-xi.vercel.app/temperature-converter
-# https://50-mini-projects-xi.vercel.app/todo-list
+# https://50-mini-projects-xi.vercel.app/todo-list // fixed
 
 # // const input = e.path[0].value; // path element is depercated
 # const input = e.srcElement.value
