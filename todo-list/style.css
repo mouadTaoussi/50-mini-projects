@@ -38,6 +38,11 @@ article input {
 	color: grey;
 	font-size: 20px;
 }
+.instructions {
+	text-align: center;
+	color: rgb(176, 176, 176);
+	font-size: 10px;
+}
 .todo {
 	cursor: pointer;
 }
