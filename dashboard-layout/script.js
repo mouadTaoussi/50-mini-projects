@@ -80,9 +80,10 @@ function toggleSideBar(){
 function toggleDropdown(e){
 	e.preventDefault();
 	// const dropdown = e.path[1].children[1];
-	console.log(e)
+	const dropdown = e.target.parentElement.children[1]
 	// const dropdown_overlay = e.path[1].children[2];
-
+	const dropdown_overlay = e.target.parentElement.children[2]
+	
 	if (dropdown.classList.contains('show')) {
 			dropdown.classList.remove('show');
 			dropdown_overlay.classList.remove('show');
@@ -94,8 +95,8 @@ function toggleDropdown(e){
 }
 function changeTheme(e){
 	const cssVars = getComputedStyle(root);
-	root.style.setProperty('--primary', e.path[0].style.backgroundColor);
-	root.style.setProperty('--primary-darker', e.path[0].style.backgroundColor);
+	root.style.setProperty('--primary', e.target.style.backgroundColor);
+	root.style.setProperty('--primary-darker', e.target.style.backgroundColor);
 
 	closeDropdowns();
 }
