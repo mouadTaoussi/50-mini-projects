@@ -5,7 +5,8 @@ const unit_select_input = document.querySelector('.unit-input');
 const unit_select_output = document.querySelector('.unit-output');
 
 const convert = (e)=>{
-	const parent = e.path[1];
+	// const parent = e.path[1]; // path element is depercated
+	parent = e.target.parentElement
 	const input_value = parent.children[0].value;
 	const input_unit = parent.children[1].value;
 	let output_value;
