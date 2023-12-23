@@ -44,9 +44,9 @@ email.addEventListener('keyup',()=>{
 card_number.addEventListener('keyup', getCardType);
 exp_date.addEventListener('keyup', (event)=>{
     /* Format exp date*/
-    if (event.path[0].value.length == 2) {
-        const date = event.path[0].value.toString()
-        event.path[0].value += '/'
+    if (event.target.value.length == 2) {
+        const date = event.target.value.toString()
+        event.target.value += '/'
     }
 });
 exp_date.addEventListener('keyup',()=>{
