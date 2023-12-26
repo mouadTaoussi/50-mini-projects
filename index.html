@@ -12,10 +12,17 @@
 	<!-- <h1>50 mini projects</h1> . -->
 	<div class="showcase">
 		<header>
-			<img src="/logo.jpg" width="60" height="60" class="logo">
+			<nav>
+				<div><a href=''>About</a></div>
+				<div><a href=''>Contact</a></div>
+				<div><img src="/logo.jpg" width="60" height="60" class="logo"></div>
+				<div><a href=''>Other projects</a></div>
+				<div><a href=''>Testimonials</a></div>
+			</nav>
 		</header>
 		<div class="showcase-elements">
 			<h1>Build online presence <c class="marker">stronger!</c></h1>
+			<p>Scroll down to see some our awesome stuff</p>
 		</div>
 	</div>
 	<article class="projects">
@@ -35,26 +42,51 @@
 		background-color: #dee2e6;
 		/*height: 100vh;*/
 	}
+	header {
+		width: 50%;
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+	header nav {
+		display: flex;
+		flex-direction: row;
+  		align-items: stretch;
+		width: 100%;
+	}
+	header nav div {
+		color: white;
+		/* background-color: red; */
+		flex: 1; /* to strech elements to fif the width of the header*/
+
+		display: grid;
+		grid-template-columns: 1fr;
+		align-content: center;
+		justify-items: center;
+	}
+	header nav div a {
+		text-decoration: none;
+		color: white;
+		font-size: 12px;
+	}
 
 	.showcase {
 		height: 100vh;
 		width: 100%;
 		background-color: black;
+		/* background	 */
 		background-image: url("./showcase.jpg");
 		background-position: center;
-		background-repeat: no-repeat;
+		background-repeat: no-repeat; 
 		background-attachment: fixed;
+		background-size: cover;
 		position: relative;
 	}
-	.showcase .logo {
-		position: absolute;
-	}
 	.showcase .showcase-elements {
-		padding-top: 20%;
+		padding-top: 15%;
 	}
 	.showcase h1 {
 		color: white;
-		font-size: 70px;
+		font-size: 60px;
 		font-weight: bold;
 		margin: 0;
 		text-align: center;
@@ -62,6 +94,11 @@
 	.showcase h1 .marker {
 		/* background-color: red; */
 		color: red;
+	}
+	.showcase p {
+		color: white;
+		text-align: center;
+		font-size: 12px;
 	}
 	.projects {
 		display: grid;
@@ -78,7 +115,7 @@
 		height: 200px;
 		/*border: 1px solid black;*/
 	}
-	a {
+	.projects a {
 		position: relative;
 		overflow-y: hidden;
 		text-decoration: none;
