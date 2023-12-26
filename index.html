@@ -10,6 +10,10 @@
 <body>
 <section>
 	<!-- <h1>50 mini projects</h1> -->
+	<div class="showcase">
+		<img src="/logo.jpg" width="60" height="60" class="logo">
+		<h1>Grow Faster with <c class="marker">us</c>.</h1>
+	</div>
 	<article class="projects">
 		
 	</article>
@@ -27,10 +31,37 @@
 		background-color: #dee2e6;
 		/*height: 100vh;*/
 	}
+
+	.showcase {
+		height: 100vh;
+		width: 100%;
+		background-color: black;
+		background-image: url("./showcase.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		position: relative;
+	}
+	.showcase .logo {
+		position: absolute;
+
+	}
+	.showcase h1 {
+		color: white;
+		font-size: 70px;
+		font-weight: bold;
+		margin: 0;
+		padding-top: 20%;
+		text-align: center;
+	}
+	.showcase h1 .marker {
+		/* background-color: red; */
+		color: red;
+	}
 	.projects {
 		display: grid;
 		margin: 0 auto;
-		width: 99%;
+		width: 100%;
 		grid-template-columns: repeat(4, 25%);
 	}
 	.projects div {
@@ -42,10 +73,38 @@
 		height: 200px;
 		/*border: 1px solid black;*/
 	}
+	a {
+		position: relative;
+		overflow-y: hidden;
+		text-decoration: none;
+	}
+	.project-discription {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		position: absolute;
+		top: 90%;
+		left: 0;
+		color: white;
+		font-weight: bold;
+		z-index: 9999;
+		transition: all .2s ease-in;
+	}
+	.project-discription h5 {
+		margin: 0 auto;
+		padding-left: 10px;
+		text-decoration: none;
+		color: white;
+	}
+	a:hover > .project-discription {
+		/* top: 70%; */
+		/* top: 0%; */
+		background-color: rgba(0, 0, 0, .8);
+	}
 </style>
 <script type="text/javascript">
-	const projectsContainer = document.querySelector('.projects')
-	const projects = [
+	let projectsContainer = document.querySelector('.projects')
+	const projects_arr = [
 		"animated-svg",
 		"auto-text-writing",
 		"background-slider",
@@ -99,15 +158,30 @@
 	]
 
 	function loadProjects(){
-		for (var i = 0; i < projects.length; i++) {
+		for (var i = 0; i < projects_arr.length; i++) {
 			const projectContainer = document.createElement('a');
-			projectContainer.href = `/${projects[i]}`;
+			projectContainer.classList.add('project')
+			projectContainer.href = `/${projects_arr[i]}`;
 			const projectElement = document.createElement('div');
-			projectElement.style.backgroundImage = `url(./screenshots/${projects[i]}.jpeg)`;
+			const projectDiscription = document.createElement('section');
+			const projectDiscriptionText = document.createElement('h5');
+			projectDiscription.classList.add("project-discription");
+
+			projectElement.style.backgroundImage = `url(./screenshots/${projects_arr[i]}.jpeg)`;
+			projectDiscriptionText.innerText = projects_arr[i];
+
+			projectDiscription.appendChild(projectDiscriptionText)
 			projectContainer.appendChild(projectElement)
+			projectContainer.appendChild(projectDiscription)
 			// projectsContainer.innerHTML += projectElement;
 			projectsContainer.appendChild(projectContainer);
 		}
 	}
 	loadProjects();
+
+	projects = document.querySelectorAll('.projects')
+	// console.log(projects)
+	projects.onmouseover = (e)=>{
+		console.log(e.target.children)
+	}
 </script>
